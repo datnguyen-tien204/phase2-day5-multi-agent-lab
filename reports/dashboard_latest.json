@@ -1,0 +1,2560 @@
+{
+  "query": "t\u00f4i c\u1ea7n th\u00f4ng tin v\u1ec1 Obello",
+  "status": "done",
+  "route_history": [
+    "researcher",
+    "analyst",
+    "writer",
+    "critic",
+    "done"
+  ],
+  "transitions": [
+    {
+      "from_route": null,
+      "to_route": "researcher",
+      "reason": "missing_research",
+      "iteration": 1,
+      "metadata": {}
+    },
+    {
+      "from_route": "researcher",
+      "to_route": "analyst",
+      "reason": "missing_analysis",
+      "iteration": 2,
+      "metadata": {}
+    },
+    {
+      "from_route": "analyst",
+      "to_route": "writer",
+      "reason": "missing_final_answer",
+      "iteration": 3,
+      "metadata": {}
+    },
+    {
+      "from_route": "writer",
+      "to_route": "critic",
+      "reason": "needs_quality_gate",
+      "iteration": 4,
+      "metadata": {}
+    },
+    {
+      "from_route": "critic",
+      "to_route": "done",
+      "reason": "completed",
+      "iteration": 5,
+      "metadata": {}
+    }
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "user-prompt",
+        "position": {
+          "x": 80,
+          "y": 40
+        },
+        "data": {
+          "label": "User Prompt\nt\u00f4i c\u1ea7n th\u00f4ng tin v\u1ec1 Obello",
+          "kind": "input",
+          "iteration": 0,
+          "metadata": {
+            "audience": "technical learners"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#e8f0fe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "agent-1",
+        "position": {
+          "x": 80,
+          "y": 260
+        },
+        "data": {
+          "label": "Planner Agent\nExpand query",
+          "kind": "agent",
+          "iteration": 0,
+          "metadata": {
+            "agent": "planner",
+            "description": "Decompose and broaden the user query."
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#eff6ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-3",
+        "position": {
+          "x": 540,
+          "y": 370
+        },
+        "data": {
+          "label": "LLMClient.complete\nPlan research",
+          "kind": "tool",
+          "iteration": 0,
+          "metadata": {
+            "agent": "planner",
+            "model_task": "query_planning"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-5",
+        "position": {
+          "x": 1000,
+          "y": 480
+        },
+        "data": {
+          "label": "Expanded Queries\n5 queries",
+          "kind": "artifact",
+          "iteration": 0,
+          "metadata": {
+            "queries": [
+              "Obello l\u00e0 g\u00ec? T\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng",
+              "Th\u00f4ng tin k\u1ef9 thu\u1eadt v\u1ec1 Obello",
+              "So s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1",
+              "Obello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p hi\u1ec7n nay",
+              "C\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello 2023"
+            ],
+            "planning_notes": "Intent: T\u00ecm hi\u1ec3u v\u1ec1 Obello, bao g\u1ed3m c\u00e1c t\u00ednh n\u0103ng, \u1ee9ng d\u1ee5ng v\u00e0 th\u00f4ng tin k\u1ef9 thu\u1eadt li\u00ean quan.\nScope: Trong ph\u1ea1m vi: th\u00f4ng tin k\u1ef9 thu\u1eadt, \u1ee9ng d\u1ee5ng, t\u00ednh n\u0103ng c\u1ee7a Obello. Ngo\u00e0i ph\u1ea1m vi: th\u00f4ng tin kh\u00f4ng li\u00ean quan \u0111\u1ebfn Obello ho\u1eb7c c\u00e1c s\u1ea3n ph\u1ea9m kh\u00e1c.\nKey aspects:\n- \u0110\u1ecbnh ngh\u0129a Obello\n- T\u00ednh n\u0103ng ch\u00ednh c\u1ee7a Obello\n- \u1ee8ng d\u1ee5ng c\u1ee7a Obello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p\n- So s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1\n- Th\u00f4ng tin c\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello\nT\u1eadp trung v\u00e0o vi\u1ec7c cung c\u1ea5p th\u00f4ng tin chi ti\u1ebft v\u1ec1 Obello, bao g\u1ed3m c\u00e1c t\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a n\u00f3, c\u0169ng nh\u01b0 so s\u00e1nh v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1 n\u1ebfu c\u00f3."
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "supervisor-7",
+        "position": {
+          "x": 1460,
+          "y": 150
+        },
+        "data": {
+          "label": "Supervisor\nIteration 1",
+          "kind": "supervisor",
+          "iteration": 1,
+          "metadata": {
+            "route": "researcher",
+            "reason": "missing_research",
+            "history": [
+              "researcher"
+            ]
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#dbeafe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "agent-9",
+        "position": {
+          "x": 1920,
+          "y": 260
+        },
+        "data": {
+          "label": "Researcher Agent",
+          "kind": "agent",
+          "iteration": 1,
+          "metadata": {
+            "description": "Collect read-only sources and produce research notes.",
+            "agent": "researcher"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#eff6ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-11",
+        "position": {
+          "x": 2380,
+          "y": 370
+        },
+        "data": {
+          "label": "SearchClient.search\nTh\u00f4ng tin k\u1ef9 thu\u1eadt v\u1ec1 Obello",
+          "kind": "tool",
+          "iteration": 1,
+          "metadata": {
+            "agent": "researcher",
+            "query": "Th\u00f4ng tin k\u1ef9 thu\u1eadt v\u1ec1 Obello",
+            "max_results": 2,
+            "mode": "parallel"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-13",
+        "position": {
+          "x": 2840,
+          "y": 480
+        },
+        "data": {
+          "label": "Search Results\n2 sources",
+          "kind": "artifact",
+          "iteration": 1,
+          "metadata": {
+            "query": "Th\u00f4ng tin k\u1ef9 thu\u1eadt v\u1ec1 Obello",
+            "count": 2
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-15",
+        "position": {
+          "x": 3300,
+          "y": 370
+        },
+        "data": {
+          "label": "SearchClient.search\nObello l\u00e0 g\u00ec? T\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng",
+          "kind": "tool",
+          "iteration": 1,
+          "metadata": {
+            "agent": "researcher",
+            "query": "Obello l\u00e0 g\u00ec? T\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng",
+            "max_results": 2,
+            "mode": "parallel"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-17",
+        "position": {
+          "x": 3760,
+          "y": 480
+        },
+        "data": {
+          "label": "Search Results\n2 sources",
+          "kind": "artifact",
+          "iteration": 1,
+          "metadata": {
+            "query": "Obello l\u00e0 g\u00ec? T\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng",
+            "count": 2
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-19",
+        "position": {
+          "x": 4220,
+          "y": 370
+        },
+        "data": {
+          "label": "SearchClient.search\nObello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p hi\u1ec7n nay",
+          "kind": "tool",
+          "iteration": 1,
+          "metadata": {
+            "agent": "researcher",
+            "query": "Obello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p hi\u1ec7n nay",
+            "max_results": 2,
+            "mode": "parallel"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-21",
+        "position": {
+          "x": 4680,
+          "y": 480
+        },
+        "data": {
+          "label": "Search Results\n2 sources",
+          "kind": "artifact",
+          "iteration": 1,
+          "metadata": {
+            "query": "Obello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p hi\u1ec7n nay",
+            "count": 2
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-23",
+        "position": {
+          "x": 5140,
+          "y": 370
+        },
+        "data": {
+          "label": "SearchClient.search\nC\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello 2023",
+          "kind": "tool",
+          "iteration": 1,
+          "metadata": {
+            "agent": "researcher",
+            "query": "C\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello 2023",
+            "max_results": 2,
+            "mode": "parallel"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-25",
+        "position": {
+          "x": 5600,
+          "y": 480
+        },
+        "data": {
+          "label": "Search Results\n2 sources",
+          "kind": "artifact",
+          "iteration": 1,
+          "metadata": {
+            "query": "C\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello 2023",
+            "count": 2
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-27",
+        "position": {
+          "x": 6060,
+          "y": 370
+        },
+        "data": {
+          "label": "SearchClient.search\nSo s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1",
+          "kind": "tool",
+          "iteration": 1,
+          "metadata": {
+            "agent": "researcher",
+            "query": "So s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1",
+            "max_results": 2,
+            "mode": "parallel"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-29",
+        "position": {
+          "x": 6520,
+          "y": 480
+        },
+        "data": {
+          "label": "Search Results\n2 sources",
+          "kind": "artifact",
+          "iteration": 1,
+          "metadata": {
+            "query": "So s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1",
+            "count": 2
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-31",
+        "position": {
+          "x": 6980,
+          "y": 370
+        },
+        "data": {
+          "label": "LLMClient.complete\nSynthesize research notes",
+          "kind": "tool",
+          "iteration": 1,
+          "metadata": {
+            "agent": "researcher",
+            "model_task": "research_synthesis"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-33",
+        "position": {
+          "x": 7440,
+          "y": 480
+        },
+        "data": {
+          "label": "Research Notes",
+          "kind": "artifact",
+          "iteration": 1,
+          "metadata": {
+            "chars": 2263,
+            "sources_found": 5
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "supervisor-35",
+        "position": {
+          "x": 7900,
+          "y": 150
+        },
+        "data": {
+          "label": "Supervisor\nIteration 2",
+          "kind": "supervisor",
+          "iteration": 2,
+          "metadata": {
+            "route": "analyst",
+            "reason": "missing_analysis",
+            "history": [
+              "researcher",
+              "analyst"
+            ]
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#dbeafe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "agent-37",
+        "position": {
+          "x": 8360,
+          "y": 260
+        },
+        "data": {
+          "label": "Analyst Agent",
+          "kind": "agent",
+          "iteration": 2,
+          "metadata": {
+            "description": "Analyse evidence and produce structured insights.",
+            "agent": "analyst"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#eff6ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-39",
+        "position": {
+          "x": 8820,
+          "y": 370
+        },
+        "data": {
+          "label": "LLMClient.complete\nAnalyse evidence",
+          "kind": "tool",
+          "iteration": 2,
+          "metadata": {
+            "agent": "analyst",
+            "model_task": "analysis"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-41",
+        "position": {
+          "x": 9280,
+          "y": 480
+        },
+        "data": {
+          "label": "Analysis Notes",
+          "kind": "artifact",
+          "iteration": 2,
+          "metadata": {
+            "chars": 2019
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "supervisor-43",
+        "position": {
+          "x": 9740,
+          "y": 150
+        },
+        "data": {
+          "label": "Supervisor\nIteration 3",
+          "kind": "supervisor",
+          "iteration": 3,
+          "metadata": {
+            "route": "writer",
+            "reason": "missing_final_answer",
+            "history": [
+              "researcher",
+              "analyst",
+              "writer"
+            ]
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#dbeafe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "agent-45",
+        "position": {
+          "x": 10200,
+          "y": 260
+        },
+        "data": {
+          "label": "Writer Agent",
+          "kind": "agent",
+          "iteration": 3,
+          "metadata": {
+            "description": "Write or revise the final answer.",
+            "agent": "writer"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#eff6ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-47",
+        "position": {
+          "x": 10660,
+          "y": 370
+        },
+        "data": {
+          "label": "LLMClient.complete\nWrite final answer",
+          "kind": "tool",
+          "iteration": 3,
+          "metadata": {
+            "agent": "writer",
+            "model_task": "final_answer"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-49",
+        "position": {
+          "x": 11120,
+          "y": 480
+        },
+        "data": {
+          "label": "Final Answer",
+          "kind": "artifact",
+          "iteration": 3,
+          "metadata": {
+            "words": 995
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "supervisor-51",
+        "position": {
+          "x": 11580,
+          "y": 150
+        },
+        "data": {
+          "label": "Supervisor\nIteration 4",
+          "kind": "supervisor",
+          "iteration": 4,
+          "metadata": {
+            "route": "critic",
+            "reason": "needs_quality_gate",
+            "history": [
+              "researcher",
+              "analyst",
+              "writer",
+              "critic"
+            ]
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#dbeafe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "agent-53",
+        "position": {
+          "x": 12040,
+          "y": 260
+        },
+        "data": {
+          "label": "Critic Agent",
+          "kind": "agent",
+          "iteration": 4,
+          "metadata": {
+            "description": "Quality gate and fact-check final answer.",
+            "agent": "critic"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#eff6ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-55",
+        "position": {
+          "x": 12500,
+          "y": 370
+        },
+        "data": {
+          "label": "LLMClient.complete\nCritique answer",
+          "kind": "tool",
+          "iteration": 4,
+          "metadata": {
+            "agent": "critic",
+            "model_task": "quality_gate"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-57",
+        "position": {
+          "x": 12960,
+          "y": 480
+        },
+        "data": {
+          "label": "Critique\nScore: 9.0/10",
+          "kind": "artifact",
+          "iteration": 4,
+          "metadata": {
+            "quality_score": 9.0
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "supervisor-59",
+        "position": {
+          "x": 13420,
+          "y": 150
+        },
+        "data": {
+          "label": "Supervisor\nIteration 5",
+          "kind": "supervisor",
+          "iteration": 5,
+          "metadata": {
+            "route": "done",
+            "reason": "completed",
+            "history": [
+              "researcher",
+              "analyst",
+              "writer",
+              "critic",
+              "done"
+            ]
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#dbeafe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "workflow-terminal",
+        "position": {
+          "x": 13650,
+          "y": 590
+        },
+        "data": {
+          "label": "Workflow Done",
+          "kind": "terminal",
+          "iteration": 5,
+          "metadata": {
+            "errors": [],
+            "status": "done"
+          },
+          "status": "done"
+        },
+        "style": {
+          "background": "#d1fae5",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge-2",
+        "source": "user-prompt",
+        "target": "agent-1",
+        "label": "plan",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-4",
+        "source": "agent-1",
+        "target": "tool-3",
+        "label": "tool:llm.complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-6",
+        "source": "tool-3",
+        "target": "artifact-5",
+        "label": "output",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-8",
+        "source": "agent-1",
+        "target": "supervisor-7",
+        "label": "decide",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-10",
+        "source": "supervisor-7",
+        "target": "agent-9",
+        "label": "researcher",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-12",
+        "source": "agent-9",
+        "target": "tool-11",
+        "label": "tool:search",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-14",
+        "source": "tool-11",
+        "target": "artifact-13",
+        "label": "returns",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-16",
+        "source": "agent-9",
+        "target": "tool-15",
+        "label": "tool:search",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-18",
+        "source": "tool-15",
+        "target": "artifact-17",
+        "label": "returns",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-20",
+        "source": "agent-9",
+        "target": "tool-19",
+        "label": "tool:search",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-22",
+        "source": "tool-19",
+        "target": "artifact-21",
+        "label": "returns",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-24",
+        "source": "agent-9",
+        "target": "tool-23",
+        "label": "tool:search",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-26",
+        "source": "tool-23",
+        "target": "artifact-25",
+        "label": "returns",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-28",
+        "source": "agent-9",
+        "target": "tool-27",
+        "label": "tool:search",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-30",
+        "source": "tool-27",
+        "target": "artifact-29",
+        "label": "returns",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-32",
+        "source": "agent-9",
+        "target": "tool-31",
+        "label": "tool:llm.complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-34",
+        "source": "tool-31",
+        "target": "artifact-33",
+        "label": "output",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-36",
+        "source": "agent-9",
+        "target": "supervisor-35",
+        "label": "decide",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-38",
+        "source": "supervisor-35",
+        "target": "agent-37",
+        "label": "analyst",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-40",
+        "source": "agent-37",
+        "target": "tool-39",
+        "label": "tool:llm.complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-42",
+        "source": "tool-39",
+        "target": "artifact-41",
+        "label": "output",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-44",
+        "source": "agent-37",
+        "target": "supervisor-43",
+        "label": "decide",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-46",
+        "source": "supervisor-43",
+        "target": "agent-45",
+        "label": "writer",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-48",
+        "source": "agent-45",
+        "target": "tool-47",
+        "label": "tool:llm.complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-50",
+        "source": "tool-47",
+        "target": "artifact-49",
+        "label": "output",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-52",
+        "source": "agent-45",
+        "target": "supervisor-51",
+        "label": "decide",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-54",
+        "source": "supervisor-51",
+        "target": "agent-53",
+        "label": "critic",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-56",
+        "source": "agent-53",
+        "target": "tool-55",
+        "label": "tool:llm.complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-58",
+        "source": "tool-55",
+        "target": "artifact-57",
+        "label": "output",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-60",
+        "source": "agent-53",
+        "target": "supervisor-59",
+        "label": "decide",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-61",
+        "source": "supervisor-59",
+        "target": "workflow-terminal",
+        "label": "complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      }
+    ]
+  },
+  "final_answer": "## T\u00f3m t\u1eaft\nObello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p t\u1ea1i San Francisco chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning, d\u1eabn d\u1eaft b\u1edfi Nguy\u1ec5n Kh\u00e1nh Linh, m\u1ed9t chuy\u00ean gia n\u1ed5i b\u1eadt trong l\u0129nh v\u1ef1c n\u00e0y. C\u00f4ng ty \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u1edbi m\u1ee5c ti\u00eau cung c\u1ea5p gi\u1ea3i ph\u00e1p th\u00f4ng minh cho ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u.\n\n## Gi\u1edbi thi\u1ec7u v\u1ec1 Obello\nObello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p c\u00f3 tr\u1ee5 s\u1edf t\u1ea1i San Francisco, M\u1ef9, chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning. C\u00f4ng ty n\u00e0y \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m v\u00e0 gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 cao, \u0111\u1eb7c bi\u1ec7t trong l\u0129nh v\u1ef1c tr\u00ed tu\u1ec7 nh\u00e2n t\u1ea1o [2][5].\n\n## Vai tr\u00f2 c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh\nNguy\u1ec5n Kh\u00e1nh Linh hi\u1ec7n \u0111ang gi\u1eef v\u1ecb tr\u00ed Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello. C\u00f4 l\u00e0 m\u1ed9t trong nh\u1eefng ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t Nam \u0111\u1ea7u ti\u00ean \u0111\u01b0\u1ee3c c\u00f4ng nh\u1eadn l\u00e0 Google Developer Expert (GDE) trong l\u0129nh v\u1ef1c AI [2][3]. C\u00f4 d\u1eabn d\u1eaft c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u v\u00e0 ph\u00e1t tri\u1ec3n m\u00f4 h\u00ecnh GenAI ph\u1ee5c v\u1ee5 ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u, cho th\u1ea5y s\u1ef1 \u1ea3nh h\u01b0\u1edfng v\u00e0 vai tr\u00f2 quan tr\u1ecdng c\u1ee7a c\u00f4 trong c\u00f4ng ty [2].\n\n## \u0110\u00e0o t\u1ea1o v\u00e0 s\u1ef1 nghi\u1ec7p\nKh\u00e1nh Linh \u0111\u00e3 c\u00f3 m\u1ed9t qu\u00e1 tr\u00ecnh h\u1ecdc t\u1eadp \u1ea5n t\u01b0\u1ee3ng, bao g\u1ed3m vi\u1ec7c nghi\u00ean c\u1ee9u v\u1ec1 th\u1ecb gi\u00e1c m\u00e1y t\u00ednh v\u00e0 d\u1eef li\u1ec7u l\u1edbn t\u1eeb khi c\u00f2n h\u1ecdc \u0111\u1ea1i h\u1ecdc. C\u00f4 \u0111\u00e3 ho\u00e0n th\u00e0nh ch\u01b0\u01a1ng tr\u00ecnh th\u1ea1c s\u0129 t\u1ea1i \u0110\u1ea1i h\u1ecdc Qu\u1ed1c gia Singapore (NUS) [2]. V\u1edbi nhi\u1ec1u kinh nghi\u1ec7m trong l\u0129nh v\u1ef1c AI v\u00e0 Machine Learning, c\u00f4 \u0111\u00e3 c\u00f3 \u0111\u01b0\u1ee3c v\u1ecb tr\u00ed l\u00e3nh \u0111\u1ea1o t\u1ea1i Obello [2].\n\n## D\u1ef1 \u00e1n v\u00e0 s\u1ea3n ph\u1ea9m\nObello \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f3 h\u00e0m l\u01b0\u1ee3ng ch\u1ea5t x\u00e1m cao, v\u1edbi m\u1ee5c ti\u00eau t\u1ea1o ra nh\u1eefng gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn cho ng\u01b0\u1eddi d\u00f9ng [5]. C\u00f4ng ty c\u0169ng \u0111ang nghi\u00ean c\u1ee9u v\u00e0 x\u00e2y d\u1ef1ng c\u00e1c h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed, h\u1ed7 tr\u1ee3 cho c\u00e1c t\u00e1c v\u1ee5 nghi\u00ean c\u1ee9u v\u00e0 ph\u00e2n t\u00edch [4].\n\n## T\u1ea7m nh\u00ecn v\u00e0 s\u1ee9 m\u1ec7nh\nObello h\u01b0\u1edbng t\u1edbi vi\u1ec7c tr\u1edf th\u00e0nh m\u1ed9t trong nh\u1eefng c\u00f4ng ty h\u00e0ng \u0111\u1ea7u trong l\u0129nh v\u1ef1c AI, v\u1edbi s\u1ee9 m\u1ec7nh cung c\u1ea5p c\u00e1c gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 th\u00f4ng minh v\u00e0 hi\u1ec7u qu\u1ea3 cho ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u [2][5]. C\u00f4ng ty nh\u1ea5n m\u1ea1nh t\u1ea7m quan tr\u1ecdng c\u1ee7a vi\u1ec7c ph\u00e1t tri\u1ec3n \u0111\u1ed9i ng\u0169 c\u00f4ng ngh\u1ec7 v\u00e0 qu\u1ea3n l\u00fd d\u1ef1 \u00e1n hi\u1ec7u qu\u1ea3 \u0111\u1ec3 \u0111\u1ea1t \u0111\u01b0\u1ee3c m\u1ee5c ti\u00eau n\u00e0y [5].\n\n## Th\u00f4ng tin kh\u00f4ng ch\u1eafc ch\u1eafn\nM\u1eb7c d\u00f9 c\u00f3 nhi\u1ec1u th\u00f4ng tin x\u00e1c th\u1ef1c v\u1ec1 Obello v\u00e0 Nguy\u1ec5n Kh\u00e1nh Linh, nh\u01b0ng c\u1ea7n th\u00eam th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n v\u00e0 c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u m\u00e0 Kh\u00e1nh Linh \u0111ang d\u1eabn d\u1eaft.\n\n## K\u1ebft lu\u1eadn\nObello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p ti\u1ec1m n\u0103ng trong l\u0129nh v\u1ef1c AI, v\u1edbi s\u1ef1 l\u00e3nh \u0111\u1ea1o c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh, ng\u01b0\u1eddi \u0111\u00e3 c\u00f3 nh\u1eefng \u0111\u00f3ng g\u00f3p \u0111\u00e1ng k\u1ec3 cho s\u1ef1 ph\u00e1t tri\u1ec3n c\u1ee7a c\u00f4ng ty. C\u00f4ng ty \u0111ang t\u1eadp trung v\u00e0o vi\u1ec7c ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u00e0 x\u00e2y d\u1ef1ng m\u1ed9t \u0111\u1ed9i ng\u0169 m\u1ea1nh m\u1ebd trong l\u0129nh v\u1ef1c n\u00e0y.\n\n## C\u00e1c Kh\u1eb3ng \u0110\u1ecbnh Ch\u00ednh\n- **Kh\u1eb3ng \u0111\u1ecbnh 1**: Obello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p t\u1ea1i San Francisco chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning.\n- **Kh\u1eb3ng \u0111\u1ecbnh 2**: Nguy\u1ec5n Kh\u00e1nh Linh l\u00e0 Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello v\u00e0 l\u00e0 m\u1ed9t trong nh\u1eefng Google Developer Expert (GDE) \u0111\u1ea7u ti\u00ean trong l\u0129nh v\u1ef1c AI.\n- **Kh\u1eb3ng \u0111\u1ecbnh 3**: Obello \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u00e0 h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed.\n- **Kh\u1eb3ng \u0111\u1ecbnh 4**: C\u00f4ng ty c\u00f3 t\u1ea7m nh\u00ecn tr\u1edf th\u00e0nh m\u1ed9t trong nh\u1eefng c\u00f4ng ty h\u00e0ng \u0111\u1ea7u trong l\u0129nh v\u1ef1c AI v\u1edbi s\u1ee9 m\u1ec7nh cung c\u1ea5p gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 th\u00f4ng minh.\n\n## \u0110\u1ed9 M\u1ea1nh c\u1ee7a B\u1eb1ng Ch\u1ee9ng\n- **Kh\u1eb3ng \u0111\u1ecbnh 1**: **M\u1ea1nh** - Th\u00f4ng tin v\u1ec1 v\u1ecb tr\u00ed v\u00e0 l\u0129nh v\u1ef1c ho\u1ea1t \u0111\u1ed9ng c\u1ee7a Obello \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn t\u1eeb nhi\u1ec1u ngu\u1ed3n \u0111\u00e1ng tin c\u1eady.\n- **Kh\u1eb3ng \u0111\u1ecbnh 2**: **M\u1ea1nh** - Nguy\u1ec5n Kh\u00e1nh Linh \u0111\u01b0\u1ee3c c\u00f4ng nh\u1eadn l\u00e0 GDE, \u0111i\u1ec1u n\u00e0y ch\u1ee9ng t\u1ecf s\u1ef1 c\u00f4ng nh\u1eadn t\u1eeb c\u1ed9ng \u0111\u1ed3ng c\u00f4ng ngh\u1ec7.\n- **Kh\u1eb3ng \u0111\u1ecbnh 3**: **M\u1ea1nh** - C\u00e1c s\u1ea3n ph\u1ea9m v\u00e0 h\u1ec7 th\u1ed1ng AI m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n \u0111\u01b0\u1ee3c m\u00f4 t\u1ea3 r\u00f5 r\u00e0ng, cho th\u1ea5y s\u1ef1 \u0111\u1ea7u t\u01b0 v\u00e0o c\u00f4ng ngh\u1ec7.\n- **Kh\u1eb3ng \u0111\u1ecbnh 4**: **M\u1ea1nh** - T\u1ea7m nh\u00ecn v\u00e0 s\u1ee9 m\u1ec7nh c\u1ee7a c\u00f4ng ty \u0111\u01b0\u1ee3c n\u00eau r\u00f5, th\u1ec3 hi\u1ec7n m\u1ee5c ti\u00eau d\u00e0i h\u1ea1n v\u00e0 chi\u1ebfn l\u01b0\u1ee3c ph\u00e1t tri\u1ec3n.\n\n## Kho\u1ea3ng Tr\u1ed1ng Ki\u1ebfn Th\u1ee9c\nC\u00e1c th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 v\u00e0 d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u m\u00e0 Nguy\u1ec5n Kh\u00e1nh Linh \u0111ang d\u1eabn d\u1eaft ch\u01b0a \u0111\u01b0\u1ee3c \u0111\u1ec1 c\u1eadp. C\u1ea7n c\u00f3 th\u00eam nghi\u00ean c\u1ee9u v\u1ec1 hi\u1ec7u qu\u1ea3 v\u00e0 \u1ee9ng d\u1ee5ng th\u1ef1c t\u1ebf c\u1ee7a c\u00e1c s\u1ea3n ph\u1ea9m n\u00e0y.\n\n## Th\u00f4ng \u0110i\u1ec7p H\u00e0nh \u0110\u1ed9ng\n1. **Kh\u00e1m Ph\u00e1 C\u01a1 H\u1ed9i H\u1ee3p T\u00e1c**: C\u00e1c nh\u00e0 nghi\u00ean c\u1ee9u v\u00e0 doanh nghi\u1ec7p c\u00f3 th\u1ec3 xem x\u00e9t h\u1ee3p t\u00e1c v\u1edbi Obello \u0111\u1ec3 ph\u00e1t tri\u1ec3n c\u00e1c gi\u1ea3i ph\u00e1p AI ti\u00ean ti\u1ebfn.\n2. **Theo D\u00f5i Xu H\u01b0\u1edbng C\u00f4ng Ngh\u1ec7**: C\u00e1c k\u1ef9 s\u01b0 v\u00e0 chuy\u00ean gia trong l\u0129nh v\u1ef1c AI n\u00ean theo d\u00f5i s\u1ef1 ph\u00e1t tri\u1ec3n c\u1ee7a Obello \u0111\u1ec3 n\u1eafm b\u1eaft c\u00e1c xu h\u01b0\u1edbng c\u00f4ng ngh\u1ec7 m\u1edbi.\n3. **\u0110\u1ea7u T\u01b0 V\u00e0o \u0110\u00e0o T\u1ea1o**: C\u00e1c t\u1ed5 ch\u1ee9c gi\u00e1o d\u1ee5c v\u00e0 \u0111\u00e0o t\u1ea1o n\u00ean xem x\u00e9t vi\u1ec7c ph\u00e1t tri\u1ec3n c\u00e1c ch\u01b0\u01a1ng tr\u00ecnh \u0111\u00e0o t\u1ea1o li\u00ean quan \u0111\u1ebfn AI v\u00e0 Machine Learning, d\u1ef1a tr\u00ean m\u00f4 h\u00ecnh th\u00e0nh c\u00f4ng c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh v\u00e0 Obello.\n\n## T\u00e0i li\u1ec7u tham kh\u1ea3o\n[1] \u200d T\u1eea CHUY\u00caN SINH \u0110\u1ebeN CHUY\u00caN VI\u00caN IT T\u1ea0I C\u00d4NG TY OBELLO ... \u2014 https://www.facebook.com/tantaouniversity/posts/t%E1%BB%AB-chuy%C3%AAn-sinh-%C4%91%E1%BA%BFn-chuy%C3%AAn-vi%C3%AAn-it-t%E1%BA%A1i-c%C3%B4ng-ty-obello-c%E1%BB%A7a-m%E1%BB%B9-c%C3%A2u-chuy%E1%BB%87n-truy%E1%BB%81n-c%E1%BA%A3/1271144035037492/  \n[2] Ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t \u0111\u1ea7u ti\u00ean tr\u1edf th\u00e0nh chuy\u00ean gia \u0111\u1ed9c l\u1eadp c\u1ee7a Google - 24H \u2014 https://www.24h.com.vn/cong-nghe-thong-tin/chuyen-gia-ai-dat-gia-nguoi-viet-o-google-c55a1739268.html  \n[3] UEF - Nguy\u1ec5n Kh\u00e1nh Linh hi\u1ec7n l\u00e0 Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello \u1edf khu ... \u2014 https://www.facebook.com/photo.php?fbid=806328205302289&set=a.804981938770249&id=100077753492848  \n[4] X\u00c2Y D\u1ef0NG AI AGENT - Google Developer Expert - Facebook \u2014 https://www.facebook.com/GDGhanoi/posts/%EF%B8%8F-x%C3%A2y-d%E1%BB%B1ng-ai-agent-xu-h%C6%B0%E1%BB%9Bng-ai-m%E1%BB%9Bi-c%C3%B9ng-n%E1%BB%AF-google-developer-expert-aiml-%C4%91%E1%BA%A7u-ti%C3%AA/986424786950175/  \n[5] Tan - Facebook \u2014 https://www.facebook.com/photo.php?fbid=1273166898168539&set=a.627667826051786&id=100064257236942",
+  "planning_notes": "Intent: T\u00ecm hi\u1ec3u v\u1ec1 Obello, bao g\u1ed3m c\u00e1c t\u00ednh n\u0103ng, \u1ee9ng d\u1ee5ng v\u00e0 th\u00f4ng tin k\u1ef9 thu\u1eadt li\u00ean quan.\nScope: Trong ph\u1ea1m vi: th\u00f4ng tin k\u1ef9 thu\u1eadt, \u1ee9ng d\u1ee5ng, t\u00ednh n\u0103ng c\u1ee7a Obello. Ngo\u00e0i ph\u1ea1m vi: th\u00f4ng tin kh\u00f4ng li\u00ean quan \u0111\u1ebfn Obello ho\u1eb7c c\u00e1c s\u1ea3n ph\u1ea9m kh\u00e1c.\nKey aspects:\n- \u0110\u1ecbnh ngh\u0129a Obello\n- T\u00ednh n\u0103ng ch\u00ednh c\u1ee7a Obello\n- \u1ee8ng d\u1ee5ng c\u1ee7a Obello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p\n- So s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1\n- Th\u00f4ng tin c\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello\nT\u1eadp trung v\u00e0o vi\u1ec7c cung c\u1ea5p th\u00f4ng tin chi ti\u1ebft v\u1ec1 Obello, bao g\u1ed3m c\u00e1c t\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a n\u00f3, c\u0169ng nh\u01b0 so s\u00e1nh v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1 n\u1ebfu c\u00f3.",
+  "expanded_queries": [
+    "Obello l\u00e0 g\u00ec? T\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng",
+    "Th\u00f4ng tin k\u1ef9 thu\u1eadt v\u1ec1 Obello",
+    "So s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1",
+    "Obello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p hi\u1ec7n nay",
+    "C\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello 2023"
+  ],
+  "research_notes": "### Th\u00f4ng tin v\u1ec1 Obello\n\n#### 1. Gi\u1edbi thi\u1ec7u v\u1ec1 Obello\n- Obello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p (startup) c\u00f3 tr\u1ee5 s\u1edf t\u1ea1i San Francisco, M\u1ef9, chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning [2].\n- C\u00f4ng ty n\u00e0y \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m v\u00e0 gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 cao, \u0111\u1eb7c bi\u1ec7t trong l\u0129nh v\u1ef1c tr\u00ed tu\u1ec7 nh\u00e2n t\u1ea1o [5].\n\n#### 2. Vai tr\u00f2 c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh\n- Nguy\u1ec5n Kh\u00e1nh Linh hi\u1ec7n \u0111ang gi\u1eef v\u1ecb tr\u00ed Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello. C\u00f4 l\u00e0 m\u1ed9t trong nh\u1eefng ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t Nam \u0111\u1ea7u ti\u00ean \u0111\u01b0\u1ee3c c\u00f4ng nh\u1eadn l\u00e0 Google Developer Expert (GDE) trong l\u0129nh v\u1ef1c AI [2][3].\n- C\u00f4 d\u1eabn d\u1eaft c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u v\u00e0 ph\u00e1t tri\u1ec3n m\u00f4 h\u00ecnh GenAI ph\u1ee5c v\u1ee5 ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u, cho th\u1ea5y s\u1ef1 \u1ea3nh h\u01b0\u1edfng v\u00e0 vai tr\u00f2 quan tr\u1ecdng c\u1ee7a c\u00f4 trong c\u00f4ng ty [2].\n\n#### 3. \u0110\u00e0o t\u1ea1o v\u00e0 s\u1ef1 nghi\u1ec7p\n- Kh\u00e1nh Linh \u0111\u00e3 c\u00f3 m\u1ed9t qu\u00e1 tr\u00ecnh h\u1ecdc t\u1eadp \u1ea5n t\u01b0\u1ee3ng, bao g\u1ed3m vi\u1ec7c nghi\u00ean c\u1ee9u v\u1ec1 th\u1ecb gi\u00e1c m\u00e1y t\u00ednh v\u00e0 d\u1eef li\u1ec7u l\u1edbn t\u1eeb khi c\u00f2n h\u1ecdc \u0111\u1ea1i h\u1ecdc. C\u00f4 \u0111\u00e3 ho\u00e0n th\u00e0nh ch\u01b0\u01a1ng tr\u00ecnh th\u1ea1c s\u0129 t\u1ea1i \u0110\u1ea1i h\u1ecdc Qu\u1ed1c gia Singapore (NUS) [2].\n- C\u00f4 \u0111\u00e3 t\u00edch l\u0169y \u0111\u01b0\u1ee3c nhi\u1ec1u kinh nghi\u1ec7m trong l\u0129nh v\u1ef1c AI v\u00e0 Machine Learning, \u0111i\u1ec1u n\u00e0y gi\u00fap c\u00f4 c\u00f3 \u0111\u01b0\u1ee3c v\u1ecb tr\u00ed l\u00e3nh \u0111\u1ea1o t\u1ea1i Obello [2].\n\n#### 4. D\u1ef1 \u00e1n v\u00e0 s\u1ea3n ph\u1ea9m\n- Obello \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f3 h\u00e0m l\u01b0\u1ee3ng ch\u1ea5t x\u00e1m cao, v\u1edbi m\u1ee5c ti\u00eau t\u1ea1o ra nh\u1eefng gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn cho ng\u01b0\u1eddi d\u00f9ng [5].\n- C\u00f4ng ty c\u0169ng \u0111ang nghi\u00ean c\u1ee9u v\u00e0 x\u00e2y d\u1ef1ng c\u00e1c h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed, h\u1ed7 tr\u1ee3 cho c\u00e1c t\u00e1c v\u1ee5 nghi\u00ean c\u1ee9u v\u00e0 ph\u00e2n t\u00edch [4].\n\n#### 5. T\u1ea7m nh\u00ecn v\u00e0 s\u1ee9 m\u1ec7nh\n- Obello h\u01b0\u1edbng t\u1edbi vi\u1ec7c tr\u1edf th\u00e0nh m\u1ed9t trong nh\u1eefng c\u00f4ng ty h\u00e0ng \u0111\u1ea7u trong l\u0129nh v\u1ef1c AI, v\u1edbi s\u1ee9 m\u1ec7nh cung c\u1ea5p c\u00e1c gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 th\u00f4ng minh v\u00e0 hi\u1ec7u qu\u1ea3 cho ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u [2][5].\n- C\u00f4ng ty c\u0169ng nh\u1ea5n m\u1ea1nh t\u1ea7m quan tr\u1ecdng c\u1ee7a vi\u1ec7c ph\u00e1t tri\u1ec3n \u0111\u1ed9i ng\u0169 c\u00f4ng ngh\u1ec7 v\u00e0 qu\u1ea3n l\u00fd d\u1ef1 \u00e1n hi\u1ec7u qu\u1ea3 \u0111\u1ec3 \u0111\u1ea1t \u0111\u01b0\u1ee3c m\u1ee5c ti\u00eau n\u00e0y [5].\n\n### Th\u00f4ng tin kh\u00f4ng ch\u1eafc ch\u1eafn\n- Kh\u00f4ng c\u00f3 th\u00f4ng tin n\u00e0o m\u00e2u thu\u1eabn r\u00f5 r\u00e0ng gi\u1eefa c\u00e1c ngu\u1ed3n, nh\u01b0ng c\u00f3 th\u1ec3 c\u1ea7n th\u00eam th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n v\u00e0 c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u c\u1ee5 th\u1ec3 m\u00e0 Kh\u00e1nh Linh \u0111ang d\u1eabn d\u1eaft.\n\n### K\u1ebft lu\u1eadn\nObello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p ti\u1ec1m n\u0103ng trong l\u0129nh v\u1ef1c AI, v\u1edbi s\u1ef1 l\u00e3nh \u0111\u1ea1o c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh, ng\u01b0\u1eddi \u0111\u00e3 c\u00f3 nh\u1eefng \u0111\u00f3ng g\u00f3p \u0111\u00e1ng k\u1ec3 cho s\u1ef1 ph\u00e1t tri\u1ec3n c\u1ee7a c\u00f4ng ty. C\u00f4ng ty \u0111ang t\u1eadp trung v\u00e0o vi\u1ec7c ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u00e0 x\u00e2y d\u1ef1ng m\u1ed9t \u0111\u1ed9i ng\u0169 m\u1ea1nh m\u1ebd trong l\u0129nh v\u1ef1c n\u00e0y.",
+  "analysis_notes": "## C\u00e1c Kh\u1eb3ng \u0110\u1ecbnh Ch\u00ednh\n- **Kh\u1eb3ng \u0111\u1ecbnh 1**: Obello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p t\u1ea1i San Francisco chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning.\n- **Kh\u1eb3ng \u0111\u1ecbnh 2**: Nguy\u1ec5n Kh\u00e1nh Linh l\u00e0 Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello v\u00e0 l\u00e0 m\u1ed9t trong nh\u1eefng Google Developer Expert (GDE) \u0111\u1ea7u ti\u00ean trong l\u0129nh v\u1ef1c AI.\n- **Kh\u1eb3ng \u0111\u1ecbnh 3**: Obello \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u00e0 h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed.\n- **Kh\u1eb3ng \u0111\u1ecbnh 4**: C\u00f4ng ty c\u00f3 t\u1ea7m nh\u00ecn tr\u1edf th\u00e0nh m\u1ed9t trong nh\u1eefng c\u00f4ng ty h\u00e0ng \u0111\u1ea7u trong l\u0129nh v\u1ef1c AI v\u1edbi s\u1ee9 m\u1ec7nh cung c\u1ea5p gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 th\u00f4ng minh.\n\n## \u0110\u1ed9 M\u1ea1nh c\u1ee7a B\u1eb1ng Ch\u1ee9ng\n- **Kh\u1eb3ng \u0111\u1ecbnh 1**: **M\u1ea1nh** - Th\u00f4ng tin v\u1ec1 v\u1ecb tr\u00ed v\u00e0 l\u0129nh v\u1ef1c ho\u1ea1t \u0111\u1ed9ng c\u1ee7a Obello \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn t\u1eeb nhi\u1ec1u ngu\u1ed3n \u0111\u00e1ng tin c\u1eady.\n- **Kh\u1eb3ng \u0111\u1ecbnh 2**: **M\u1ea1nh** - Nguy\u1ec5n Kh\u00e1nh Linh \u0111\u01b0\u1ee3c c\u00f4ng nh\u1eadn l\u00e0 GDE, \u0111i\u1ec1u n\u00e0y ch\u1ee9ng t\u1ecf s\u1ef1 c\u00f4ng nh\u1eadn t\u1eeb c\u1ed9ng \u0111\u1ed3ng c\u00f4ng ngh\u1ec7.\n- **Kh\u1eb3ng \u0111\u1ecbnh 3**: **M\u1ea1nh** - C\u00e1c s\u1ea3n ph\u1ea9m v\u00e0 h\u1ec7 th\u1ed1ng AI m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n \u0111\u01b0\u1ee3c m\u00f4 t\u1ea3 r\u00f5 r\u00e0ng, cho th\u1ea5y s\u1ef1 \u0111\u1ea7u t\u01b0 v\u00e0o c\u00f4ng ngh\u1ec7.\n- **Kh\u1eb3ng \u0111\u1ecbnh 4**: **M\u1ea1nh** - T\u1ea7m nh\u00ecn v\u00e0 s\u1ee9 m\u1ec7nh c\u1ee7a c\u00f4ng ty \u0111\u01b0\u1ee3c n\u00eau r\u00f5, th\u1ec3 hi\u1ec7n m\u1ee5c ti\u00eau d\u00e0i h\u1ea1n v\u00e0 chi\u1ebfn l\u01b0\u1ee3c ph\u00e1t tri\u1ec3n.\n\n## Quan \u0110i\u1ec3m M\u00e2u Thu\u1eabn\n- Kh\u00f4ng c\u00f3 th\u00f4ng tin m\u00e2u thu\u1eabn r\u00f5 r\u00e0ng gi\u1eefa c\u00e1c ngu\u1ed3n. Tuy nhi\u00ean, c\u1ea7n th\u00eam th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n.\n\n## Kho\u1ea3ng Tr\u1ed1ng Ki\u1ebfn Th\u1ee9c\n- C\u00e1c th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 v\u00e0 d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u m\u00e0 Nguy\u1ec5n Kh\u00e1nh Linh \u0111ang d\u1eabn d\u1eaft ch\u01b0a \u0111\u01b0\u1ee3c \u0111\u1ec1 c\u1eadp. C\u1ea7n c\u00f3 th\u00eam nghi\u00ean c\u1ee9u v\u1ec1 hi\u1ec7u qu\u1ea3 v\u00e0 \u1ee9ng d\u1ee5ng th\u1ef1c t\u1ebf c\u1ee7a c\u00e1c s\u1ea3n ph\u1ea9m n\u00e0y.\n\n## Th\u00f4ng \u0110i\u1ec7p H\u00e0nh \u0110\u1ed9ng\n1. **Kh\u00e1m Ph\u00e1 C\u01a1 H\u1ed9i H\u1ee3p T\u00e1c**: C\u00e1c nh\u00e0 nghi\u00ean c\u1ee9u v\u00e0 doanh nghi\u1ec7p c\u00f3 th\u1ec3 xem x\u00e9t h\u1ee3p t\u00e1c v\u1edbi Obello \u0111\u1ec3 ph\u00e1t tri\u1ec3n c\u00e1c gi\u1ea3i ph\u00e1p AI ti\u00ean ti\u1ebfn.\n2. **Theo D\u00f5i Xu H\u01b0\u1edbng C\u00f4ng Ngh\u1ec7**: C\u00e1c k\u1ef9 s\u01b0 v\u00e0 chuy\u00ean gia trong l\u0129nh v\u1ef1c AI n\u00ean theo d\u00f5i s\u1ef1 ph\u00e1t tri\u1ec3n c\u1ee7a Obello \u0111\u1ec3 n\u1eafm b\u1eaft c\u00e1c xu h\u01b0\u1edbng c\u00f4ng ngh\u1ec7 m\u1edbi.\n3. **\u0110\u1ea7u T\u01b0 V\u00e0o \u0110\u00e0o T\u1ea1o**: C\u00e1c t\u1ed5 ch\u1ee9c gi\u00e1o d\u1ee5c v\u00e0 \u0111\u00e0o t\u1ea1o n\u00ean xem x\u00e9t vi\u1ec7c ph\u00e1t tri\u1ec3n c\u00e1c ch\u01b0\u01a1ng tr\u00ecnh \u0111\u00e0o t\u1ea1o li\u00ean quan \u0111\u1ebfn AI v\u00e0 Machine Learning, d\u1ef1a tr\u00ean m\u00f4 h\u00ecnh th\u00e0nh c\u00f4ng c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh v\u00e0 Obello.",
+  "critique_notes": "## \u0110\u00e1nh gi\u00e1\n\n### \u0110\u1ed9 Ch\u00ednh X\u00e1c Th\u1ef1c T\u1ebf\n- **Kh\u1eb3ng \u0111\u1ecbnh 1**: Obello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p t\u1ea1i San Francisco chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning. **(H\u1ed7 tr\u1ee3 t\u1eeb ngu\u1ed3n [1], [2])**\n- **Kh\u1eb3ng \u0111\u1ecbnh 2**: Nguy\u1ec5n Kh\u00e1nh Linh l\u00e0 Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello v\u00e0 l\u00e0 m\u1ed9t trong nh\u1eefng Google Developer Expert (GDE) \u0111\u1ea7u ti\u00ean trong l\u0129nh v\u1ef1c AI. **(H\u1ed7 tr\u1ee3 t\u1eeb ngu\u1ed3n [2], [3])**\n- **Kh\u1eb3ng \u0111\u1ecbnh 3**: Obello \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u00e0 h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed. **(H\u1ed7 tr\u1ee3 t\u1eeb ngu\u1ed3n [4], [5])**\n- **Kh\u1eb3ng \u0111\u1ecbnh 4**: C\u00f4ng ty c\u00f3 t\u1ea7m nh\u00ecn tr\u1edf th\u00e0nh m\u1ed9t trong nh\u1eefng c\u00f4ng ty h\u00e0ng \u0111\u1ea7u trong l\u0129nh v\u1ef1c AI v\u1edbi s\u1ee9 m\u1ec7nh cung c\u1ea5p gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 th\u00f4ng minh. **(H\u1ed7 tr\u1ee3 t\u1eeb ngu\u1ed3n [2], [5])**\n\nT\u1ea5t c\u1ea3 c\u00e1c kh\u1eb3ng \u0111\u1ecbnh ch\u00ednh \u0111\u1ec1u \u0111\u01b0\u1ee3c h\u1ed7 tr\u1ee3 b\u1edfi c\u00e1c ngu\u1ed3n t\u00e0i li\u1ec7u \u0111\u00e1ng tin c\u1eady.\n\n### Ph\u1ea1m Vi Tr\u00edch D\u1eabn\n- T\u1ea5t c\u1ea3 c\u00e1c kh\u1eb3ng \u0111\u1ecbnh ch\u00ednh \u0111\u1ec1u c\u00f3 \u00edt nh\u1ea5t m\u1ed9t tr\u00edch d\u1eabn h\u1ed7 tr\u1ee3. Kh\u00f4ng c\u00f3 kh\u1eb3ng \u0111\u1ecbnh n\u00e0o kh\u00f4ng \u0111\u01b0\u1ee3c tr\u00edch d\u1eabn.\n\n### R\u00f5 R\u00e0ng v\u00e0 C\u1ea5u Tr\u00fac\n- C\u00e2u tr\u1ea3 l\u1eddi \u0111\u01b0\u1ee3c c\u1ea5u tr\u00fac r\u00f5 r\u00e0ng v\u1edbi c\u00e1c ph\u1ea7n ri\u00eang bi\u1ec7t nh\u01b0 T\u00f3m t\u1eaft, Gi\u1edbi thi\u1ec7u, Vai tr\u00f2, \u0110\u00e0o t\u1ea1o, D\u1ef1 \u00e1n, T\u1ea7m nh\u00ecn, Th\u00f4ng tin kh\u00f4ng ch\u1eafc ch\u1eafn, K\u1ebft lu\u1eadn, v\u00e0 Th\u00f4ng \u0111i\u1ec7p h\u00e0nh \u0111\u1ed9ng. \n- Kh\u00f4ng c\u00f3 \u0111o\u1ea1n n\u00e0o g\u00e2y nh\u1ea7m l\u1eabn ho\u1eb7c kh\u00f4ng r\u00f5 r\u00e0ng.\n\n### \u0110i\u1ec3m Ch\u1ea5t L\u01b0\u1ee3ng T\u1ed5ng Th\u1ec3\n**\u0110i\u1ec3m: 9/10**\n- C\u00e2u tr\u1ea3 l\u1eddi r\u1ea5t t\u1ed1t, c\u00f3 c\u1ea5u tr\u00fac r\u00f5 r\u00e0ng v\u00e0 t\u1ea5t c\u1ea3 c\u00e1c kh\u1eb3ng \u0111\u1ecbnh \u0111\u1ec1u \u0111\u01b0\u1ee3c h\u1ed7 tr\u1ee3 b\u1edfi t\u00e0i li\u1ec7u. Tuy nhi\u00ean, c\u00f3 th\u1ec3 c\u1ea3i thi\u1ec7n b\u1eb1ng c\u00e1ch cung c\u1ea5p th\u00eam th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n.\n\n### \u0110\u1ec1 Xu\u1ea5t C\u1ea3i Ti\u1ebfn\n1. **Cung c\u1ea5p th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3**: N\u00ean th\u00eam th\u00f4ng tin v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n \u0111\u1ec3 l\u00e0m r\u00f5 h\u01a1n v\u1ec1 ho\u1ea1t \u0111\u1ed9ng c\u1ee7a c\u00f4ng ty.\n2. **Th\u00eam th\u00f4ng tin v\u1ec1 c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u**: C\u1ea7n c\u00f3 th\u00eam th\u00f4ng tin v\u1ec1 c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u m\u00e0 Nguy\u1ec5n Kh\u00e1nh Linh \u0111ang d\u1eabn d\u1eaft \u0111\u1ec3 l\u00e0m n\u1ed5i b\u1eadt vai tr\u00f2 c\u1ee7a c\u00f4.\n3. **C\u1eadp nh\u1eadt th\u00f4ng tin v\u1ec1 t\u1ea7m nh\u00ecn v\u00e0 s\u1ee9 m\u1ec7nh**: C\u00f3 th\u1ec3 m\u1edf r\u1ed9ng ph\u1ea7n n\u00e0y \u0111\u1ec3 n\u00eau r\u00f5 h\u01a1n v\u1ec1 c\u00e1c m\u1ee5c ti\u00eau c\u1ee5 th\u1ec3 m\u00e0 Obello \u0111ang h\u01b0\u1edbng t\u1edbi trong t\u01b0\u01a1ng lai.",
+  "quality_score": 9.0,
+  "summary": {
+    "iterations": 5,
+    "sources": 5,
+    "input_tokens": 7929,
+    "output_tokens": 3700,
+    "citation_coverage": 1.0,
+    "errors": []
+  },
+  "sources": [
+    {
+      "title": "\u200d T\u1eea CHUY\u00caN SINH \u0110\u1ebeN CHUY\u00caN VI\u00caN IT T\u1ea0I C\u00d4NG TY OBELLO ...",
+      "url": "https://www.facebook.com/tantaouniversity/posts/t%E1%BB%AB-chuy%C3%AAn-sinh-%C4%91%E1%BA%BFn-chuy%C3%AAn-vi%C3%AAn-it-t%E1%BA%A1i-c%C3%B4ng-ty-obello-c%E1%BB%A7a-m%E1%BB%B9-c%C3%A2u-chuy%E1%BB%87n-truy%E1%BB%81n-c%E1%BA%A3/1271144035037492/",
+      "snippet": "15 thg 12, 2025 \u00b7 T\u1eea CHUY\u00caN SINH \u0110\u1ebeN CHUY\u00caN VI\u00caN IT T\u1ea0I C\u00d4NG TY OBELLO C\u1ee6A M\u1ef8 C\u00e2u chuy\u1ec7n truy\u1ec1n c\u1ea3m h\u1ee9ng c\u1ee7a H\u1ed3 Thi\u1ec7n L\u1ea1c, c\u1ef1u sinh vi\u00ean kh\u00f3a 7 Khoa C\u00f4ng ngh\u1ec7 ...",
+      "metadata": {
+        "provider": "searxng",
+        "engine": "google",
+        "engines": [
+          "google",
+          "startpage"
+        ],
+        "score": 4.0,
+        "category": "general"
+      }
+    },
+    {
+      "title": "Ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t \u0111\u1ea7u ti\u00ean tr\u1edf th\u00e0nh chuy\u00ean gia \u0111\u1ed9c l\u1eadp c\u1ee7a Google - 24H",
+      "url": "https://www.24h.com.vn/cong-nghe-thong-tin/chuyen-gia-ai-dat-gia-nguoi-viet-o-google-c55a1739268.html",
+      "snippet": "22 thg 2, 2026 \u00b7 T\u1ea1i Obello, Kh\u00e1nh Linh tr\u1ef1c ti\u1ebfp d\u1eabn d\u1eaft c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u v\u00e0 ph\u00e1t tri\u1ec3n m\u00f4 h\u00ecnh GenAI ph\u1ee5c v\u1ee5 ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u. Song song \u0111\u00f3, v\u1edbi vai tr\u00f2 ...\n\nFull-page excerpt:\nNg\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t \u0111\u1ea7u ti\u00ean tr\u1edf th\u00e0nh chuy\u00ean gia \u0111\u1ed9c l\u1eadp c\u1ee7a Google \"> Gi\u00e1 x\u0103ng \u0110o\u00e1n t\u1ef7 s\u1ed1 L\u1ecbch \u0110\u0103ng nh\u1eadp \u0110\u0103ng nh\u1eadp t\u00e0i kho\u1ea3n \u0111\u1ec3 c\u00f3 nhi\u1ec1u tr\u1ea3i nghi\u1ec7m t\u1ed1t h\u01a1n. --> Tin t\u1ee9c B\u00f3ng \u0111\u00e1 Kinh doanh Gi\u1ea3i tr\u00ed 24h Th\u00edch b\u00f3ng \u0111\u00e1 - Th\u1ec3 thao S\u1ee9c kh\u1ecfe Hi-tech Th\u1ebf gi\u1edbi Th\u1ec3 thao \u00d4 t\u00f4 C\u00f4ng ngh\u1ec7 th\u00f4ng tin Game Ph\u1ea7n m\u1ec1m Khoa h\u1ecdc M\u1ea1ng x\u00e3 h\u1ed9i Th\u1ee7 thu\u1eadt - Ti\u1ec7n \u00edch C\u00f4ng ngh\u1ec7 AI S\u1ee3 Virus ??? Trang ch\u1ee7 C\u00f4ng ngh\u1ec7 th\u00f4ng tin Ch\u1ee7 Nh\u1eadt, ng\u00e0y 22/02/2026 10:00 AM (GMT+7) Ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t \u0111\u1ea7u ti\u00ean tr\u1edf th\u00e0nh chuy\u00ean gia \u0111\u1ed9c l\u1eadp c\u1ee7a Google S\u1ef1 ki\u1ec7n: C\u00f4ng ngh\u1ec7 AI L\u01b0u b\u00e0i B\u1ecf l\u01b0u b\u00e0i L\u01b0u b\u00e0i vi\u1ebft th\u00e0nh c\u00f4ng B\u1ea1n c\u00f3 th\u1ec3 xem l\u1ea1i b\u00e0i vi\u1ebft \u0111\u00e3 l\u01b0u \u1edf trang Tin b\u00e0i \u0111\u00e3 l\u01b0u \u0110\u1ed3ng \u00fd Chia s\u1ebb Gi\u1eefa l\u00e0n s\u00f3ng c\u00f4ng ngh\u1ec7 AI to\u00e0n c\u1ea7u, m\u1ed9t ng\u01b0\u1eddi ...[truncated]",
+      "metadata": {
+        "provider": "searxng",
+        "engine": "google",
+        "engines": [
+          "google",
+          "startpage"
+        ],
+        "score": 1.0666666666666667,
+        "category": "general",
+        "content": "Ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t \u0111\u1ea7u ti\u00ean tr\u1edf th\u00e0nh chuy\u00ean gia \u0111\u1ed9c l\u1eadp c\u1ee7a Google \"> Gi\u00e1 x\u0103ng \u0110o\u00e1n t\u1ef7 s\u1ed1 L\u1ecbch \u0110\u0103ng nh\u1eadp \u0110\u0103ng nh\u1eadp t\u00e0i kho\u1ea3n \u0111\u1ec3 c\u00f3 nhi\u1ec1u tr\u1ea3i nghi\u1ec7m t\u1ed1t h\u01a1n. --> Tin t\u1ee9c B\u00f3ng \u0111\u00e1 Kinh doanh Gi\u1ea3i tr\u00ed 24h Th\u00edch b\u00f3ng \u0111\u00e1 - Th\u1ec3 thao S\u1ee9c kh\u1ecfe Hi-tech Th\u1ebf gi\u1edbi Th\u1ec3 thao \u00d4 t\u00f4 C\u00f4ng ngh\u1ec7 th\u00f4ng tin Game Ph\u1ea7n m\u1ec1m Khoa h\u1ecdc M\u1ea1ng x\u00e3 h\u1ed9i Th\u1ee7 thu\u1eadt - Ti\u1ec7n \u00edch C\u00f4ng ngh\u1ec7 AI S\u1ee3 Virus ??? Trang ch\u1ee7 C\u00f4ng ngh\u1ec7 th\u00f4ng tin Ch\u1ee7 Nh\u1eadt, ng\u00e0y 22/02/2026 10:00 AM (GMT+7) Ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t \u0111\u1ea7u ti\u00ean tr\u1edf th\u00e0nh chuy\u00ean gia \u0111\u1ed9c l\u1eadp c\u1ee7a Google S\u1ef1 ki\u1ec7n: C\u00f4ng ngh\u1ec7 AI L\u01b0u b\u00e0i B\u1ecf l\u01b0u b\u00e0i L\u01b0u b\u00e0i vi\u1ebft th\u00e0nh c\u00f4ng B\u1ea1n c\u00f3 th\u1ec3 xem l\u1ea1i b\u00e0i vi\u1ebft \u0111\u00e3 l\u01b0u \u1edf trang Tin b\u00e0i \u0111\u00e3 l\u01b0u \u0110\u1ed3ng \u00fd Chia s\u1ebb Gi\u1eefa l\u00e0n s\u00f3ng c\u00f4ng ngh\u1ec7 AI to\u00e0n c\u1ea7u, m\u1ed9t ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t Nam kh\u1eb3ng \u0111\u1ecbnh v\u1ecb tr\u00ed c\u1ee7a m\u00ecnh khi tr\u1edf th\u00e0nh Google Developer Expert (GDE) \u2013 danh hi\u1ec7u chuy\u00ean gia cao qu\u00fd do Google c\u00f4ng nh\u1eadn. Ni\u1ec1m say m\u00ea c\u00f4ng ngh\u1ec7 \u0111\u01b0a Kh\u00e1nh Linh \u0111\u1ebfn v\u1edbi ng\u00e0nh Khoa h\u1ecdc m\u00e1y t\u00ednh. Ngay t\u1eeb khi c\u00f2n ng\u1ed3i tr\u00ean gh\u1ebf nh\u00e0 tr\u01b0\u1eddng, Linh d\u00e0nh th\u1eddi gian nghi\u00ean c\u1ee9u t\u00e0i li\u1ec7u v\u1ec1 th\u1ecb gi\u00e1c m\u00e1y t\u00ednh, d\u1eef li\u1ec7u l\u1edbn, h\u1ecdc s\u00e2u - nh\u1eefng l\u0129nh v\u1ef1c c\u00f2n r\u1ea5t m\u1edbi m\u1ebb t\u1ea1i Vi\u1ec7t Nam th\u1eddi \u0111i\u1ec3m \u0111\u00f3. Sau khi t\u1ed1t nghi\u1ec7p, c\u00f4 ti\u1ebfp t\u1ee5c h\u1ecdc th\u1ea1c s\u0129 t\u1ea1i \u0110\u1ea1i h\u1ecdc Qu\u1ed1c gia Singapore (NUS) v\u00e0 tr\u1edf th\u00e0nh chuy\u00ean gia trong l\u0129nh v\u1ef1c AI v\u00e0 Machine Learning. Hi\u1ec7n Nguy\u1ec5n Kh\u00e1nh Linh \u0111\u1ea3m nhi\u1ec7m v\u1ecb tr\u00ed Head of AI t\u1ea1i startup Obello (San Francisco, M\u1ef9). \u0110\u1ed3ng th\u1eddi, c\u00f4 c\u0169ng l\u00e0 g\u01b0\u01a1ng m\u1eb7t n\u1eef duy nh\u1ea5t trong danh s\u00e1ch 10 chuy\u00ean gia Vi\u1ec7t Nam thu\u1ed9c ch\u01b0\u01a1ng tr\u00ecnh Google Developer Expert (GDE). Nguy\u1ec5n Kh\u00e1nh Linh. H\u00e0nh tr\u00ecnh kh\u1eb3ng \u0111\u1ecbnh v\u1ecb th\u1ebf chuy\u00ean gia \u0111\u1ed9c l\u1eadp Kh\u00e1c v\u1edbi v\u1ecb tr\u00ed nh\u00e2n vi\u00ean tr\u1ef1c thu\u1ed9c t\u1eadp \u0111o\u00e0n, GDE l\u00e0 m\u1ea1ng l\u01b0\u1edbi to\u00e0n c\u1ea7u g\u1ed3m c\u00e1c chuy\u00ean gia c\u00f4ng ngh\u1ec7 xu\u1ea5t s\u1eafc, c\u00f3 s\u1ee9c \u1ea3nh h\u01b0\u1edfng v\u00e0 \u0111\u00f3ng g\u00f3p l\u1edbn cho c\u1ed9ng \u0111\u1ed3ng, \u0111\u01b0\u1ee3c Google th\u1ea9m \u0111\u1ecbnh v\u00e0 c\u00f4ng nh\u1eadn ch\u00ednh th\u1ee9c. N\u0103m 2023, khi l\u00e0n s\u00f3ng Generative AI (AI t\u1ea1o sinh) b\u00f9ng n\u1ed5, ch\u01b0\u01a1ng tr\u00ecnh GDE c\u1ee7a Google \u0111\u00e3 m\u1edf r\u1ed9ng t\u00ecm ki\u1ebfm c\u00e1c chuy\u00ean gia c\u00f3 n\u1ec1n t\u1ea3ng v\u1eefng ch\u1eafc v\u1ec1 h\u1ecdc s\u00e2u v\u00e0 kinh nghi\u1ec7m tri\u1ec3n khai m\u00f4 h\u00ecnh l\u1edbn. C\u00e1c h\u1ea1ng m\u1ee5c chuy\u00ean gia \u0111\u01b0\u1ee3c chia nh\u1ecf theo t\u1eebng m\u1ea3ng k\u1ef9 thu\u1eadt nh\u01b0 AI/ML, Cloud, Android... Trong \u0111\u00f3, Kh\u00e1nh Linh n\u1ed5i b\u1eadt v\u1edbi chuy\u00ean m\u00f4n s\u00e2u v\u1ec1 NLP v\u00e0 GenAI. V\u01b0\u1ee3t qua c\u00e1c v\u00f2ng th\u1ea9m \u0111\u1ecbnh g\u1eaft gao v\u1ec1 n\u0103ng l\u1ef1c chuy\u00ean m\u00f4n v\u00e0 c\u00e1c d\u1ef1 \u00e1n th\u1ef1c t\u1ebf, Kh\u00e1nh Linh ch\u00ednh th\u1ee9c \u0111\u01b0\u1ee3c vinh danh l\u00e0 GDE m\u1ea3ng AI/ML v\u00e0o 8/3/2025. \u0110\u00e2y l\u00e0 s\u1ef1 kh\u1eb3ng \u0111\u1ecbnh cho h\u01a1n m\u1ed9t th\u1eadp k\u1ef7 kh\u00f4ng ng\u1eebng h\u1ecdc h\u1ecfi v\u00e0 c\u0169ng l\u00e0 minh ch\u1ee9ng r\u1eb1ng, ng\u01b0\u1eddi Vi\u1ec7t Nam ho\u00e0n to\u00e0n c\u00f3 th\u1ec3 \u0111\u1ea1t \u0111\u1ebfn nh\u1eefng ti\u00eau chu\u1ea9n chuy\u00ean m\u00f4n h\u00e0ng \u0111\u1ea7u th\u1ebf gi\u1edbi. Kh\u00e1nh Linh (gi\u1eefa), di\u1ec5n gi\u1ea3 chia s\u1ebb v\u1ec1 c\u00e2n b\u1eb1ng gi\u1eefa \u0111\u1ed9t ph\u00e1 v\u00e0 an to\u00e0n trong AI t\u1ea1i m\u1ed9t s\u1ef1 ki\u1ec7n do IBM ph\u1ed1i h\u1ee3p Google v\u00e0 NUS t\u1ed5 ch\u1ee9c, h\u1ed3i th\u00e1ng 11/2024. S\u1ee9 m\u1ec7nh k\u1ebft n\u1ed1i c\u00f4ng ngh\u1ec7 to\u00e0n c\u1ea7u T\u1ea1i Obello, Kh\u00e1nh Linh tr\u1ef1c ti\u1ebfp d\u1eabn d\u1eaft c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u v\u00e0 ph\u00e1t tri\u1ec3n m\u00f4 h\u00ecnh GenAI ph\u1ee5c v\u1ee5 ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u. Song song \u0111\u00f3, v\u1edbi vai tr\u00f2 l\u00e0 GDE, c\u00f4 t\u00edch c\u1ef1c tham gia v\u00e0o c\u1ed9ng \u0111\u1ed3ng chuy\u00ean gia c\u1ee7a Google, tr\u1ef1c ti\u1ebfp \u0111\u00f3ng g\u00f3p v\u00e0o c\u00e1c d\u1ef1 \u00e1n m\u00e3 ngu\u1ed3n m\u1edf c\u1ee7a Google tr\u00ean Github \u0111\u1ec3 c\u1eadp nh\u1eadt v\u00e0 chia s\u1ebb v\u1ec1 c\u00e1c m\u00f4 h\u00ecnh h\u00e0ng t\u1ef7 tham s\u1ed1, gi\u00fap c\u00e1c c\u00f4ng c\u1ee5 AI hi\u1ec3u ng\u00f4n ng\u1eef v\u00e0 h\u00ecnh \u1ea3nh t\u1ed1t h\u01a1n. \u0110i\u1ec1u khi\u1ebfn h\u00e0nh tr\u00ecnh c\u1ee7a Linh \u0111\u1eb7c bi\u1ec7t l\u00e0 c\u00f4 kh\u00f4ng qu\u00ean ngu\u1ed3n c\u1ed9i. Nhi\u1ec1u s\u00e1ng ki\u1ebfn c\u1ee7a Linh h\u01b0\u1edbng t\u1edbi vi\u1ec7c gi\u00fap c\u00e1c m\u00f4 h\u00ecnh AI hi\u1ec3u ng\u00f4n ng\u1eef ti\u1ebfng Vi\u1ec7t t\u1ed1t h\u01a1n \u2013 m\u1ed9t y\u1ebfu t\u1ed1 then ch\u1ed1t cho s\u1ef1 ph\u00e1t tri\u1ec3n c\u00f4ng ngh\u1ec7 t\u1ea1i qu\u00ea nh\u00e0. Trong c\u00e1c bu\u1ed5i chia s\u1ebb, c\u00f4 lu\u00f4n nh\u1ea5n m\u1ea1nh: \u201cAI kh\u00f4ng ph\u1ea3i c\u00e2u chuy\u1ec7n xa v\u1eddi. N\u00f3 ph\u1ea3i ph\u1ee5c v\u1ee5 \u0111\u1eddi s\u1ed1ng v\u00e0 gi\u1ea3i c\u00e1c b\u00e0i to\u00e1n c\u1ee5 th\u1ec3 c\u1ee7a t\u1eebng qu\u1ed1c gia\u201d. Kh\u00e1nh Linh, g\u01b0\u01a1ng m\u1eb7t n\u1eef duy nh\u1ea5t trong danh s\u00e1ch 10 chuy\u00ean gia Vi\u1ec7t thu\u1ed9c ch\u01b0\u01a1ng tr\u00ecnh Google Developer Expert. (\u1ea2nh: Google) M\u1ed7i khi c\u00f3 d\u1ecbp v\u1ec1 n\u01b0\u1edbc, Linh d\u00e0nh th\u1eddi gian n\u00f3i chuy\u1ec7n v\u1edbi sinh vi\u00ean, truy\u1ec1n c\u1ea3m h\u1ee9ng v\u1ec1 t\u01b0 duy l\u00e0m s\u1ea3n ph\u1ea9m v\u00e0 c\u00e1ch ti\u1ebfp c\u1eadn khoa h\u1ecdc. V\u1edbi Linh, vi\u1ec7c tr\u1edf th\u00e0nh GDE ch\u1ec9 l\u00e0 m\u1ed9t c\u1ed9t m\u1ed1c. \u0110i\u1ec1u c\u00f4 mong mu\u1ed1n h\u01a1n l\u00e0 ch\u1ee9ng minh r\u1eb1ng k\u1ef9 s\u01b0 Vi\u1ec7t Nam ho\u00e0n to\u00e0n c\u00f3 th\u1ec3 theo k\u1ecbp c\u00e1c ti\u00eau chu\u1ea9n qu\u1ed1c t\u1ebf n\u1ebfu c\u00f3 ph\u01b0\u01a1ng ph\u00e1p \u0111\u00fang v\u00e0 tinh th\u1ea7n h\u1ecdc t\u1eadp nghi\u00eam t\u00fac. 5 nguy\u00ean t\u1eafc v\u00e0ng khi d\u00f9ng AI \u0111\u1ec3 kh\u00f4ng b\u1ecb 'd\u1eaft m\u0169i' Tr\u1ee3 l\u00fd tr\u00ed tu\u1ec7 nh\u00e2n t\u1ea1o ng\u00e0y c\u00e0ng ph\u1ed5 bi\u1ebfn nh\u01b0ng ch\u00fang th\u01b0\u1eddng tr\u1ea3 l\u1eddi sai v\u1edbi s\u1ef1 t\u1ef1 tin tuy\u1ec7t \u0111\u1ed1i. D\u01b0\u1edbi \u0111\u00e2y l\u00e0 5 quy t\u1eafc c\u1ed1t l\u00f5i \u0111\u1ec3 s\u1eed d\u1ee5ng AI hi\u1ec7u... B\u1ea5m xem >> Chia s\u1ebb G\u1eedi g\u00f3p \u00fd L\u01b0u b\u00e0i B\u1ecf l\u01b0u b\u00e0i Theo L\u1ec7 Thu ([T\u00ean ngu\u1ed3n]) Ngu\u1ed3n: [Link ngu\u1ed3n] Ngu\u1ed3n: [Link ngu\u1ed3n] - 22/02/2026 07:00 AM (GMT+7) Tin li\u00ean quan Th\u00f4ng \u0111i\u1ec7p c\u1ee7a Trung Qu\u1ed1c qua m\u00e0n m\u00faa robot ch\u00e0o n\u0103m m\u1edbi Seedance 2.0 v\u00e0 k\u1ef7 nguy\u00ean '\u0111o\u00e0n l\u00e0m phim m\u1ed9t ng\u01b0\u1eddi' \u0110i\u1ec1u g\u00ec \u1edf ng\u01b0\u1eddi m\u00e0 AI ch\u01b0a th\u1ec3 ch\u1ea1m t\u1edbi? Kho\u1ea3nh kh\u1eafc hai s\u1ebfp l\u1edbn AI t\u1eeb ch\u1ed1i n\u1eafm tay nhau 'g\u00e2y b\u00e3o' C\u00f4ng ngh\u1ec7 AI Xem th\u00eam Trung Qu\u1ed1c l\u00e0m si\u00eau m\u00e1y t\u00ednh n\u1ed9i \u0111\u1ecba ho\u00e0n to\u00e0n gi\u1eefa \u2018g\u1ecdng... Chia tay sau khi \u0111\u1ecdc tr\u1ed9m l\u1ecbch s\u1eed ChatGPT c\u1ee7a b\u1ea1n trai X\u00f4n xao chuy\u1ec7n ChatGPT truy c\u1eadp kho \u1ea3nh c\u00e1 nh\u00e2n c\u1ee7a ng\u01b0\u1eddi... Tr\u00e0o ng\u01b0\u1ee3c d\u1ea1 d\u00e0y: N\u00ean x\u1eed l\u00fd tri\u1ec7u ch\u1ee9ng hay nguy\u00ean nh\u00e2n g\u1ed1c... Tin t\u00e0i tr\u1ee3 Ai b\u1ecb tr\u00e0o ng\u01b0\u1ee3c d\u1ea1 d\u00e0y c\u1ee9 m\u00e1ch h\u1ecd m\u1eb9o n\u00e0y, \u0111\u1ea3m b\u1ea3o bi\u1ebft \u01a1n... Tin t\u00e0i tr\u1ee3 V\u00ec sao m\u1ee5n c\u1ee7a con trai c\u1ea7n x\u1eed l\u00fd b\u1eb1ng c\u00e1ch chuy\u00ean bi\u1ec7t n\u00e0y... Tin t\u00e0i tr\u1ee3 Nhi\u1ec1u ng\u01b0\u1eddi \u0111\u1ecdc V\u1ee5 ch\u00e1y xe l\u00e0m 2 ng\u01b0\u1eddi ch\u1ebft \u1edf \u0110\u00e0 N\u1eb5ng: Nh\u1eadn di\u1ec7n \u1ea3nh AI ch\u1ec9 trong v\u00e0i b\u01b0\u1edbc X\u00e1c th\u1ef1c th\u00f4ng tin thu\u00ea bao: H\u00e0ng ngh\u00ecn SIM \u0111\u00e3 b\u1ecb kho\u00e1 do... kh\u00f4ng ch\u00ednh ch\u1ee7 Chia tay sau khi \u0111\u1ecdc tr\u1ed9m l\u1ecbch s\u1eed ChatGPT c\u1ee7a b\u1ea1n trai V\u1eadt th\u1ec3 170.000 n\u0103m m\u1edbi hi\u1ec7n ra m\u1ed9t l\u1ea7n \u201ct\u00e1i xu\u1ea5t\u201d \u1edf b\u1ea7u tr\u1eddi ph\u01b0\u01a1ng Nam Advertisement Kh\u00e1m ph\u00e1 c\u00f4ng ngh\u1ec7 --> ThunderSoft ra m\u1eaft AquaDrive AIOS 2.1, d\u1eabn \u0111\u1ea7u xu h\u01b0\u1edbng chuy\u1ec3n \u0111\u1ed5i ng\u00e0nh t\u1eeb SDV sang c\u00e1c... L\u00e0n s\u00f3ng t\u1ea5n c\u00f4ng m\u1ea1ng d\u1ed3n d\u1eadp t\u1ea1i Vi\u1ec7t Nam: \u0110\u1ec9nh \u0111i\u1ec3m 27 t\u1ef7 request DDoS M\u00e1y t\u1ed1t ch\u01b0a \u0111\u1ee7: \u0110i\u1ec1u g\u00ec th\u1ef1c s\u1ef1 quy\u1ebft \u0111\u1ecbnh hi\u1ec7u qu\u1ea3 ph\u00f2ng th\u00ed nghi\u1ec7m? B\u1ecf qua \u00e1p l\u1ef1c viral, \u0111\u00e2y l\u00e0 c\u00e1ch nh\u1eefng ng\u01b0\u1eddi l\u00e0m affiliate b\u00e0i b\u1ea3n ki\u1ebfm h\u00e0ng ch\u1ee5c tri\u1ec7u... Advertisement Hi-tech Xem th\u00eam Xiaomi 17T xu\u1ea5t hi\u1ec7n v\u1edbi di\u1ec7n m\u1ea1o hi\u1ec7n \u0111\u1ea1i, b\u1ea3n Pro h\u1ee9a h\u1eb9n \u201c\u0103n \u0111\u1ee9t\u201d \u0111\u1ed1i th\u1ee7 6 \u0111i\u1ec3m nh\u1ea5n n\u1ed5i b\u1eadt nh\u1ea5t s\u1ebd c\u00f3 tr\u00ean iPhone 18 Pro M\u1ed9t chi ti\u1ebft nh\u1ecf trong \u0111i\u1ec1u h\u00f2a c\u00f3 th\u1ec3 \u1ea3nh h\u01b0\u1edfng s\u1ee9c kh\u1ecfe \u0110\u00e2y l\u00e0 chi\u1ebfc \u0111i\u1ec7n tho\u1ea1i th\u00f4ng minh b\u00e1n ch\u1ea1y nh\u1ea5t th\u1ebf gi\u1edbi Advertisement B\u00e1o l\u1ed7i n\u1ed9i dung Chia s\u1ebb th\u00f4ng tin h\u1eefu \u00edch Facebook Facebook Messenger Zalo X Telegram Copy link APP 24h Fanpage 24h B\u00f3ng \u0111\u00e1 24h TIKTOK 24h Youtube 24h Chia s\u1ebb Tin t\u1ee9c B\u00f3ng \u0111\u00e1 Th\u1ebf gi\u1edbi An ninh - X\u00e3 h\u1ed9i Hi-tech Kinh doanh \u0110\u1eb9",
+        "content_chars": 6000,
+        "fetched": true
+      }
+    },
+    {
+      "title": "UEF - Nguy\u1ec5n Kh\u00e1nh Linh hi\u1ec7n l\u00e0 Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello \u1edf khu ...",
+      "url": "https://www.facebook.com/photo.php?fbid=806328205302289&set=a.804981938770249&id=100077753492848",
+      "snippet": "4 thg 9, 2025 \u00b7 M\u1ed9t th\u01b0 vi\u1ec7n s\u00e1ch s\u1ed1 \u0111\u01b0\u1ee3c l\u01b0u tr\u1eef tr\u1ef1c ti\u1ebfp tr\u00ean m\u00e1y t\u00ednh, v\u1edbi nhi\u1ec1u th\u01b0 m\u1ee5c \u0111a d\u1ea1ng, ph\u00e2n lo\u1ea1i theo t\u1eebng ch\u1ee7 \u0111\u1ec1 kh\u00e1c nhau \u0111\u1ec3 c\u00e1c b\u1ea1n nh\u1ecf \u1edf Bu\u00f4n ...\n\nFull-page excerpt:\nFacebook {\"require\":[[\"Bootloader\",\"handlePayload\",null,[{\"consistency\":{\"rev\":1038839325},\"rsrcMap\":{\"USOsZ\\/Y\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4idYv4\\/yd\\/l\\/vi_VN-j\\/yf5a182xeQ0.js\",\"c\":1,\"p\":\":152\"},\"R3FKt\\/X\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yK\\/r\\/TA-U0b416VU.js\",\"c\":1,\"p\":\":0\"},\"1XdChB+\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yu\\/r\\/edfkKb53Us2.js\",\"c\":1,\"p\":\":0\"},\"dtCYGDX\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yU\\/r\\/w7elTV53WtO.js\",\"c\":1,\"p\":\":0\"},\"ncPSbsy\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iAaL4\\/yI\\/l\\/vi_VN-j\\/mOI3-QwYQaX.js\",\"c\":1,\" ...[truncated]",
+      "metadata": {
+        "provider": "searxng",
+        "engine": "google",
+        "engines": [
+          "google"
+        ],
+        "score": 3.0,
+        "category": "general",
+        "content": "Facebook {\"require\":[[\"Bootloader\",\"handlePayload\",null,[{\"consistency\":{\"rev\":1038839325},\"rsrcMap\":{\"USOsZ\\/Y\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4idYv4\\/yd\\/l\\/vi_VN-j\\/yf5a182xeQ0.js\",\"c\":1,\"p\":\":152\"},\"R3FKt\\/X\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yK\\/r\\/TA-U0b416VU.js\",\"c\":1,\"p\":\":0\"},\"1XdChB+\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yu\\/r\\/edfkKb53Us2.js\",\"c\":1,\"p\":\":0\"},\"dtCYGDX\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yU\\/r\\/w7elTV53WtO.js\",\"c\":1,\"p\":\":0\"},\"ncPSbsy\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iAaL4\\/yI\\/l\\/vi_VN-j\\/mOI3-QwYQaX.js\",\"c\":1,\"p\":\":0\"},\"LuHuJ91\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yc\\/r\\/wJ1BMhIsSsI.js\",\"c\":1,\"p\":\":0\"},\"V74TdxN\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4irBn4\\/yS\\/l\\/vi_VN-j\\/iufZ2yzZVUc.js\",\"c\":1,\"p\":\":0\"},\"siBfRr7\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yU\\/r\\/iqfLxxBozHv.js\",\"c\":1,\"p\":\":392\"},\"ZQvJHOc\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/ye\\/r\\/oZsias7qYaq.js\",\"c\":1,\"p\":\":0\"},\"oD\\/CqYu\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yD\\/r\\/zi2FR6Zxoyt.js\",\"c\":1,\"p\":\":0\"},\"\\/JjLhIO\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yG\\/r\\/Ps2ZeEckz8h.js\",\"c\":1,\"p\":\":0\"},\"XMSR2IO\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yT\\/r\\/maEC8p6q-Pw.js\",\"c\":1,\"p\":\":0\"},\"FlX0L67\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yJ\\/r\\/BP212NyYgPD.js\",\"c\":1,\"p\":\":0\"},\"rDXZndH\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yM\\/r\\/DyMMEmd313S.js\",\"c\":1,\"p\":\":0\"},\"Uui2vok\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/y0\\/r\\/s1j8eCJi6hu.js\",\"c\":1,\"p\":\":0\"},\"aZUcgCC\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4i-Ti4\\/yl\\/l\\/vi_VN-j\\/wyQk1F4oHuy.js\",\"c\":1,\"p\":\":923\"},\"7cDw5lL\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4i0M74\\/yf\\/l\\/vi_VN-j\\/6XOIC-YLlNQ.js\",\"c\":1,\"p\":\":0\"},\"k57\\/HUr\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yP\\/r\\/L2UyjQub1uE.js\",\"c\":1,\"p\":\":0\"},\"Buc6tsb\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iy8L4\\/yb\\/l\\/vi_VN-j\\/bOE7OoZC9d2.js\",\"c\":1,\"p\":\":711\"},\"9o5QL6R\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yF\\/r\\/Ci7Si47lYE8.js\",\"c\":1,\"p\":\":0\"},\"A7+bhcY\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iBG84\\/yG\\/l\\/vi_VN-j\\/ebYRKLI0Ko3.js\",\"c\":1,\"p\":\":704\"},\"zb\\/SfQu\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/y5\\/r\\/lqNJLeu-IBE.js\",\"c\":1,\"p\":\":0\"},\"SiXQPjD\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iFYA4\\/y6\\/l\\/vi_VN-j\\/-exLgOCR1WS.js\",\"c\":1,\"p\":\":0\"},\"h\\/2h8eE\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ijnN4\\/yG\\/l\\/vi_VN-j\\/ngOyH914Ma4.js\",\"c\":1,\"p\":\":254\"},\"QQ5PosL\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/y0\\/r\\/Tj__kLQvgVp.js\",\"c\":1,\"p\":\":173\"},\"OYjPhNm\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/y8\\/r\\/bNzekGp7Fjd.js\",\"c\":1,\"p\":\":0\"},\"WNwptxP\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ilhG4\\/yM\\/l\\/vi_VN-j\\/inL6FkUUFWn.js\",\"c\":1,\"p\":\":0\"},\"8IEqXG\\/\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ihFC4\\/y2\\/l\\/vi_VN-j\\/GRyipBD1hhr.js\",\"c\":1,\"p\":\":381\"},\"J0P76gH\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ivkV4\\/yL\\/l\\/vi_VN-j\\/zBDtuVMZrP2.js\",\"c\":1,\"p\":\":0\"},\"0vIfjJM\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yY\\/r\\/KZ2akN9Kmn_.js\",\"c\":1,\"p\":\":0\"},\"4p+JRWR\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iWDQ4\\/yA\\/l\\/vi_VN-j\\/zI9SGCTzQpI.js\",\"c\":1,\"p\":\":0\"},\"UGUTXAD\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yt\\/r\\/xzwPJlXrSPv.js\",\"c\":1,\"p\":\":0\"},\"bRdUIoS\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yp\\/r\\/4hhKgHp7KqH.js\",\"c\":1,\"p\":\":0\"},\"FPEeweo\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4i3gB4\\/y0\\/l\\/vi_VN-j\\/fBe-75hm-Wn.js\",\"c\":1,\"p\":\":0\"},\"U6tBnpV\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yW\\/r\\/5gVdvJdYQNY.js\",\"c\":1,\"p\":\":0\"},\"c7GUzWt\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/ye\\/r\\/wO3Yi3y-Q6f.js\",\"c\":1,\"p\":\":0\"},\"WI59aUS\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iaKv4\\/yV\\/l\\/vi_VN-j\\/CzUt10bnmSv.js\",\"c\":1,\"p\":\":0\"},\"gUATRzI\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yc\\/r\\/yfuFZ6_gFaf.js\",\"c\":1,\"p\":\":0\"},\"ADwB+G0\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yx\\/r\\/-qE0Nj-DbDR.js\",\"c\":1,\"p\":\":0\"},\"cngQrUl\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yo\\/r\\/KRrHIct0jeX.js\",\"c\":1,\"p\":\":0\"},\"IKFZtXQ\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yG\\/r\\/kw5Mcn9foZC.js\",\"c\":1,\"p\":\":0\"},\"bn4jLOz\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ifV-4\\/yI\\/l\\/vi_VN-j\\/EvPA3L69PKC.js\",\"c\":1,\"p\":\":697\"},\"gWl5LCD\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ib2X4\\/yn\\/l\\/vi_VN-j\\/keyKMuuNFRb.js\",\"c\":1,\"p\":\":0\"},\"yfr8tE+\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yo\\/r\\/7vK7ISDIImI.js\",\"c\":1,\"p\":\":0\"},\"sCjm+Yb\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yi\\/r\\/9aDaitikm1u.js\",\"c\":1,\"p\":\":0\"},\"5DV1X3B\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yP\\/r\\/8IrUVO1tyIm.js\",\"c\":1,\"p\":\":707\"},\"eCxmYg+\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yh\\/r\\/Ja80WaA9uvl.js\",\"c\":1,\"p\":\":0\"},\"B+5KHZ+\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/y-\\/r\\/ELe7NNwOzrK.js\",\"c\":1,\"p\":\":0\"},\"wU+Erl6\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yv\\/r\\/iz7WEWtxIvc.js\",\"c\":1,\"p\":\":0\"},\"Nc4MiT5\":{\"type\":\"js\",\"src\":\"https:\\/\\/static",
+        "content_chars": 6000,
+        "fetched": true
+      }
+    },
+    {
+      "title": "X\u00c2Y D\u1ef0NG AI AGENT - Google Developer Expert - Facebook",
+      "url": "https://www.facebook.com/GDGhanoi/posts/%EF%B8%8F-x%C3%A2y-d%E1%BB%B1ng-ai-agent-xu-h%C6%B0%E1%BB%9Bng-ai-m%E1%BB%9Bi-c%C3%B9ng-n%E1%BB%AF-google-developer-expert-aiml-%C4%91%E1%BA%A7u-ti%C3%AA/986424786950175/",
+      "snippet": "28 thg 3, 2025 \u00b7 - X\u00e2y d\u1ef1ng Agent Nghi\u00ean c\u1ee9u: T\u1eebng b\u01b0\u1edbc x\u00e2y d\u1ef1ng m\u1ed9t h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed c\u01a1 b\u1ea3n c\u00f3 kh\u1ea3 n\u0103ng h\u1ed7 tr\u1ee3 c\u00e1c t\u00e1c v\u1ee5 nghi\u00ean c\u1ee9u, thu th\u1eadp v\u00e0 ph\u00e2n t\u00edch ...",
+      "metadata": {
+        "provider": "searxng",
+        "engine": "google",
+        "engines": [
+          "google"
+        ],
+        "score": 0.6190476190476191,
+        "category": "general"
+      }
+    },
+    {
+      "title": "Tan - Facebook",
+      "url": "https://www.facebook.com/photo.php?fbid=1273166898168539&set=a.627667826051786&id=100064257236942",
+      "snippet": "18 thg 12, 2025 \u00b7 L\u00e0m ch\u1ee7 c\u00f4ng ngh\u1ec7 l\u00f5i v\u00e0 ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m (Product) c\u00f3 h\u00e0m l\u01b0\u1ee3ng ch\u1ea5t x\u00e1m cao. N\u0103ng l\u1ef1c qu\u1ea3n tr\u1ecb d\u1ef1 \u00e1n, d\u1eabn d\u1eaft \u0111\u1ed9i ng\u0169 c\u00f4ng ngh\u1ec7 ( ...\n\nFull-page excerpt:\nFacebook {\"require\":[[\"Bootloader\",\"handlePayload\",null,[{\"consistency\":{\"rev\":1038839325},\"rsrcMap\":{\"USOsZ\\/Y\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4idYv4\\/yd\\/l\\/vi_VN-j\\/yf5a182xeQ0.js\",\"c\":1,\"p\":\":152\"},\"R3FKt\\/X\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yK\\/r\\/TA-U0b416VU.js\",\"c\":1,\"p\":\":0\"},\"1XdChB+\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yu\\/r\\/edfkKb53Us2.js\",\"c\":1,\"p\":\":0\"},\"dtCYGDX\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yU\\/r\\/w7elTV53WtO.js\",\"c\":1,\"p\":\":0\"},\"ncPSbsy\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iAaL4\\/yI\\/l\\/vi_VN-j\\/mOI3-QwYQaX.js\",\"c\":1,\"p\":\" ...[truncated]",
+      "metadata": {
+        "provider": "searxng",
+        "engine": "google",
+        "engines": [
+          "google"
+        ],
+        "score": 0.5,
+        "category": "general",
+        "content": "Facebook {\"require\":[[\"Bootloader\",\"handlePayload\",null,[{\"consistency\":{\"rev\":1038839325},\"rsrcMap\":{\"USOsZ\\/Y\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4idYv4\\/yd\\/l\\/vi_VN-j\\/yf5a182xeQ0.js\",\"c\":1,\"p\":\":152\"},\"R3FKt\\/X\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yK\\/r\\/TA-U0b416VU.js\",\"c\":1,\"p\":\":0\"},\"1XdChB+\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yu\\/r\\/edfkKb53Us2.js\",\"c\":1,\"p\":\":0\"},\"dtCYGDX\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yU\\/r\\/w7elTV53WtO.js\",\"c\":1,\"p\":\":0\"},\"ncPSbsy\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iAaL4\\/yI\\/l\\/vi_VN-j\\/mOI3-QwYQaX.js\",\"c\":1,\"p\":\":0\"},\"LuHuJ91\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yc\\/r\\/wJ1BMhIsSsI.js\",\"c\":1,\"p\":\":0\"},\"V74TdxN\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4irBn4\\/yS\\/l\\/vi_VN-j\\/iufZ2yzZVUc.js\",\"c\":1,\"p\":\":0\"},\"siBfRr7\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yU\\/r\\/iqfLxxBozHv.js\",\"c\":1,\"p\":\":392\"},\"ZQvJHOc\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/ye\\/r\\/oZsias7qYaq.js\",\"c\":1,\"p\":\":0\"},\"oD\\/CqYu\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yD\\/r\\/zi2FR6Zxoyt.js\",\"c\":1,\"p\":\":0\"},\"\\/JjLhIO\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yG\\/r\\/Ps2ZeEckz8h.js\",\"c\":1,\"p\":\":0\"},\"XMSR2IO\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yT\\/r\\/maEC8p6q-Pw.js\",\"c\":1,\"p\":\":0\"},\"FlX0L67\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yJ\\/r\\/BP212NyYgPD.js\",\"c\":1,\"p\":\":0\"},\"rDXZndH\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yM\\/r\\/DyMMEmd313S.js\",\"c\":1,\"p\":\":0\"},\"Uui2vok\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/y0\\/r\\/s1j8eCJi6hu.js\",\"c\":1,\"p\":\":0\"},\"aZUcgCC\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4i-Ti4\\/yl\\/l\\/vi_VN-j\\/wyQk1F4oHuy.js\",\"c\":1,\"p\":\":923\"},\"7cDw5lL\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4i0M74\\/yf\\/l\\/vi_VN-j\\/6XOIC-YLlNQ.js\",\"c\":1,\"p\":\":0\"},\"k57\\/HUr\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yP\\/r\\/L2UyjQub1uE.js\",\"c\":1,\"p\":\":0\"},\"Buc6tsb\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iy8L4\\/yb\\/l\\/vi_VN-j\\/bOE7OoZC9d2.js\",\"c\":1,\"p\":\":711\"},\"9o5QL6R\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yF\\/r\\/Ci7Si47lYE8.js\",\"c\":1,\"p\":\":0\"},\"A7+bhcY\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iBG84\\/yG\\/l\\/vi_VN-j\\/ebYRKLI0Ko3.js\",\"c\":1,\"p\":\":704\"},\"zb\\/SfQu\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/y5\\/r\\/lqNJLeu-IBE.js\",\"c\":1,\"p\":\":0\"},\"SiXQPjD\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iFYA4\\/y6\\/l\\/vi_VN-j\\/-exLgOCR1WS.js\",\"c\":1,\"p\":\":0\"},\"h\\/2h8eE\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ijnN4\\/yG\\/l\\/vi_VN-j\\/ngOyH914Ma4.js\",\"c\":1,\"p\":\":254\"},\"QQ5PosL\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/y0\\/r\\/Tj__kLQvgVp.js\",\"c\":1,\"p\":\":173\"},\"OYjPhNm\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/y8\\/r\\/bNzekGp7Fjd.js\",\"c\":1,\"p\":\":0\"},\"WNwptxP\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ilhG4\\/yM\\/l\\/vi_VN-j\\/inL6FkUUFWn.js\",\"c\":1,\"p\":\":0\"},\"8IEqXG\\/\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ihFC4\\/y2\\/l\\/vi_VN-j\\/GRyipBD1hhr.js\",\"c\":1,\"p\":\":381\"},\"J0P76gH\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ivkV4\\/yL\\/l\\/vi_VN-j\\/zBDtuVMZrP2.js\",\"c\":1,\"p\":\":0\"},\"0vIfjJM\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yY\\/r\\/KZ2akN9Kmn_.js\",\"c\":1,\"p\":\":0\"},\"4p+JRWR\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iWDQ4\\/yA\\/l\\/vi_VN-j\\/zI9SGCTzQpI.js\",\"c\":1,\"p\":\":0\"},\"UGUTXAD\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yt\\/r\\/xzwPJlXrSPv.js\",\"c\":1,\"p\":\":0\"},\"bRdUIoS\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yp\\/r\\/4hhKgHp7KqH.js\",\"c\":1,\"p\":\":0\"},\"FPEeweo\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4i3gB4\\/y0\\/l\\/vi_VN-j\\/fBe-75hm-Wn.js\",\"c\":1,\"p\":\":0\"},\"U6tBnpV\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yW\\/r\\/5gVdvJdYQNY.js\",\"c\":1,\"p\":\":0\"},\"c7GUzWt\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/ye\\/r\\/wO3Yi3y-Q6f.js\",\"c\":1,\"p\":\":0\"},\"WI59aUS\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4iaKv4\\/yV\\/l\\/vi_VN-j\\/CzUt10bnmSv.js\",\"c\":1,\"p\":\":0\"},\"gUATRzI\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yc\\/r\\/yfuFZ6_gFaf.js\",\"c\":1,\"p\":\":0\"},\"ADwB+G0\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yx\\/r\\/-qE0Nj-DbDR.js\",\"c\":1,\"p\":\":0\"},\"cngQrUl\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yo\\/r\\/KRrHIct0jeX.js\",\"c\":1,\"p\":\":0\"},\"IKFZtXQ\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yG\\/r\\/kw5Mcn9foZC.js\",\"c\":1,\"p\":\":0\"},\"bn4jLOz\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ifV-4\\/yI\\/l\\/vi_VN-j\\/EvPA3L69PKC.js\",\"c\":1,\"p\":\":697\"},\"gWl5LCD\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4ib2X4\\/yn\\/l\\/vi_VN-j\\/keyKMuuNFRb.js\",\"c\":1,\"p\":\":0\"},\"yfr8tE+\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yo\\/r\\/7vK7ISDIImI.js\",\"c\":1,\"p\":\":0\"},\"sCjm+Yb\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yi\\/r\\/9aDaitikm1u.js\",\"c\":1,\"p\":\":0\"},\"5DV1X3B\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yP\\/r\\/8IrUVO1tyIm.js\",\"c\":1,\"p\":\":707\"},\"eCxmYg+\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yh\\/r\\/Ja80WaA9uvl.js\",\"c\":1,\"p\":\":0\"},\"B+5KHZ+\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/y-\\/r\\/ELe7NNwOzrK.js\",\"c\":1,\"p\":\":0\"},\"wU+Erl6\":{\"type\":\"js\",\"src\":\"https:\\/\\/static.xx.fbcdn.net\\/rsrc.php\\/v4\\/yv\\/r\\/iz7WEWtxIvc.js\",\"c\":1,\"p\":\":0\"},\"Nc4MiT5\":{\"type\":\"js\",\"src\":\"https:\\/\\/static",
+        "content_chars": 6000,
+        "fetched": true
+      }
+    }
+  ],
+  "agent_results": [
+    {
+      "agent": "supervisor",
+      "content": "researcher",
+      "metadata": {
+        "iteration": 1,
+        "reason": "missing_research",
+        "errors": 0
+      }
+    },
+    {
+      "agent": "researcher",
+      "content": "### Th\u00f4ng tin v\u1ec1 Obello\n\n#### 1. Gi\u1edbi thi\u1ec7u v\u1ec1 Obello\n- Obello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p (startup) c\u00f3 tr\u1ee5 s\u1edf t\u1ea1i San Francisco, M\u1ef9, chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning [2].\n- C\u00f4ng ty n\u00e0y \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m v\u00e0 gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 cao, \u0111\u1eb7c bi\u1ec7t trong l\u0129nh v\u1ef1c tr\u00ed tu\u1ec7 nh\u00e2n t\u1ea1o [5].\n\n#### 2. Vai tr\u00f2 c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh\n- Nguy\u1ec5n Kh\u00e1nh Linh hi\u1ec7n \u0111ang gi\u1eef v\u1ecb tr\u00ed Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello. C\u00f4 l\u00e0 m\u1ed9t trong nh\u1eefng ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t Nam \u0111\u1ea7u ti\u00ean \u0111\u01b0\u1ee3c c\u00f4ng nh\u1eadn l\u00e0 Google Developer Expert (GDE) trong l\u0129nh v\u1ef1c AI [2][3].\n- C\u00f4 d\u1eabn d\u1eaft c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u v\u00e0 ph\u00e1t tri\u1ec3n m\u00f4 h\u00ecnh GenAI ph\u1ee5c v\u1ee5 ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u, cho th\u1ea5y s\u1ef1 \u1ea3nh h\u01b0\u1edfng v\u00e0 vai tr\u00f2 quan tr\u1ecdng c\u1ee7a c\u00f4 trong c\u00f4ng ty [2].\n\n#### 3. \u0110\u00e0o t\u1ea1o v\u00e0 s\u1ef1 nghi\u1ec7p\n- Kh\u00e1nh Linh \u0111\u00e3 c\u00f3 m\u1ed9t qu\u00e1 tr\u00ecnh h\u1ecdc t\u1eadp \u1ea5n t\u01b0\u1ee3ng, bao g\u1ed3m vi\u1ec7c nghi\u00ean c\u1ee9u v\u1ec1 th\u1ecb gi\u00e1c m\u00e1y t\u00ednh v\u00e0 d\u1eef li\u1ec7u l\u1edbn t\u1eeb khi c\u00f2n h\u1ecdc \u0111\u1ea1i h\u1ecdc. C\u00f4 \u0111\u00e3 ho\u00e0n th\u00e0nh ch\u01b0\u01a1ng tr\u00ecnh th\u1ea1c s\u0129 t\u1ea1i \u0110\u1ea1i h\u1ecdc Qu\u1ed1c gia Singapore (NUS) [2].\n- C\u00f4 \u0111\u00e3 t\u00edch l\u0169y \u0111\u01b0\u1ee3c nhi\u1ec1u kinh nghi\u1ec7m trong l\u0129nh v\u1ef1c AI v\u00e0 Machine Learning, \u0111i\u1ec1u n\u00e0y gi\u00fap c\u00f4 c\u00f3 \u0111\u01b0\u1ee3c v\u1ecb tr\u00ed l\u00e3nh \u0111\u1ea1o t\u1ea1i Obello [2].\n\n#### 4. D\u1ef1 \u00e1n v\u00e0 s\u1ea3n ph\u1ea9m\n- Obello \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f3 h\u00e0m l\u01b0\u1ee3ng ch\u1ea5t x\u00e1m cao, v\u1edbi m\u1ee5c ti\u00eau t\u1ea1o ra nh\u1eefng gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn cho ng\u01b0\u1eddi d\u00f9ng [5].\n- C\u00f4ng ty c\u0169ng \u0111ang nghi\u00ean c\u1ee9u v\u00e0 x\u00e2y d\u1ef1ng c\u00e1c h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed, h\u1ed7 tr\u1ee3 cho c\u00e1c t\u00e1c v\u1ee5 nghi\u00ean c\u1ee9u v\u00e0 ph\u00e2n t\u00edch [4].\n\n#### 5. T\u1ea7m nh\u00ecn v\u00e0 s\u1ee9 m\u1ec7nh\n- Obello h\u01b0\u1edbng t\u1edbi vi\u1ec7c tr\u1edf th\u00e0nh m\u1ed9t trong nh\u1eefng c\u00f4ng ty h\u00e0ng \u0111\u1ea7u trong l\u0129nh v\u1ef1c AI, v\u1edbi s\u1ee9 m\u1ec7nh cung c\u1ea5p c\u00e1c gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 th\u00f4ng minh v\u00e0 hi\u1ec7u qu\u1ea3 cho ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u [2][5].\n- C\u00f4ng ty c\u0169ng nh\u1ea5n m\u1ea1nh t\u1ea7m quan tr\u1ecdng c\u1ee7a vi\u1ec7c ph\u00e1t tri\u1ec3n \u0111\u1ed9i ng\u0169 c\u00f4ng ngh\u1ec7 v\u00e0 qu\u1ea3n l\u00fd d\u1ef1 \u00e1n hi\u1ec7u qu\u1ea3 \u0111\u1ec3 \u0111\u1ea1t \u0111\u01b0\u1ee3c m\u1ee5c ti\u00eau n\u00e0y [5].\n\n### Th\u00f4ng tin kh\u00f4ng ch\u1eafc ch\u1eafn\n- Kh\u00f4ng c\u00f3 th\u00f4ng tin n\u00e0o m\u00e2u thu\u1eabn r\u00f5 r\u00e0ng gi\u1eefa c\u00e1c ngu\u1ed3n, nh\u01b0ng c\u00f3 th\u1ec3 c\u1ea7n th\u00eam th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n v\u00e0 c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u c\u1ee5 th\u1ec3 m\u00e0 Kh\u00e1nh Linh \u0111ang d\u1eabn d\u1eaft.\n\n### K\u1ebft lu\u1eadn\nObello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p ti\u1ec1m n\u0103ng trong l\u0129nh v\u1ef1c AI, v\u1edbi s\u1ef1 l\u00e3nh \u0111\u1ea1o c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh, ng\u01b0\u1eddi \u0111\u00e3 c\u00f3 nh\u1eefng \u0111\u00f3ng g\u00f3p \u0111\u00e1ng k\u1ec3 cho s\u1ef1 ph\u00e1t tri\u1ec3n c\u1ee7a c\u00f4ng ty. C\u00f4ng ty \u0111ang t\u1eadp trung v\u00e0o vi\u1ec7c ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u00e0 x\u00e2y d\u1ef1ng m\u1ed9t \u0111\u1ed9i ng\u0169 m\u1ea1nh m\u1ebd trong l\u0129nh v\u1ef1c n\u00e0y.",
+      "metadata": {
+        "sources_found": 5,
+        "tokens_in": 2663,
+        "tokens_out": 621,
+        "cost_usd": 0.0007720499999999999,
+        "parallel_research": true
+      }
+    },
+    {
+      "agent": "supervisor",
+      "content": "analyst",
+      "metadata": {
+        "iteration": 2,
+        "reason": "missing_analysis",
+        "errors": 0
+      }
+    },
+    {
+      "agent": "analyst",
+      "content": "## C\u00e1c Kh\u1eb3ng \u0110\u1ecbnh Ch\u00ednh\n- **Kh\u1eb3ng \u0111\u1ecbnh 1**: Obello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p t\u1ea1i San Francisco chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning.\n- **Kh\u1eb3ng \u0111\u1ecbnh 2**: Nguy\u1ec5n Kh\u00e1nh Linh l\u00e0 Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello v\u00e0 l\u00e0 m\u1ed9t trong nh\u1eefng Google Developer Expert (GDE) \u0111\u1ea7u ti\u00ean trong l\u0129nh v\u1ef1c AI.\n- **Kh\u1eb3ng \u0111\u1ecbnh 3**: Obello \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u00e0 h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed.\n- **Kh\u1eb3ng \u0111\u1ecbnh 4**: C\u00f4ng ty c\u00f3 t\u1ea7m nh\u00ecn tr\u1edf th\u00e0nh m\u1ed9t trong nh\u1eefng c\u00f4ng ty h\u00e0ng \u0111\u1ea7u trong l\u0129nh v\u1ef1c AI v\u1edbi s\u1ee9 m\u1ec7nh cung c\u1ea5p gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 th\u00f4ng minh.\n\n## \u0110\u1ed9 M\u1ea1nh c\u1ee7a B\u1eb1ng Ch\u1ee9ng\n- **Kh\u1eb3ng \u0111\u1ecbnh 1**: **M\u1ea1nh** - Th\u00f4ng tin v\u1ec1 v\u1ecb tr\u00ed v\u00e0 l\u0129nh v\u1ef1c ho\u1ea1t \u0111\u1ed9ng c\u1ee7a Obello \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn t\u1eeb nhi\u1ec1u ngu\u1ed3n \u0111\u00e1ng tin c\u1eady.\n- **Kh\u1eb3ng \u0111\u1ecbnh 2**: **M\u1ea1nh** - Nguy\u1ec5n Kh\u00e1nh Linh \u0111\u01b0\u1ee3c c\u00f4ng nh\u1eadn l\u00e0 GDE, \u0111i\u1ec1u n\u00e0y ch\u1ee9ng t\u1ecf s\u1ef1 c\u00f4ng nh\u1eadn t\u1eeb c\u1ed9ng \u0111\u1ed3ng c\u00f4ng ngh\u1ec7.\n- **Kh\u1eb3ng \u0111\u1ecbnh 3**: **M\u1ea1nh** - C\u00e1c s\u1ea3n ph\u1ea9m v\u00e0 h\u1ec7 th\u1ed1ng AI m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n \u0111\u01b0\u1ee3c m\u00f4 t\u1ea3 r\u00f5 r\u00e0ng, cho th\u1ea5y s\u1ef1 \u0111\u1ea7u t\u01b0 v\u00e0o c\u00f4ng ngh\u1ec7.\n- **Kh\u1eb3ng \u0111\u1ecbnh 4**: **M\u1ea1nh** - T\u1ea7m nh\u00ecn v\u00e0 s\u1ee9 m\u1ec7nh c\u1ee7a c\u00f4ng ty \u0111\u01b0\u1ee3c n\u00eau r\u00f5, th\u1ec3 hi\u1ec7n m\u1ee5c ti\u00eau d\u00e0i h\u1ea1n v\u00e0 chi\u1ebfn l\u01b0\u1ee3c ph\u00e1t tri\u1ec3n.\n\n## Quan \u0110i\u1ec3m M\u00e2u Thu\u1eabn\n- Kh\u00f4ng c\u00f3 th\u00f4ng tin m\u00e2u thu\u1eabn r\u00f5 r\u00e0ng gi\u1eefa c\u00e1c ngu\u1ed3n. Tuy nhi\u00ean, c\u1ea7n th\u00eam th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n.\n\n## Kho\u1ea3ng Tr\u1ed1ng Ki\u1ebfn Th\u1ee9c\n- C\u00e1c th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 v\u00e0 d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u m\u00e0 Nguy\u1ec5n Kh\u00e1nh Linh \u0111ang d\u1eabn d\u1eaft ch\u01b0a \u0111\u01b0\u1ee3c \u0111\u1ec1 c\u1eadp. C\u1ea7n c\u00f3 th\u00eam nghi\u00ean c\u1ee9u v\u1ec1 hi\u1ec7u qu\u1ea3 v\u00e0 \u1ee9ng d\u1ee5ng th\u1ef1c t\u1ebf c\u1ee7a c\u00e1c s\u1ea3n ph\u1ea9m n\u00e0y.\n\n## Th\u00f4ng \u0110i\u1ec7p H\u00e0nh \u0110\u1ed9ng\n1. **Kh\u00e1m Ph\u00e1 C\u01a1 H\u1ed9i H\u1ee3p T\u00e1c**: C\u00e1c nh\u00e0 nghi\u00ean c\u1ee9u v\u00e0 doanh nghi\u1ec7p c\u00f3 th\u1ec3 xem x\u00e9t h\u1ee3p t\u00e1c v\u1edbi Obello \u0111\u1ec3 ph\u00e1t tri\u1ec3n c\u00e1c gi\u1ea3i ph\u00e1p AI ti\u00ean ti\u1ebfn.\n2. **Theo D\u00f5i Xu H\u01b0\u1edbng C\u00f4ng Ngh\u1ec7**: C\u00e1c k\u1ef9 s\u01b0 v\u00e0 chuy\u00ean gia trong l\u0129nh v\u1ef1c AI n\u00ean theo d\u00f5i s\u1ef1 ph\u00e1t tri\u1ec3n c\u1ee7a Obello \u0111\u1ec3 n\u1eafm b\u1eaft c\u00e1c xu h\u01b0\u1edbng c\u00f4ng ngh\u1ec7 m\u1edbi.\n3. **\u0110\u1ea7u T\u01b0 V\u00e0o \u0110\u00e0o T\u1ea1o**: C\u00e1c t\u1ed5 ch\u1ee9c gi\u00e1o d\u1ee5c v\u00e0 \u0111\u00e0o t\u1ea1o n\u00ean xem x\u00e9t vi\u1ec7c ph\u00e1t tri\u1ec3n c\u00e1c ch\u01b0\u01a1ng tr\u00ecnh \u0111\u00e0o t\u1ea1o li\u00ean quan \u0111\u1ebfn AI v\u00e0 Machine Learning, d\u1ef1a tr\u00ean m\u00f4 h\u00ecnh th\u00e0nh c\u00f4ng c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh v\u00e0 Obello.",
+      "metadata": {
+        "tokens_in": 815,
+        "tokens_out": 595,
+        "cost_usd": 0.00047925
+      }
+    },
+    {
+      "agent": "supervisor",
+      "content": "writer",
+      "metadata": {
+        "iteration": 3,
+        "reason": "missing_final_answer",
+        "errors": 0
+      }
+    },
+    {
+      "agent": "writer",
+      "content": "## T\u00f3m t\u1eaft\nObello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p t\u1ea1i San Francisco chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning, d\u1eabn d\u1eaft b\u1edfi Nguy\u1ec5n Kh\u00e1nh Linh, m\u1ed9t chuy\u00ean gia n\u1ed5i b\u1eadt trong l\u0129nh v\u1ef1c n\u00e0y. C\u00f4ng ty \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u1edbi m\u1ee5c ti\u00eau cung c\u1ea5p gi\u1ea3i ph\u00e1p th\u00f4ng minh cho ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u.\n\n## Gi\u1edbi thi\u1ec7u v\u1ec1 Obello\nObello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p c\u00f3 tr\u1ee5 s\u1edf t\u1ea1i San Francisco, M\u1ef9, chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning. C\u00f4ng ty n\u00e0y \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m v\u00e0 gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 cao, \u0111\u1eb7c bi\u1ec7t trong l\u0129nh v\u1ef1c tr\u00ed tu\u1ec7 nh\u00e2n t\u1ea1o [2][5].\n\n## Vai tr\u00f2 c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh\nNguy\u1ec5n Kh\u00e1nh Linh hi\u1ec7n \u0111ang gi\u1eef v\u1ecb tr\u00ed Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello. C\u00f4 l\u00e0 m\u1ed9t trong nh\u1eefng ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t Nam \u0111\u1ea7u ti\u00ean \u0111\u01b0\u1ee3c c\u00f4ng nh\u1eadn l\u00e0 Google Developer Expert (GDE) trong l\u0129nh v\u1ef1c AI [2][3]. C\u00f4 d\u1eabn d\u1eaft c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u v\u00e0 ph\u00e1t tri\u1ec3n m\u00f4 h\u00ecnh GenAI ph\u1ee5c v\u1ee5 ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u, cho th\u1ea5y s\u1ef1 \u1ea3nh h\u01b0\u1edfng v\u00e0 vai tr\u00f2 quan tr\u1ecdng c\u1ee7a c\u00f4 trong c\u00f4ng ty [2].\n\n## \u0110\u00e0o t\u1ea1o v\u00e0 s\u1ef1 nghi\u1ec7p\nKh\u00e1nh Linh \u0111\u00e3 c\u00f3 m\u1ed9t qu\u00e1 tr\u00ecnh h\u1ecdc t\u1eadp \u1ea5n t\u01b0\u1ee3ng, bao g\u1ed3m vi\u1ec7c nghi\u00ean c\u1ee9u v\u1ec1 th\u1ecb gi\u00e1c m\u00e1y t\u00ednh v\u00e0 d\u1eef li\u1ec7u l\u1edbn t\u1eeb khi c\u00f2n h\u1ecdc \u0111\u1ea1i h\u1ecdc. C\u00f4 \u0111\u00e3 ho\u00e0n th\u00e0nh ch\u01b0\u01a1ng tr\u00ecnh th\u1ea1c s\u0129 t\u1ea1i \u0110\u1ea1i h\u1ecdc Qu\u1ed1c gia Singapore (NUS) [2]. V\u1edbi nhi\u1ec1u kinh nghi\u1ec7m trong l\u0129nh v\u1ef1c AI v\u00e0 Machine Learning, c\u00f4 \u0111\u00e3 c\u00f3 \u0111\u01b0\u1ee3c v\u1ecb tr\u00ed l\u00e3nh \u0111\u1ea1o t\u1ea1i Obello [2].\n\n## D\u1ef1 \u00e1n v\u00e0 s\u1ea3n ph\u1ea9m\nObello \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f3 h\u00e0m l\u01b0\u1ee3ng ch\u1ea5t x\u00e1m cao, v\u1edbi m\u1ee5c ti\u00eau t\u1ea1o ra nh\u1eefng gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn cho ng\u01b0\u1eddi d\u00f9ng [5]. C\u00f4ng ty c\u0169ng \u0111ang nghi\u00ean c\u1ee9u v\u00e0 x\u00e2y d\u1ef1ng c\u00e1c h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed, h\u1ed7 tr\u1ee3 cho c\u00e1c t\u00e1c v\u1ee5 nghi\u00ean c\u1ee9u v\u00e0 ph\u00e2n t\u00edch [4].\n\n## T\u1ea7m nh\u00ecn v\u00e0 s\u1ee9 m\u1ec7nh\nObello h\u01b0\u1edbng t\u1edbi vi\u1ec7c tr\u1edf th\u00e0nh m\u1ed9t trong nh\u1eefng c\u00f4ng ty h\u00e0ng \u0111\u1ea7u trong l\u0129nh v\u1ef1c AI, v\u1edbi s\u1ee9 m\u1ec7nh cung c\u1ea5p c\u00e1c gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 th\u00f4ng minh v\u00e0 hi\u1ec7u qu\u1ea3 cho ng\u01b0\u1eddi d\u00f9ng to\u00e0n c\u1ea7u [2][5]. C\u00f4ng ty nh\u1ea5n m\u1ea1nh t\u1ea7m quan tr\u1ecdng c\u1ee7a vi\u1ec7c ph\u00e1t tri\u1ec3n \u0111\u1ed9i ng\u0169 c\u00f4ng ngh\u1ec7 v\u00e0 qu\u1ea3n l\u00fd d\u1ef1 \u00e1n hi\u1ec7u qu\u1ea3 \u0111\u1ec3 \u0111\u1ea1t \u0111\u01b0\u1ee3c m\u1ee5c ti\u00eau n\u00e0y [5].\n\n## Th\u00f4ng tin kh\u00f4ng ch\u1eafc ch\u1eafn\nM\u1eb7c d\u00f9 c\u00f3 nhi\u1ec1u th\u00f4ng tin x\u00e1c th\u1ef1c v\u1ec1 Obello v\u00e0 Nguy\u1ec5n Kh\u00e1nh Linh, nh\u01b0ng c\u1ea7n th\u00eam th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n v\u00e0 c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u m\u00e0 Kh\u00e1nh Linh \u0111ang d\u1eabn d\u1eaft.\n\n## K\u1ebft lu\u1eadn\nObello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p ti\u1ec1m n\u0103ng trong l\u0129nh v\u1ef1c AI, v\u1edbi s\u1ef1 l\u00e3nh \u0111\u1ea1o c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh, ng\u01b0\u1eddi \u0111\u00e3 c\u00f3 nh\u1eefng \u0111\u00f3ng g\u00f3p \u0111\u00e1ng k\u1ec3 cho s\u1ef1 ph\u00e1t tri\u1ec3n c\u1ee7a c\u00f4ng ty. C\u00f4ng ty \u0111ang t\u1eadp trung v\u00e0o vi\u1ec7c ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u00e0 x\u00e2y d\u1ef1ng m\u1ed9t \u0111\u1ed9i ng\u0169 m\u1ea1nh m\u1ebd trong l\u0129nh v\u1ef1c n\u00e0y.\n\n## C\u00e1c Kh\u1eb3ng \u0110\u1ecbnh Ch\u00ednh\n- **Kh\u1eb3ng \u0111\u1ecbnh 1**: Obello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p t\u1ea1i San Francisco chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning.\n- **Kh\u1eb3ng \u0111\u1ecbnh 2**: Nguy\u1ec5n Kh\u00e1nh Linh l\u00e0 Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello v\u00e0 l\u00e0 m\u1ed9t trong nh\u1eefng Google Developer Expert (GDE) \u0111\u1ea7u ti\u00ean trong l\u0129nh v\u1ef1c AI.\n- **Kh\u1eb3ng \u0111\u1ecbnh 3**: Obello \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u00e0 h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed.\n- **Kh\u1eb3ng \u0111\u1ecbnh 4**: C\u00f4ng ty c\u00f3 t\u1ea7m nh\u00ecn tr\u1edf th\u00e0nh m\u1ed9t trong nh\u1eefng c\u00f4ng ty h\u00e0ng \u0111\u1ea7u trong l\u0129nh v\u1ef1c AI v\u1edbi s\u1ee9 m\u1ec7nh cung c\u1ea5p gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 th\u00f4ng minh.\n\n## \u0110\u1ed9 M\u1ea1nh c\u1ee7a B\u1eb1ng Ch\u1ee9ng\n- **Kh\u1eb3ng \u0111\u1ecbnh 1**: **M\u1ea1nh** - Th\u00f4ng tin v\u1ec1 v\u1ecb tr\u00ed v\u00e0 l\u0129nh v\u1ef1c ho\u1ea1t \u0111\u1ed9ng c\u1ee7a Obello \u0111\u01b0\u1ee3c x\u00e1c nh\u1eadn t\u1eeb nhi\u1ec1u ngu\u1ed3n \u0111\u00e1ng tin c\u1eady.\n- **Kh\u1eb3ng \u0111\u1ecbnh 2**: **M\u1ea1nh** - Nguy\u1ec5n Kh\u00e1nh Linh \u0111\u01b0\u1ee3c c\u00f4ng nh\u1eadn l\u00e0 GDE, \u0111i\u1ec1u n\u00e0y ch\u1ee9ng t\u1ecf s\u1ef1 c\u00f4ng nh\u1eadn t\u1eeb c\u1ed9ng \u0111\u1ed3ng c\u00f4ng ngh\u1ec7.\n- **Kh\u1eb3ng \u0111\u1ecbnh 3**: **M\u1ea1nh** - C\u00e1c s\u1ea3n ph\u1ea9m v\u00e0 h\u1ec7 th\u1ed1ng AI m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n \u0111\u01b0\u1ee3c m\u00f4 t\u1ea3 r\u00f5 r\u00e0ng, cho th\u1ea5y s\u1ef1 \u0111\u1ea7u t\u01b0 v\u00e0o c\u00f4ng ngh\u1ec7.\n- **Kh\u1eb3ng \u0111\u1ecbnh 4**: **M\u1ea1nh** - T\u1ea7m nh\u00ecn v\u00e0 s\u1ee9 m\u1ec7nh c\u1ee7a c\u00f4ng ty \u0111\u01b0\u1ee3c n\u00eau r\u00f5, th\u1ec3 hi\u1ec7n m\u1ee5c ti\u00eau d\u00e0i h\u1ea1n v\u00e0 chi\u1ebfn l\u01b0\u1ee3c ph\u00e1t tri\u1ec3n.\n\n## Kho\u1ea3ng Tr\u1ed1ng Ki\u1ebfn Th\u1ee9c\nC\u00e1c th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 v\u00e0 d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u m\u00e0 Nguy\u1ec5n Kh\u00e1nh Linh \u0111ang d\u1eabn d\u1eaft ch\u01b0a \u0111\u01b0\u1ee3c \u0111\u1ec1 c\u1eadp. C\u1ea7n c\u00f3 th\u00eam nghi\u00ean c\u1ee9u v\u1ec1 hi\u1ec7u qu\u1ea3 v\u00e0 \u1ee9ng d\u1ee5ng th\u1ef1c t\u1ebf c\u1ee7a c\u00e1c s\u1ea3n ph\u1ea9m n\u00e0y.\n\n## Th\u00f4ng \u0110i\u1ec7p H\u00e0nh \u0110\u1ed9ng\n1. **Kh\u00e1m Ph\u00e1 C\u01a1 H\u1ed9i H\u1ee3p T\u00e1c**: C\u00e1c nh\u00e0 nghi\u00ean c\u1ee9u v\u00e0 doanh nghi\u1ec7p c\u00f3 th\u1ec3 xem x\u00e9t h\u1ee3p t\u00e1c v\u1edbi Obello \u0111\u1ec3 ph\u00e1t tri\u1ec3n c\u00e1c gi\u1ea3i ph\u00e1p AI ti\u00ean ti\u1ebfn.\n2. **Theo D\u00f5i Xu H\u01b0\u1edbng C\u00f4ng Ngh\u1ec7**: C\u00e1c k\u1ef9 s\u01b0 v\u00e0 chuy\u00ean gia trong l\u0129nh v\u1ef1c AI n\u00ean theo d\u00f5i s\u1ef1 ph\u00e1t tri\u1ec3n c\u1ee7a Obello \u0111\u1ec3 n\u1eafm b\u1eaft c\u00e1c xu h\u01b0\u1edbng c\u00f4ng ngh\u1ec7 m\u1edbi.\n3. **\u0110\u1ea7u T\u01b0 V\u00e0o \u0110\u00e0o T\u1ea1o**: C\u00e1c t\u1ed5 ch\u1ee9c gi\u00e1o d\u1ee5c v\u00e0 \u0111\u00e0o t\u1ea1o n\u00ean xem x\u00e9t vi\u1ec7c ph\u00e1t tri\u1ec3n c\u00e1c ch\u01b0\u01a1ng tr\u00ecnh \u0111\u00e0o t\u1ea1o li\u00ean quan \u0111\u1ebfn AI v\u00e0 Machine Learning, d\u1ef1a tr\u00ean m\u00f4 h\u00ecnh th\u00e0nh c\u00f4ng c\u1ee7a Nguy\u1ec5n Kh\u00e1nh Linh v\u00e0 Obello.\n\n## T\u00e0i li\u1ec7u tham kh\u1ea3o\n[1] \u200d T\u1eea CHUY\u00caN SINH \u0110\u1ebeN CHUY\u00caN VI\u00caN IT T\u1ea0I C\u00d4NG TY OBELLO ... \u2014 https://www.facebook.com/tantaouniversity/posts/t%E1%BB%AB-chuy%C3%AAn-sinh-%C4%91%E1%BA%BFn-chuy%C3%AAn-vi%C3%AAn-it-t%E1%BA%A1i-c%C3%B4ng-ty-obello-c%E1%BB%A7a-m%E1%BB%B9-c%C3%A2u-chuy%E1%BB%87n-truy%E1%BB%81n-c%E1%BA%A3/1271144035037492/  \n[2] Ng\u01b0\u1eddi ph\u1ee5 n\u1eef Vi\u1ec7t \u0111\u1ea7u ti\u00ean tr\u1edf th\u00e0nh chuy\u00ean gia \u0111\u1ed9c l\u1eadp c\u1ee7a Google - 24H \u2014 https://www.24h.com.vn/cong-nghe-thong-tin/chuyen-gia-ai-dat-gia-nguoi-viet-o-google-c55a1739268.html  \n[3] UEF - Nguy\u1ec5n Kh\u00e1nh Linh hi\u1ec7n l\u00e0 Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello \u1edf khu ... \u2014 https://www.facebook.com/photo.php?fbid=806328205302289&set=a.804981938770249&id=100077753492848  \n[4] X\u00c2Y D\u1ef0NG AI AGENT - Google Developer Expert - Facebook \u2014 https://www.facebook.com/GDGhanoi/posts/%EF%B8%8F-x%C3%A2y-d%E1%BB%B1ng-ai-agent-xu-h%C6%B0%E1%BB%9Bng-ai-m%E1%BB%9Bi-c%C3%B9ng-n%E1%BB%AF-google-developer-expert-aiml-%C4%91%E1%BA%A7u-ti%C3%AA/986424786950175/  \n[5] Tan - Facebook \u2014 https://www.facebook.com/photo.php?fbid=1273166898168539&set=a.627667826051786&id=100064257236942",
+      "metadata": {
+        "tokens_in": 1858,
+        "tokens_out": 1644,
+        "cost_usd": 0.0012651,
+        "word_count": 995
+      }
+    },
+    {
+      "agent": "supervisor",
+      "content": "critic",
+      "metadata": {
+        "iteration": 4,
+        "reason": "needs_quality_gate",
+        "errors": 0
+      }
+    },
+    {
+      "agent": "critic",
+      "content": "## \u0110\u00e1nh gi\u00e1\n\n### \u0110\u1ed9 Ch\u00ednh X\u00e1c Th\u1ef1c T\u1ebf\n- **Kh\u1eb3ng \u0111\u1ecbnh 1**: Obello l\u00e0 m\u1ed9t c\u00f4ng ty kh\u1edfi nghi\u1ec7p t\u1ea1i San Francisco chuy\u00ean v\u1ec1 c\u00f4ng ngh\u1ec7 AI v\u00e0 Machine Learning. **(H\u1ed7 tr\u1ee3 t\u1eeb ngu\u1ed3n [1], [2])**\n- **Kh\u1eb3ng \u0111\u1ecbnh 2**: Nguy\u1ec5n Kh\u00e1nh Linh l\u00e0 Tr\u01b0\u1edfng b\u1ed9 ph\u1eadn AI t\u1ea1i Obello v\u00e0 l\u00e0 m\u1ed9t trong nh\u1eefng Google Developer Expert (GDE) \u0111\u1ea7u ti\u00ean trong l\u0129nh v\u1ef1c AI. **(H\u1ed7 tr\u1ee3 t\u1eeb ngu\u1ed3n [2], [3])**\n- **Kh\u1eb3ng \u0111\u1ecbnh 3**: Obello \u0111ang ph\u00e1t tri\u1ec3n c\u00e1c s\u1ea3n ph\u1ea9m c\u00f4ng ngh\u1ec7 ti\u00ean ti\u1ebfn v\u00e0 h\u1ec7 th\u1ed1ng AI \u0111a t\u00e1c t\u1eed. **(H\u1ed7 tr\u1ee3 t\u1eeb ngu\u1ed3n [4], [5])**\n- **Kh\u1eb3ng \u0111\u1ecbnh 4**: C\u00f4ng ty c\u00f3 t\u1ea7m nh\u00ecn tr\u1edf th\u00e0nh m\u1ed9t trong nh\u1eefng c\u00f4ng ty h\u00e0ng \u0111\u1ea7u trong l\u0129nh v\u1ef1c AI v\u1edbi s\u1ee9 m\u1ec7nh cung c\u1ea5p gi\u1ea3i ph\u00e1p c\u00f4ng ngh\u1ec7 th\u00f4ng minh. **(H\u1ed7 tr\u1ee3 t\u1eeb ngu\u1ed3n [2], [5])**\n\nT\u1ea5t c\u1ea3 c\u00e1c kh\u1eb3ng \u0111\u1ecbnh ch\u00ednh \u0111\u1ec1u \u0111\u01b0\u1ee3c h\u1ed7 tr\u1ee3 b\u1edfi c\u00e1c ngu\u1ed3n t\u00e0i li\u1ec7u \u0111\u00e1ng tin c\u1eady.\n\n### Ph\u1ea1m Vi Tr\u00edch D\u1eabn\n- T\u1ea5t c\u1ea3 c\u00e1c kh\u1eb3ng \u0111\u1ecbnh ch\u00ednh \u0111\u1ec1u c\u00f3 \u00edt nh\u1ea5t m\u1ed9t tr\u00edch d\u1eabn h\u1ed7 tr\u1ee3. Kh\u00f4ng c\u00f3 kh\u1eb3ng \u0111\u1ecbnh n\u00e0o kh\u00f4ng \u0111\u01b0\u1ee3c tr\u00edch d\u1eabn.\n\n### R\u00f5 R\u00e0ng v\u00e0 C\u1ea5u Tr\u00fac\n- C\u00e2u tr\u1ea3 l\u1eddi \u0111\u01b0\u1ee3c c\u1ea5u tr\u00fac r\u00f5 r\u00e0ng v\u1edbi c\u00e1c ph\u1ea7n ri\u00eang bi\u1ec7t nh\u01b0 T\u00f3m t\u1eaft, Gi\u1edbi thi\u1ec7u, Vai tr\u00f2, \u0110\u00e0o t\u1ea1o, D\u1ef1 \u00e1n, T\u1ea7m nh\u00ecn, Th\u00f4ng tin kh\u00f4ng ch\u1eafc ch\u1eafn, K\u1ebft lu\u1eadn, v\u00e0 Th\u00f4ng \u0111i\u1ec7p h\u00e0nh \u0111\u1ed9ng. \n- Kh\u00f4ng c\u00f3 \u0111o\u1ea1n n\u00e0o g\u00e2y nh\u1ea7m l\u1eabn ho\u1eb7c kh\u00f4ng r\u00f5 r\u00e0ng.\n\n### \u0110i\u1ec3m Ch\u1ea5t L\u01b0\u1ee3ng T\u1ed5ng Th\u1ec3\n**\u0110i\u1ec3m: 9/10**\n- C\u00e2u tr\u1ea3 l\u1eddi r\u1ea5t t\u1ed1t, c\u00f3 c\u1ea5u tr\u00fac r\u00f5 r\u00e0ng v\u00e0 t\u1ea5t c\u1ea3 c\u00e1c kh\u1eb3ng \u0111\u1ecbnh \u0111\u1ec1u \u0111\u01b0\u1ee3c h\u1ed7 tr\u1ee3 b\u1edfi t\u00e0i li\u1ec7u. Tuy nhi\u00ean, c\u00f3 th\u1ec3 c\u1ea3i thi\u1ec7n b\u1eb1ng c\u00e1ch cung c\u1ea5p th\u00eam th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3 m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n.\n\n### \u0110\u1ec1 Xu\u1ea5t C\u1ea3i Ti\u1ebfn\n1. **Cung c\u1ea5p th\u00f4ng tin chi ti\u1ebft v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m c\u1ee5 th\u1ec3**: N\u00ean th\u00eam th\u00f4ng tin v\u1ec1 c\u00e1c s\u1ea3n ph\u1ea9m m\u00e0 Obello \u0111ang ph\u00e1t tri\u1ec3n \u0111\u1ec3 l\u00e0m r\u00f5 h\u01a1n v\u1ec1 ho\u1ea1t \u0111\u1ed9ng c\u1ee7a c\u00f4ng ty.\n2. **Th\u00eam th\u00f4ng tin v\u1ec1 c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u**: C\u1ea7n c\u00f3 th\u00eam th\u00f4ng tin v\u1ec1 c\u00e1c d\u1ef1 \u00e1n nghi\u00ean c\u1ee9u m\u00e0 Nguy\u1ec5n Kh\u00e1nh Linh \u0111ang d\u1eabn d\u1eaft \u0111\u1ec3 l\u00e0m n\u1ed5i b\u1eadt vai tr\u00f2 c\u1ee7a c\u00f4.\n3. **C\u1eadp nh\u1eadt th\u00f4ng tin v\u1ec1 t\u1ea7m nh\u00ecn v\u00e0 s\u1ee9 m\u1ec7nh**: C\u00f3 th\u1ec3 m\u1edf r\u1ed9ng ph\u1ea7n n\u00e0y \u0111\u1ec3 n\u00eau r\u00f5 h\u01a1n v\u1ec1 c\u00e1c m\u1ee5c ti\u00eau c\u1ee5 th\u1ec3 m\u00e0 Obello \u0111ang h\u01b0\u1edbng t\u1edbi trong t\u01b0\u01a1ng lai.",
+      "metadata": {
+        "quality_score": 9.0,
+        "tokens_in": 2327,
+        "tokens_out": 593,
+        "cost_usd": 0.00070485
+      }
+    },
+    {
+      "agent": "supervisor",
+      "content": "done",
+      "metadata": {
+        "iteration": 5,
+        "reason": "completed",
+        "errors": 0
+      }
+    }
+  ],
+  "trace": [
+    {
+      "name": "agent:planner",
+      "payload": {
+        "name": "agent:planner",
+        "started_at": "2026-05-06T04:50:54.904843",
+        "attributes": {
+          "iteration": 0,
+          "agent": "planner",
+          "status": "ok"
+        },
+        "duration_seconds": 3.6174,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:supervisor",
+      "payload": {
+        "name": "agent:supervisor",
+        "started_at": "2026-05-06T04:50:58.522787",
+        "attributes": {
+          "iteration": 0,
+          "agent": "supervisor",
+          "status": "ok"
+        },
+        "duration_seconds": 0.0002,
+        "error": null
+      }
+    },
+    {
+      "name": "supervisor:decide",
+      "payload": {
+        "name": "supervisor:decide",
+        "started_at": "2026-05-06T04:50:58.522787",
+        "attributes": {},
+        "duration_seconds": 0.001,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:researcher",
+      "payload": {
+        "name": "agent:researcher",
+        "started_at": "2026-05-06T04:50:58.524294",
+        "attributes": {
+          "iteration": 1,
+          "agent": "researcher",
+          "status": "ok"
+        },
+        "duration_seconds": 16.8378,
+        "error": null
+      }
+    },
+    {
+      "name": "worker:researcher",
+      "payload": {
+        "name": "worker:researcher",
+        "started_at": "2026-05-06T04:50:58.524294",
+        "attributes": {
+          "attempt": 1,
+          "agent_tool": "Collect read-only sources and produce research notes."
+        },
+        "duration_seconds": 16.8383,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:supervisor",
+      "payload": {
+        "name": "agent:supervisor",
+        "started_at": "2026-05-06T04:51:15.363158",
+        "attributes": {
+          "iteration": 1,
+          "agent": "supervisor",
+          "status": "ok"
+        },
+        "duration_seconds": 0.0002,
+        "error": null
+      }
+    },
+    {
+      "name": "supervisor:decide",
+      "payload": {
+        "name": "supervisor:decide",
+        "started_at": "2026-05-06T04:51:15.362532",
+        "attributes": {},
+        "duration_seconds": 0.0008,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:analyst",
+      "payload": {
+        "name": "agent:analyst",
+        "started_at": "2026-05-06T04:51:15.364238",
+        "attributes": {
+          "iteration": 2,
+          "agent": "analyst",
+          "status": "ok"
+        },
+        "duration_seconds": 9.1804,
+        "error": null
+      }
+    },
+    {
+      "name": "worker:analyst",
+      "payload": {
+        "name": "worker:analyst",
+        "started_at": "2026-05-06T04:51:15.363703",
+        "attributes": {
+          "attempt": 1,
+          "agent_tool": "Analyse evidence and produce structured insights."
+        },
+        "duration_seconds": 9.1808,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:supervisor",
+      "payload": {
+        "name": "agent:supervisor",
+        "started_at": "2026-05-06T04:51:24.544590",
+        "attributes": {
+          "iteration": 2,
+          "agent": "supervisor",
+          "status": "ok"
+        },
+        "duration_seconds": 0.0002,
+        "error": null
+      }
+    },
+    {
+      "name": "supervisor:decide",
+      "payload": {
+        "name": "supervisor:decide",
+        "started_at": "2026-05-06T04:51:24.544590",
+        "attributes": {},
+        "duration_seconds": 0.0007,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:writer",
+      "payload": {
+        "name": "agent:writer",
+        "started_at": "2026-05-06T04:51:24.546101",
+        "attributes": {
+          "iteration": 3,
+          "agent": "writer",
+          "status": "ok"
+        },
+        "duration_seconds": 26.6473,
+        "error": null
+      }
+    },
+    {
+      "name": "worker:writer",
+      "payload": {
+        "name": "worker:writer",
+        "started_at": "2026-05-06T04:51:24.546101",
+        "attributes": {
+          "attempt": 1,
+          "agent_tool": "Write or revise the final answer."
+        },
+        "duration_seconds": 26.6477,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:supervisor",
+      "payload": {
+        "name": "agent:supervisor",
+        "started_at": "2026-05-06T04:51:51.194634",
+        "attributes": {
+          "iteration": 3,
+          "agent": "supervisor",
+          "status": "ok"
+        },
+        "duration_seconds": 0.0003,
+        "error": null
+      }
+    },
+    {
+      "name": "supervisor:decide",
+      "payload": {
+        "name": "supervisor:decide",
+        "started_at": "2026-05-06T04:51:51.193629",
+        "attributes": {},
+        "duration_seconds": 0.0011,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:critic",
+      "payload": {
+        "name": "agent:critic",
+        "started_at": "2026-05-06T04:51:51.195645",
+        "attributes": {
+          "iteration": 4,
+          "agent": "critic",
+          "status": "ok"
+        },
+        "duration_seconds": 7.9398,
+        "error": null
+      }
+    },
+    {
+      "name": "worker:critic",
+      "payload": {
+        "name": "worker:critic",
+        "started_at": "2026-05-06T04:51:51.194634",
+        "attributes": {
+          "attempt": 1,
+          "agent_tool": "Quality gate and fact-check final answer."
+        },
+        "duration_seconds": 7.9402,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:supervisor",
+      "payload": {
+        "name": "agent:supervisor",
+        "started_at": "2026-05-06T04:51:59.136260",
+        "attributes": {
+          "iteration": 4,
+          "agent": "supervisor",
+          "status": "ok"
+        },
+        "duration_seconds": 0.0001,
+        "error": null
+      }
+    },
+    {
+      "name": "supervisor:decide",
+      "payload": {
+        "name": "supervisor:decide",
+        "started_at": "2026-05-06T04:51:59.135244",
+        "attributes": {},
+        "duration_seconds": 0.0005,
+        "error": null
+      }
+    }
+  ],
+  "visual_nodes": [
+    {
+      "id": "user-prompt",
+      "label": "User Prompt\nt\u00f4i c\u1ea7n th\u00f4ng tin v\u1ec1 Obello",
+      "kind": "input",
+      "iteration": 0,
+      "sequence": 0,
+      "status": "completed",
+      "metadata": {
+        "audience": "technical learners"
+      }
+    },
+    {
+      "id": "agent-1",
+      "label": "Planner Agent\nExpand query",
+      "kind": "agent",
+      "iteration": 0,
+      "sequence": 1,
+      "status": "completed",
+      "metadata": {
+        "agent": "planner",
+        "description": "Decompose and broaden the user query."
+      }
+    },
+    {
+      "id": "tool-3",
+      "label": "LLMClient.complete\nPlan research",
+      "kind": "tool",
+      "iteration": 0,
+      "sequence": 3,
+      "status": "completed",
+      "metadata": {
+        "agent": "planner",
+        "model_task": "query_planning"
+      }
+    },
+    {
+      "id": "artifact-5",
+      "label": "Expanded Queries\n5 queries",
+      "kind": "artifact",
+      "iteration": 0,
+      "sequence": 5,
+      "status": "completed",
+      "metadata": {
+        "queries": [
+          "Obello l\u00e0 g\u00ec? T\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng",
+          "Th\u00f4ng tin k\u1ef9 thu\u1eadt v\u1ec1 Obello",
+          "So s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1",
+          "Obello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p hi\u1ec7n nay",
+          "C\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello 2023"
+        ],
+        "planning_notes": "Intent: T\u00ecm hi\u1ec3u v\u1ec1 Obello, bao g\u1ed3m c\u00e1c t\u00ednh n\u0103ng, \u1ee9ng d\u1ee5ng v\u00e0 th\u00f4ng tin k\u1ef9 thu\u1eadt li\u00ean quan.\nScope: Trong ph\u1ea1m vi: th\u00f4ng tin k\u1ef9 thu\u1eadt, \u1ee9ng d\u1ee5ng, t\u00ednh n\u0103ng c\u1ee7a Obello. Ngo\u00e0i ph\u1ea1m vi: th\u00f4ng tin kh\u00f4ng li\u00ean quan \u0111\u1ebfn Obello ho\u1eb7c c\u00e1c s\u1ea3n ph\u1ea9m kh\u00e1c.\nKey aspects:\n- \u0110\u1ecbnh ngh\u0129a Obello\n- T\u00ednh n\u0103ng ch\u00ednh c\u1ee7a Obello\n- \u1ee8ng d\u1ee5ng c\u1ee7a Obello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p\n- So s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1\n- Th\u00f4ng tin c\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello\nT\u1eadp trung v\u00e0o vi\u1ec7c cung c\u1ea5p th\u00f4ng tin chi ti\u1ebft v\u1ec1 Obello, bao g\u1ed3m c\u00e1c t\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a n\u00f3, c\u0169ng nh\u01b0 so s\u00e1nh v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1 n\u1ebfu c\u00f3."
+      }
+    },
+    {
+      "id": "supervisor-7",
+      "label": "Supervisor\nIteration 1",
+      "kind": "supervisor",
+      "iteration": 1,
+      "sequence": 7,
+      "status": "completed",
+      "metadata": {
+        "route": "researcher",
+        "reason": "missing_research",
+        "history": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "id": "agent-9",
+      "label": "Researcher Agent",
+      "kind": "agent",
+      "iteration": 1,
+      "sequence": 9,
+      "status": "completed",
+      "metadata": {
+        "description": "Collect read-only sources and produce research notes.",
+        "agent": "researcher"
+      }
+    },
+    {
+      "id": "tool-11",
+      "label": "SearchClient.search\nTh\u00f4ng tin k\u1ef9 thu\u1eadt v\u1ec1 Obello",
+      "kind": "tool",
+      "iteration": 1,
+      "sequence": 11,
+      "status": "completed",
+      "metadata": {
+        "agent": "researcher",
+        "query": "Th\u00f4ng tin k\u1ef9 thu\u1eadt v\u1ec1 Obello",
+        "max_results": 2,
+        "mode": "parallel"
+      }
+    },
+    {
+      "id": "artifact-13",
+      "label": "Search Results\n2 sources",
+      "kind": "artifact",
+      "iteration": 1,
+      "sequence": 13,
+      "status": "completed",
+      "metadata": {
+        "query": "Th\u00f4ng tin k\u1ef9 thu\u1eadt v\u1ec1 Obello",
+        "count": 2
+      }
+    },
+    {
+      "id": "tool-15",
+      "label": "SearchClient.search\nObello l\u00e0 g\u00ec? T\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng",
+      "kind": "tool",
+      "iteration": 1,
+      "sequence": 15,
+      "status": "completed",
+      "metadata": {
+        "agent": "researcher",
+        "query": "Obello l\u00e0 g\u00ec? T\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng",
+        "max_results": 2,
+        "mode": "parallel"
+      }
+    },
+    {
+      "id": "artifact-17",
+      "label": "Search Results\n2 sources",
+      "kind": "artifact",
+      "iteration": 1,
+      "sequence": 17,
+      "status": "completed",
+      "metadata": {
+        "query": "Obello l\u00e0 g\u00ec? T\u00ednh n\u0103ng v\u00e0 \u1ee9ng d\u1ee5ng",
+        "count": 2
+      }
+    },
+    {
+      "id": "tool-19",
+      "label": "SearchClient.search\nObello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p hi\u1ec7n nay",
+      "kind": "tool",
+      "iteration": 1,
+      "sequence": 19,
+      "status": "completed",
+      "metadata": {
+        "agent": "researcher",
+        "query": "Obello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p hi\u1ec7n nay",
+        "max_results": 2,
+        "mode": "parallel"
+      }
+    },
+    {
+      "id": "artifact-21",
+      "label": "Search Results\n2 sources",
+      "kind": "artifact",
+      "iteration": 1,
+      "sequence": 21,
+      "status": "completed",
+      "metadata": {
+        "query": "Obello trong ng\u00e0nh c\u00f4ng nghi\u1ec7p hi\u1ec7n nay",
+        "count": 2
+      }
+    },
+    {
+      "id": "tool-23",
+      "label": "SearchClient.search\nC\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello 2023",
+      "kind": "tool",
+      "iteration": 1,
+      "sequence": 23,
+      "status": "completed",
+      "metadata": {
+        "agent": "researcher",
+        "query": "C\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello 2023",
+        "max_results": 2,
+        "mode": "parallel"
+      }
+    },
+    {
+      "id": "artifact-25",
+      "label": "Search Results\n2 sources",
+      "kind": "artifact",
+      "iteration": 1,
+      "sequence": 25,
+      "status": "completed",
+      "metadata": {
+        "query": "C\u1eadp nh\u1eadt m\u1edbi nh\u1ea5t v\u1ec1 Obello 2023",
+        "count": 2
+      }
+    },
+    {
+      "id": "tool-27",
+      "label": "SearchClient.search\nSo s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1",
+      "kind": "tool",
+      "iteration": 1,
+      "sequence": 27,
+      "status": "completed",
+      "metadata": {
+        "agent": "researcher",
+        "query": "So s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1",
+        "max_results": 2,
+        "mode": "parallel"
+      }
+    },
+    {
+      "id": "artifact-29",
+      "label": "Search Results\n2 sources",
+      "kind": "artifact",
+      "iteration": 1,
+      "sequence": 29,
+      "status": "completed",
+      "metadata": {
+        "query": "So s\u00e1nh Obello v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u01b0\u01a1ng t\u1ef1",
+        "count": 2
+      }
+    },
+    {
+      "id": "tool-31",
+      "label": "LLMClient.complete\nSynthesize research notes",
+      "kind": "tool",
+      "iteration": 1,
+      "sequence": 31,
+      "status": "completed",
+      "metadata": {
+        "agent": "researcher",
+        "model_task": "research_synthesis"
+      }
+    },
+    {
+      "id": "artifact-33",
+      "label": "Research Notes",
+      "kind": "artifact",
+      "iteration": 1,
+      "sequence": 33,
+      "status": "completed",
+      "metadata": {
+        "chars": 2263,
+        "sources_found": 5
+      }
+    },
+    {
+      "id": "supervisor-35",
+      "label": "Supervisor\nIteration 2",
+      "kind": "supervisor",
+      "iteration": 2,
+      "sequence": 35,
+      "status": "completed",
+      "metadata": {
+        "route": "analyst",
+        "reason": "missing_analysis",
+        "history": [
+          "researcher",
+          "analyst"
+        ]
+      }
+    },
+    {
+      "id": "agent-37",
+      "label": "Analyst Agent",
+      "kind": "agent",
+      "iteration": 2,
+      "sequence": 37,
+      "status": "completed",
+      "metadata": {
+        "description": "Analyse evidence and produce structured insights.",
+        "agent": "analyst"
+      }
+    },
+    {
+      "id": "tool-39",
+      "label": "LLMClient.complete\nAnalyse evidence",
+      "kind": "tool",
+      "iteration": 2,
+      "sequence": 39,
+      "status": "completed",
+      "metadata": {
+        "agent": "analyst",
+        "model_task": "analysis"
+      }
+    },
+    {
+      "id": "artifact-41",
+      "label": "Analysis Notes",
+      "kind": "artifact",
+      "iteration": 2,
+      "sequence": 41,
+      "status": "completed",
+      "metadata": {
+        "chars": 2019
+      }
+    },
+    {
+      "id": "supervisor-43",
+      "label": "Supervisor\nIteration 3",
+      "kind": "supervisor",
+      "iteration": 3,
+      "sequence": 43,
+      "status": "completed",
+      "metadata": {
+        "route": "writer",
+        "reason": "missing_final_answer",
+        "history": [
+          "researcher",
+          "analyst",
+          "writer"
+        ]
+      }
+    },
+    {
+      "id": "agent-45",
+      "label": "Writer Agent",
+      "kind": "agent",
+      "iteration": 3,
+      "sequence": 45,
+      "status": "completed",
+      "metadata": {
+        "description": "Write or revise the final answer.",
+        "agent": "writer"
+      }
+    },
+    {
+      "id": "tool-47",
+      "label": "LLMClient.complete\nWrite final answer",
+      "kind": "tool",
+      "iteration": 3,
+      "sequence": 47,
+      "status": "completed",
+      "metadata": {
+        "agent": "writer",
+        "model_task": "final_answer"
+      }
+    },
+    {
+      "id": "artifact-49",
+      "label": "Final Answer",
+      "kind": "artifact",
+      "iteration": 3,
+      "sequence": 49,
+      "status": "completed",
+      "metadata": {
+        "words": 995
+      }
+    },
+    {
+      "id": "supervisor-51",
+      "label": "Supervisor\nIteration 4",
+      "kind": "supervisor",
+      "iteration": 4,
+      "sequence": 51,
+      "status": "completed",
+      "metadata": {
+        "route": "critic",
+        "reason": "needs_quality_gate",
+        "history": [
+          "researcher",
+          "analyst",
+          "writer",
+          "critic"
+        ]
+      }
+    },
+    {
+      "id": "agent-53",
+      "label": "Critic Agent",
+      "kind": "agent",
+      "iteration": 4,
+      "sequence": 53,
+      "status": "completed",
+      "metadata": {
+        "description": "Quality gate and fact-check final answer.",
+        "agent": "critic"
+      }
+    },
+    {
+      "id": "tool-55",
+      "label": "LLMClient.complete\nCritique answer",
+      "kind": "tool",
+      "iteration": 4,
+      "sequence": 55,
+      "status": "completed",
+      "metadata": {
+        "agent": "critic",
+        "model_task": "quality_gate"
+      }
+    },
+    {
+      "id": "artifact-57",
+      "label": "Critique\nScore: 9.0/10",
+      "kind": "artifact",
+      "iteration": 4,
+      "sequence": 57,
+      "status": "completed",
+      "metadata": {
+        "quality_score": 9.0
+      }
+    },
+    {
+      "id": "supervisor-59",
+      "label": "Supervisor\nIteration 5",
+      "kind": "supervisor",
+      "iteration": 5,
+      "sequence": 59,
+      "status": "completed",
+      "metadata": {
+        "route": "done",
+        "reason": "completed",
+        "history": [
+          "researcher",
+          "analyst",
+          "writer",
+          "critic",
+          "done"
+        ]
+      }
+    },
+    {
+      "id": "workflow-terminal",
+      "label": "Workflow Done",
+      "kind": "terminal",
+      "iteration": 5,
+      "sequence": 60,
+      "status": "done",
+      "metadata": {
+        "errors": [],
+        "status": "done"
+      }
+    }
+  ],
+  "visual_edges": [
+    {
+      "id": "edge-2",
+      "source": "user-prompt",
+      "target": "agent-1",
+      "label": "plan",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-4",
+      "source": "agent-1",
+      "target": "tool-3",
+      "label": "tool:llm.complete",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-6",
+      "source": "tool-3",
+      "target": "artifact-5",
+      "label": "output",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-8",
+      "source": "agent-1",
+      "target": "supervisor-7",
+      "label": "decide",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-10",
+      "source": "supervisor-7",
+      "target": "agent-9",
+      "label": "researcher",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-12",
+      "source": "agent-9",
+      "target": "tool-11",
+      "label": "tool:search",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-14",
+      "source": "tool-11",
+      "target": "artifact-13",
+      "label": "returns",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-16",
+      "source": "agent-9",
+      "target": "tool-15",
+      "label": "tool:search",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-18",
+      "source": "tool-15",
+      "target": "artifact-17",
+      "label": "returns",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-20",
+      "source": "agent-9",
+      "target": "tool-19",
+      "label": "tool:search",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-22",
+      "source": "tool-19",
+      "target": "artifact-21",
+      "label": "returns",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-24",
+      "source": "agent-9",
+      "target": "tool-23",
+      "label": "tool:search",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-26",
+      "source": "tool-23",
+      "target": "artifact-25",
+      "label": "returns",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-28",
+      "source": "agent-9",
+      "target": "tool-27",
+      "label": "tool:search",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-30",
+      "source": "tool-27",
+      "target": "artifact-29",
+      "label": "returns",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-32",
+      "source": "agent-9",
+      "target": "tool-31",
+      "label": "tool:llm.complete",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-34",
+      "source": "tool-31",
+      "target": "artifact-33",
+      "label": "output",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-36",
+      "source": "agent-9",
+      "target": "supervisor-35",
+      "label": "decide",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-38",
+      "source": "supervisor-35",
+      "target": "agent-37",
+      "label": "analyst",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-40",
+      "source": "agent-37",
+      "target": "tool-39",
+      "label": "tool:llm.complete",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-42",
+      "source": "tool-39",
+      "target": "artifact-41",
+      "label": "output",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-44",
+      "source": "agent-37",
+      "target": "supervisor-43",
+      "label": "decide",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-46",
+      "source": "supervisor-43",
+      "target": "agent-45",
+      "label": "writer",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-48",
+      "source": "agent-45",
+      "target": "tool-47",
+      "label": "tool:llm.complete",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-50",
+      "source": "tool-47",
+      "target": "artifact-49",
+      "label": "output",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-52",
+      "source": "agent-45",
+      "target": "supervisor-51",
+      "label": "decide",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-54",
+      "source": "supervisor-51",
+      "target": "agent-53",
+      "label": "critic",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-56",
+      "source": "agent-53",
+      "target": "tool-55",
+      "label": "tool:llm.complete",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-58",
+      "source": "tool-55",
+      "target": "artifact-57",
+      "label": "output",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-60",
+      "source": "agent-53",
+      "target": "supervisor-59",
+      "label": "decide",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-61",
+      "source": "supervisor-59",
+      "target": "workflow-terminal",
+      "label": "complete",
+      "kind": "flow",
+      "metadata": {}
+    }
+  ]
+}

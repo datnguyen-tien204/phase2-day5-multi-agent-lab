@@ -1,3 +1,52 @@
+# Lab 20: Multi-Agent Research System — Submission Report
+
+> **Student:** Nguyễn Tiến Đạt (2A202600217)
+> **Status:** ✅ All deliverables completed and verified.
+
+## 🚀 Quick Submission Summary
+
+| Deliverable | Location / Status |
+| :--- | :--- |
+| **1. Personal GitHub Repo** | Forked & Pushed (Tests/Lint Passed) |
+| **2. Tracing Evidence** | [reports/trace_screenshot.md](reports/trace_screenshot.md) (Langfuse) |
+| **3. Benchmark Report** | [reports/benchmark_report.md](reports/benchmark_report.md) |
+| **4. Failure Mode & Fix** | Included in [reports/benchmark_report.md#L85](reports/benchmark_report.md#L85) |
+| **5. Exit Ticket** | Included in [reports/benchmark_report.md#L91](reports/benchmark_report.md#L91) |
+
+---
+
+## 🛠️ Local Setup & Running
+
+### 1. Backend (FastAPI)
+```bash
+# Tạo và kích hoạt môi trường
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
+# Cài đặt (bao gồm cả dependencies cho API)
+pip install -e ".[api,dev,llm]"
+
+# Cấu hình API keys
+cp .env.example .env
+# Mở .env và điền các KEY: OPENAI_API_KEY, LANGSMITH_API_KEY (hoặc Langfuse), TAVILY_API_KEY
+
+# Chạy Backend Server
+malab serve-api --host 127.0.0.1 --port 8000
+```
+
+### 2. Frontend (React + Vite)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### 3. Tracing (Langfuse/LangSmith)
+- Đảm bảo bạn đã cấu hình `LANGFUSE_SECRET_KEY`, `LANGFUSE_PUBLIC_KEY`, và `LANGFUSE_HOST` trong `.env`.
+- Hệ thống sẽ tự động log trace khi bạn chạy qua giao diện Dashboard hoặc CLI.
+
+---
+
 # Lab 20: Multi-Agent Research System Starter
 
 Starter repo cho bài lab **Multi-Agent Systems**: xây dựng hệ thống nghiên cứu gồm **Supervisor + Researcher + Analyst + Writer** và benchmark với single-agent baseline.
@@ -154,3 +203,35 @@ Học viên nộp:
 - LangGraph concepts — https://langchain-ai.github.io/langgraph/concepts/
 - LangSmith tracing — https://docs.smith.langchain.com/
 - Langfuse tracing — https://langfuse.com/docs
+
+## Workflow Visual Dashboard
+
+This project now includes:
+
+- a **React dashboard** in `frontend/`
+- a **FastAPI backend** in `src/multi_agent_research_lab/api/app.py`
+- a frontend-ready graph export in `reports/dashboard_latest.json`
+- a draw.io architecture file in `docs/architecture.drawio`
+
+### Quick start
+
+Backend:
+
+```bash
+pip install -e .[api]
+malab serve-api --host 127.0.0.1 --port 8000
+```
+
+Frontend:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Export graph data without the UI:
+
+```bash
+malab visualize -q "Research GraphRAG state-of-the-art and write a 500-word summary"
+```

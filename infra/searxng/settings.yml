@@ -1,0 +1,21 @@
+use_default_settings: true
+
+general:
+  debug: false
+
+search:
+  safe_search: 0
+  formats:
+    - html
+    - json
+
+server:
+  secret_key: "mysecret"
+  limiter: false
+
+botdetection:
+  ip_limit:
+    filter_link_local: false
+    link_token: false
+
+  methods: []

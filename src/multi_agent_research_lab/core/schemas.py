@@ -38,4 +38,10 @@ class BenchmarkMetrics(BaseModel):
     latency_seconds: float
     estimated_cost_usd: float | None = None
     quality_score: float | None = Field(default=None, ge=0, le=10)
+    # Extended metrics for vượt trội
+    input_tokens: int = 0
+    output_tokens: int = 0
+    citation_coverage: float | None = Field(default=None, ge=0, le=1)
+    failure_rate: float = 0.0
+    agent_breakdown: dict[str, float] = Field(default_factory=dict)
     notes: str = ""

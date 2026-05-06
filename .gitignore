@@ -8,6 +8,13 @@ __pycache__/
 dist/
 build/
 *.egg-info/
-reports/*.json
-reports/*.md
-!.gitkeep
+# Reports and data (Required for submission)
+!reports/*.md
+!reports/runs/*.png
+!reports/runs/*.json
+reports/runs/trace.json
+reports/runs/trace_multi.json
+
+# Frontend
+frontend/node_modules/
+frontend/dist/

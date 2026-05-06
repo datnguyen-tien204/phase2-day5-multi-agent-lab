@@ -1,0 +1,1974 @@
+{
+  "query": "T\u00f3m t\u1eaft BERT b\u1eb1ng ti\u1ebfng Vi\u1ec7t trong 2 \u0111o\u1ea1n ng\u1eafn, c\u00f3 ngu\u1ed3n tham kh\u1ea3o.",
+  "status": "done",
+  "route_history": [
+    "researcher",
+    "analyst",
+    "writer",
+    "critic",
+    "done"
+  ],
+  "transitions": [
+    {
+      "from_route": null,
+      "to_route": "researcher",
+      "reason": "missing_research",
+      "iteration": 1,
+      "metadata": {}
+    },
+    {
+      "from_route": "researcher",
+      "to_route": "analyst",
+      "reason": "missing_analysis",
+      "iteration": 2,
+      "metadata": {}
+    },
+    {
+      "from_route": "analyst",
+      "to_route": "writer",
+      "reason": "missing_final_answer",
+      "iteration": 3,
+      "metadata": {}
+    },
+    {
+      "from_route": "writer",
+      "to_route": "critic",
+      "reason": "needs_quality_gate",
+      "iteration": 4,
+      "metadata": {}
+    },
+    {
+      "from_route": "critic",
+      "to_route": "done",
+      "reason": "completed",
+      "iteration": 5,
+      "metadata": {}
+    }
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "user-prompt",
+        "position": {
+          "x": 80,
+          "y": 40
+        },
+        "data": {
+          "label": "User Prompt\nT\u00f3m t\u1eaft BERT b\u1eb1ng ti\u1ebfng Vi\u1ec7t trong 2 \u0111o\u1ea1n ng\u1eafn, c\u00f3 ngu\u1ed3n tham kh\u1ea3o.",
+          "kind": "input",
+          "iteration": 0,
+          "metadata": {
+            "audience": "technical learners"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#e8f0fe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "agent-1",
+        "position": {
+          "x": 80,
+          "y": 260
+        },
+        "data": {
+          "label": "Planner Agent\nExpand query",
+          "kind": "agent",
+          "iteration": 0,
+          "metadata": {
+            "agent": "planner",
+            "description": "Decompose and broaden the user query."
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#eff6ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-3",
+        "position": {
+          "x": 540,
+          "y": 370
+        },
+        "data": {
+          "label": "LLMClient.complete\nPlan research",
+          "kind": "tool",
+          "iteration": 0,
+          "metadata": {
+            "agent": "planner",
+            "model_task": "query_planning"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-5",
+        "position": {
+          "x": 1000,
+          "y": 480
+        },
+        "data": {
+          "label": "Expanded Queries\n5 queries",
+          "kind": "artifact",
+          "iteration": 0,
+          "metadata": {
+            "queries": [
+              "t\u00f3m t\u1eaft BERT trong x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean",
+              "BERT l\u00e0 g\u00ec v\u00e0 c\u00e1ch ho\u1ea1t \u0111\u1ed9ng",
+              "\u1ee9ng d\u1ee5ng c\u1ee7a BERT trong NLP",
+              "l\u1ee3i \u00edch v\u00e0 h\u1ea1n ch\u1ebf c\u1ee7a BERT",
+              "BERT model summary ti\u1ebfng Vi\u1ec7t"
+            ],
+            "planning_notes": "Intent: T\u00f3m t\u1eaft m\u00f4 h\u00ecnh BERT v\u00e0 c\u00e1ch ho\u1ea1t \u0111\u1ed9ng c\u1ee7a n\u00f3\nScope: Trong ph\u1ea1m vi t\u00f3m t\u1eaft BERT v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a n\u00f3 trong x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. Ngo\u00e0i ph\u1ea1m vi l\u00e0 c\u00e1c m\u00f4 h\u00ecnh kh\u00e1c kh\u00f4ng li\u00ean quan \u0111\u1ebfn BERT.\nKey aspects:\n- \u0110\u1ecbnh ngh\u0129a BERT\n- C\u00e1ch BERT ho\u1ea1t \u0111\u1ed9ng\n- \u1ee8ng d\u1ee5ng c\u1ee7a BERT trong NLP\n- L\u1ee3i \u00edch c\u1ee7a BERT\n- H\u1ea1n ch\u1ebf c\u1ee7a BERT\nT\u00f3m t\u1eaft BERT trong hai \u0111o\u1ea1n ng\u1eafn, t\u1eadp trung v\u00e0o \u0111\u1ecbnh ngh\u0129a, c\u00e1ch ho\u1ea1t \u0111\u1ed9ng v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a n\u00f3 trong x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. C\u1ea7n t\u00ecm m\u1ed9t ngu\u1ed3n tham kh\u1ea3o \u0111\u00e1ng tin c\u1eady."
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "supervisor-7",
+        "position": {
+          "x": 1460,
+          "y": 150
+        },
+        "data": {
+          "label": "Supervisor\nIteration 1",
+          "kind": "supervisor",
+          "iteration": 1,
+          "metadata": {
+            "route": "researcher",
+            "reason": "missing_research",
+            "history": [
+              "researcher"
+            ]
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#dbeafe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "agent-9",
+        "position": {
+          "x": 1920,
+          "y": 260
+        },
+        "data": {
+          "label": "Researcher Agent",
+          "kind": "agent",
+          "iteration": 1,
+          "metadata": {
+            "description": "Collect read-only sources and produce research notes.",
+            "agent": "researcher"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#eff6ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-11",
+        "position": {
+          "x": 2380,
+          "y": 370
+        },
+        "data": {
+          "label": "SearchClient.search\nT\u00f3m t\u1eaft BERT b\u1eb1ng ti\u1ebfng Vi\u1ec7t trong 2 \u0111o\u1ea1n ng\u1eafn, c\u00f3 ngu\u1ed3n tha",
+          "kind": "tool",
+          "iteration": 1,
+          "metadata": {
+            "agent": "researcher",
+            "query": "T\u00f3m t\u1eaft BERT b\u1eb1ng ti\u1ebfng Vi\u1ec7t trong 2 \u0111o\u1ea1n ng\u1eafn, c\u00f3 ngu\u1ed3n tham kh\u1ea3o.",
+            "max_results": 1,
+            "mode": "serial"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-13",
+        "position": {
+          "x": 2840,
+          "y": 480
+        },
+        "data": {
+          "label": "Search Results\n1 sources",
+          "kind": "artifact",
+          "iteration": 1,
+          "metadata": {
+            "query": "T\u00f3m t\u1eaft BERT b\u1eb1ng ti\u1ebfng Vi\u1ec7t trong 2 \u0111o\u1ea1n ng\u1eafn, c\u00f3 ngu\u1ed3n tham kh\u1ea3o.",
+            "count": 1
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-15",
+        "position": {
+          "x": 3300,
+          "y": 370
+        },
+        "data": {
+          "label": "LLMClient.complete\nSynthesize research notes",
+          "kind": "tool",
+          "iteration": 1,
+          "metadata": {
+            "agent": "researcher",
+            "model_task": "research_synthesis"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-17",
+        "position": {
+          "x": 3760,
+          "y": 480
+        },
+        "data": {
+          "label": "Research Notes",
+          "kind": "artifact",
+          "iteration": 1,
+          "metadata": {
+            "chars": 1685,
+            "sources_found": 1
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "supervisor-19",
+        "position": {
+          "x": 4220,
+          "y": 150
+        },
+        "data": {
+          "label": "Supervisor\nIteration 2",
+          "kind": "supervisor",
+          "iteration": 2,
+          "metadata": {
+            "route": "analyst",
+            "reason": "missing_analysis",
+            "history": [
+              "researcher",
+              "analyst"
+            ]
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#dbeafe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "agent-21",
+        "position": {
+          "x": 4680,
+          "y": 260
+        },
+        "data": {
+          "label": "Analyst Agent",
+          "kind": "agent",
+          "iteration": 2,
+          "metadata": {
+            "description": "Analyse evidence and produce structured insights.",
+            "agent": "analyst"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#eff6ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-23",
+        "position": {
+          "x": 5140,
+          "y": 370
+        },
+        "data": {
+          "label": "LLMClient.complete\nAnalyse evidence",
+          "kind": "tool",
+          "iteration": 2,
+          "metadata": {
+            "agent": "analyst",
+            "model_task": "analysis"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-25",
+        "position": {
+          "x": 5600,
+          "y": 480
+        },
+        "data": {
+          "label": "Analysis Notes",
+          "kind": "artifact",
+          "iteration": 2,
+          "metadata": {
+            "chars": 1051
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "supervisor-27",
+        "position": {
+          "x": 6060,
+          "y": 150
+        },
+        "data": {
+          "label": "Supervisor\nIteration 3",
+          "kind": "supervisor",
+          "iteration": 3,
+          "metadata": {
+            "route": "writer",
+            "reason": "missing_final_answer",
+            "history": [
+              "researcher",
+              "analyst",
+              "writer"
+            ]
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#dbeafe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "agent-29",
+        "position": {
+          "x": 6520,
+          "y": 260
+        },
+        "data": {
+          "label": "Writer Agent",
+          "kind": "agent",
+          "iteration": 3,
+          "metadata": {
+            "description": "Write or revise the final answer.",
+            "agent": "writer"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#eff6ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-31",
+        "position": {
+          "x": 6980,
+          "y": 370
+        },
+        "data": {
+          "label": "LLMClient.complete\nWrite final answer",
+          "kind": "tool",
+          "iteration": 3,
+          "metadata": {
+            "agent": "writer",
+            "model_task": "final_answer"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-33",
+        "position": {
+          "x": 7440,
+          "y": 480
+        },
+        "data": {
+          "label": "Final Answer",
+          "kind": "artifact",
+          "iteration": 3,
+          "metadata": {
+            "words": 236
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "supervisor-35",
+        "position": {
+          "x": 7900,
+          "y": 150
+        },
+        "data": {
+          "label": "Supervisor\nIteration 4",
+          "kind": "supervisor",
+          "iteration": 4,
+          "metadata": {
+            "route": "critic",
+            "reason": "needs_quality_gate",
+            "history": [
+              "researcher",
+              "analyst",
+              "writer",
+              "critic"
+            ]
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#dbeafe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "agent-37",
+        "position": {
+          "x": 8360,
+          "y": 260
+        },
+        "data": {
+          "label": "Critic Agent",
+          "kind": "agent",
+          "iteration": 4,
+          "metadata": {
+            "description": "Quality gate and fact-check final answer.",
+            "agent": "critic"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#eff6ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "tool-39",
+        "position": {
+          "x": 8820,
+          "y": 370
+        },
+        "data": {
+          "label": "LLMClient.complete\nCritique answer",
+          "kind": "tool",
+          "iteration": 4,
+          "metadata": {
+            "agent": "critic",
+            "model_task": "quality_gate"
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f0f9ff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "artifact-41",
+        "position": {
+          "x": 9280,
+          "y": 480
+        },
+        "data": {
+          "label": "Critique\nScore: 8.0/10",
+          "kind": "artifact",
+          "iteration": 4,
+          "metadata": {
+            "quality_score": 8.0
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#f8fbff",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "supervisor-43",
+        "position": {
+          "x": 9740,
+          "y": 150
+        },
+        "data": {
+          "label": "Supervisor\nIteration 5",
+          "kind": "supervisor",
+          "iteration": 5,
+          "metadata": {
+            "route": "done",
+            "reason": "completed",
+            "history": [
+              "researcher",
+              "analyst",
+              "writer",
+              "critic",
+              "done"
+            ]
+          },
+          "status": "completed"
+        },
+        "style": {
+          "background": "#dbeafe",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      },
+      {
+        "id": "workflow-terminal",
+        "position": {
+          "x": 9970,
+          "y": 590
+        },
+        "data": {
+          "label": "Workflow Done",
+          "kind": "terminal",
+          "iteration": 5,
+          "metadata": {
+            "errors": [],
+            "status": "done"
+          },
+          "status": "done"
+        },
+        "style": {
+          "background": "#d1fae5",
+          "border": "1px solid #2563eb",
+          "borderRadius": 16,
+          "color": "#1d4ed8",
+          "padding": 12,
+          "fontSize": 13,
+          "minWidth": 180,
+          "boxShadow": "0 10px 28px rgba(37, 99, 235, 0.10)"
+        },
+        "type": "default"
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge-2",
+        "source": "user-prompt",
+        "target": "agent-1",
+        "label": "plan",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-4",
+        "source": "agent-1",
+        "target": "tool-3",
+        "label": "tool:llm.complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-6",
+        "source": "tool-3",
+        "target": "artifact-5",
+        "label": "output",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-8",
+        "source": "agent-1",
+        "target": "supervisor-7",
+        "label": "decide",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-10",
+        "source": "supervisor-7",
+        "target": "agent-9",
+        "label": "researcher",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-12",
+        "source": "agent-9",
+        "target": "tool-11",
+        "label": "tool:search",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-14",
+        "source": "tool-11",
+        "target": "artifact-13",
+        "label": "returns",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-16",
+        "source": "agent-9",
+        "target": "tool-15",
+        "label": "tool:llm.complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-18",
+        "source": "tool-15",
+        "target": "artifact-17",
+        "label": "output",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-20",
+        "source": "agent-9",
+        "target": "supervisor-19",
+        "label": "decide",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-22",
+        "source": "supervisor-19",
+        "target": "agent-21",
+        "label": "analyst",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-24",
+        "source": "agent-21",
+        "target": "tool-23",
+        "label": "tool:llm.complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-26",
+        "source": "tool-23",
+        "target": "artifact-25",
+        "label": "output",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-28",
+        "source": "agent-21",
+        "target": "supervisor-27",
+        "label": "decide",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-30",
+        "source": "supervisor-27",
+        "target": "agent-29",
+        "label": "writer",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-32",
+        "source": "agent-29",
+        "target": "tool-31",
+        "label": "tool:llm.complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-34",
+        "source": "tool-31",
+        "target": "artifact-33",
+        "label": "output",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-36",
+        "source": "agent-29",
+        "target": "supervisor-35",
+        "label": "decide",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-38",
+        "source": "supervisor-35",
+        "target": "agent-37",
+        "label": "critic",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-40",
+        "source": "agent-37",
+        "target": "tool-39",
+        "label": "tool:llm.complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-42",
+        "source": "tool-39",
+        "target": "artifact-41",
+        "label": "output",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-44",
+        "source": "agent-37",
+        "target": "supervisor-43",
+        "label": "decide",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      },
+      {
+        "id": "edge-45",
+        "source": "supervisor-43",
+        "target": "workflow-terminal",
+        "label": "complete",
+        "animated": false,
+        "style": {
+          "stroke": "#3b82f6",
+          "strokeWidth": 2
+        },
+        "labelStyle": {
+          "fill": "#1d4ed8",
+          "fontSize": 12
+        }
+      }
+    ]
+  },
+  "final_answer": "## T\u00f3m t\u1eaft BERT\n\n### Gi\u1edbi thi\u1ec7u v\u1ec1 BERT\nBERT (Bidirectional Encoder Representations from Transformers) l\u00e0 m\u1ed9t m\u00f4 h\u00ecnh h\u1ecdc s\u00e2u do Google ph\u00e1t tri\u1ec3n, nh\u1eb1m n\u00e2ng cao kh\u1ea3 n\u0103ng hi\u1ec3u ng\u1eef ngh\u0129a c\u1ee7a ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. M\u00f4 h\u00ecnh n\u00e0y s\u1eed d\u1ee5ng ki\u1ebfn tr\u00fac Transformer \u0111\u1ec3 x\u1eed l\u00fd v\u0103n b\u1ea3n theo c\u00e1ch hai chi\u1ec1u, cho ph\u00e9p n\u1eafm b\u1eaft ng\u1eef c\u1ea3nh c\u1ee7a t\u1eeb trong c\u00e2u m\u1ed9t c\u00e1ch hi\u1ec7u qu\u1ea3 h\u01a1n so v\u1edbi c\u00e1c m\u00f4 h\u00ecnh tr\u01b0\u1edbc. BERT \u0111\u00e3 \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng r\u1ed9ng r\u00e3i trong nhi\u1ec1u t\u00e1c v\u1ee5 x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean, bao g\u1ed3m ph\u00e2n lo\u1ea1i v\u0103n b\u1ea3n, nh\u1eadn di\u1ec7n th\u1ef1c th\u1ec3 v\u00e0 t\u00f3m t\u1eaft v\u0103n b\u1ea3n [1].\n\n### \u1ee8ng d\u1ee5ng BERT trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n\nBERT c\u00f3 th\u1ec3 \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng \u0111\u1ec3 t\u00f3m t\u1eaft v\u0103n b\u1ea3n b\u1eb1ng c\u00e1ch x\u00e1c \u0111\u1ecbnh c\u00e1c c\u00e2u quan tr\u1ecdng nh\u1ea5t trong t\u00e0i li\u1ec7u. Ph\u01b0\u01a1ng ph\u00e1p n\u00e0y th\u01b0\u1eddng bao g\u1ed3m vi\u1ec7c bi\u1ec3u di\u1ec5n v\u0103n b\u1ea3n d\u01b0\u1edbi d\u1ea1ng vector v\u00e0 s\u1eed d\u1ee5ng c\u00e1c k\u1ef9 thu\u1eadt nh\u01b0 attention \u0111\u1ec3 x\u00e1c \u0111\u1ecbnh m\u1ee9c \u0111\u1ed9 quan tr\u1ecdng c\u1ee7a t\u1eebng c\u00e2u. B\u00e0i b\u00e1o t\u1eeb Scholar DLU \u0111\u00e3 tr\u00ecnh b\u00e0y m\u1ed9t ph\u01b0\u01a1ng ph\u00e1p c\u1ee5 th\u1ec3 cho vi\u1ec7c n\u00e0y, cho th\u1ea5y r\u1eb1ng vi\u1ec7c \u00e1p d\u1ee5ng BERT c\u00f3 th\u1ec3 c\u1ea3i thi\u1ec7n \u0111\u00e1ng k\u1ec3 ch\u1ea5t l\u01b0\u1ee3ng t\u00f3m t\u1eaft so v\u1edbi c\u00e1c ph\u01b0\u01a1ng ph\u00e1p truy\u1ec1n th\u1ed1ng [1].\n\n## T\u00e0i li\u1ec7u tham kh\u1ea3o\n[1] [PDF] s\u1eed d\u1ee5ng bert cho t\u00f3m t\u1eaft tr\u00edch r\u00fat v\u0103n b\u1ea3n - Scholar DLU \u2014 https://scholar.dlu.edu.vn/thuvienso/bitstream/DLU123456789/133141/1/CVv380S262020074.pdf",
+  "planning_notes": "Intent: T\u00f3m t\u1eaft m\u00f4 h\u00ecnh BERT v\u00e0 c\u00e1ch ho\u1ea1t \u0111\u1ed9ng c\u1ee7a n\u00f3\nScope: Trong ph\u1ea1m vi t\u00f3m t\u1eaft BERT v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a n\u00f3 trong x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. Ngo\u00e0i ph\u1ea1m vi l\u00e0 c\u00e1c m\u00f4 h\u00ecnh kh\u00e1c kh\u00f4ng li\u00ean quan \u0111\u1ebfn BERT.\nKey aspects:\n- \u0110\u1ecbnh ngh\u0129a BERT\n- C\u00e1ch BERT ho\u1ea1t \u0111\u1ed9ng\n- \u1ee8ng d\u1ee5ng c\u1ee7a BERT trong NLP\n- L\u1ee3i \u00edch c\u1ee7a BERT\n- H\u1ea1n ch\u1ebf c\u1ee7a BERT\nT\u00f3m t\u1eaft BERT trong hai \u0111o\u1ea1n ng\u1eafn, t\u1eadp trung v\u00e0o \u0111\u1ecbnh ngh\u0129a, c\u00e1ch ho\u1ea1t \u0111\u1ed9ng v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a n\u00f3 trong x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. C\u1ea7n t\u00ecm m\u1ed9t ngu\u1ed3n tham kh\u1ea3o \u0111\u00e1ng tin c\u1eady.",
+  "expanded_queries": [
+    "t\u00f3m t\u1eaft BERT trong x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean",
+    "BERT l\u00e0 g\u00ec v\u00e0 c\u00e1ch ho\u1ea1t \u0111\u1ed9ng",
+    "\u1ee9ng d\u1ee5ng c\u1ee7a BERT trong NLP",
+    "l\u1ee3i \u00edch v\u00e0 h\u1ea1n ch\u1ebf c\u1ee7a BERT",
+    "BERT model summary ti\u1ebfng Vi\u1ec7t"
+  ],
+  "research_notes": "# T\u00f3m t\u1eaft BERT\n\n## Gi\u1edbi thi\u1ec7u v\u1ec1 BERT\nBERT (Bidirectional Encoder Representations from Transformers) l\u00e0 m\u1ed9t m\u00f4 h\u00ecnh h\u1ecdc s\u00e2u \u0111\u01b0\u1ee3c ph\u00e1t tri\u1ec3n b\u1edfi Google, nh\u1eb1m c\u1ea3i thi\u1ec7n kh\u1ea3 n\u0103ng hi\u1ec3u ng\u1eef ngh\u0129a c\u1ee7a ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. M\u00f4 h\u00ecnh n\u00e0y s\u1eed d\u1ee5ng ki\u1ebfn tr\u00fac Transformer \u0111\u1ec3 x\u1eed l\u00fd v\u0103n b\u1ea3n theo c\u00e1ch hai chi\u1ec1u, cho ph\u00e9p n\u00f3 n\u1eafm b\u1eaft \u0111\u01b0\u1ee3c ng\u1eef c\u1ea3nh c\u1ee7a t\u1eeb trong c\u00e2u m\u1ed9t c\u00e1ch hi\u1ec7u qu\u1ea3 h\u01a1n so v\u1edbi c\u00e1c m\u00f4 h\u00ecnh tr\u01b0\u1edbc \u0111\u00e2y. BERT \u0111\u00e3 \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng r\u1ed9ng r\u00e3i trong nhi\u1ec1u t\u00e1c v\u1ee5 x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean, bao g\u1ed3m ph\u00e2n lo\u1ea1i v\u0103n b\u1ea3n, nh\u1eadn di\u1ec7n th\u1ef1c th\u1ec3 v\u00e0 t\u00f3m t\u1eaft v\u0103n b\u1ea3n [1].\n\n## \u1ee8ng d\u1ee5ng BERT trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n\nBERT c\u00f3 th\u1ec3 \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng \u0111\u1ec3 t\u00f3m t\u1eaft tr\u00edch r\u00fat v\u0103n b\u1ea3n b\u1eb1ng c\u00e1ch x\u00e1c \u0111\u1ecbnh c\u00e1c c\u00e2u quan tr\u1ecdng nh\u1ea5t trong m\u1ed9t t\u00e0i li\u1ec7u. Ph\u01b0\u01a1ng ph\u00e1p n\u00e0y th\u01b0\u1eddng bao g\u1ed3m vi\u1ec7c bi\u1ec3u di\u1ec5n v\u0103n b\u1ea3n d\u01b0\u1edbi d\u1ea1ng vector v\u00e0 s\u1eed d\u1ee5ng c\u00e1c k\u1ef9 thu\u1eadt nh\u01b0 attention \u0111\u1ec3 x\u00e1c \u0111\u1ecbnh m\u1ee9c \u0111\u1ed9 quan tr\u1ecdng c\u1ee7a t\u1eebng c\u00e2u. B\u00e0i b\u00e1o t\u1eeb Scholar DLU \u0111\u00e3 tr\u00ecnh b\u00e0y m\u1ed9t ph\u01b0\u01a1ng ph\u00e1p c\u1ee5 th\u1ec3 cho vi\u1ec7c n\u00e0y, cho th\u1ea5y r\u1eb1ng vi\u1ec7c \u00e1p d\u1ee5ng BERT c\u00f3 th\u1ec3 c\u1ea3i thi\u1ec7n \u0111\u00e1ng k\u1ec3 ch\u1ea5t l\u01b0\u1ee3ng t\u00f3m t\u1eaft so v\u1edbi c\u00e1c ph\u01b0\u01a1ng ph\u00e1p truy\u1ec1n th\u1ed1ng [1].\n\n## C\u00e1c ch\u1ee7 \u0111\u1ec1 ch\u00ednh\n1. **Ki\u1ebfn tr\u00fac BERT**: M\u00f4 h\u00ecnh hai chi\u1ec1u v\u00e0 c\u00e1ch th\u1ee9c ho\u1ea1t \u0111\u1ed9ng c\u1ee7a n\u00f3.\n2. **T\u00f3m t\u1eaft v\u0103n b\u1ea3n**: C\u00e1ch BERT \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng \u0111\u1ec3 t\u00f3m t\u1eaft v\u0103n b\u1ea3n v\u00e0 c\u00e1c k\u1ef9 thu\u1eadt li\u00ean quan.\n3. **So s\u00e1nh v\u1edbi c\u00e1c m\u00f4 h\u00ecnh kh\u00e1c**: L\u1ee3i \u00edch c\u1ee7a BERT so v\u1edbi c\u00e1c ph\u01b0\u01a1ng ph\u00e1p t\u00f3m t\u1eaft truy\u1ec1n th\u1ed1ng.\n4. **\u1ee8ng d\u1ee5ng th\u1ef1c ti\u1ec5n**: C\u00e1c l\u0129nh v\u1ef1c m\u00e0 BERT c\u00f3 th\u1ec3 \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n.\n\n## Th\u00f4ng tin m\u00e2u thu\u1eabn ho\u1eb7c kh\u00f4ng ch\u1eafc ch\u1eafn\nHi\u1ec7n t\u1ea1i, kh\u00f4ng c\u00f3 th\u00f4ng tin m\u00e2u thu\u1eabn r\u00f5 r\u00e0ng trong t\u00e0i li\u1ec7u tham kh\u1ea3o. Tuy nhi\u00ean, c\u1ea7n l\u01b0u \u00fd r\u1eb1ng hi\u1ec7u qu\u1ea3 c\u1ee7a BERT trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n c\u00f3 th\u1ec3 ph\u1ee5 thu\u1ed9c v\u00e0o ch\u1ea5t l\u01b0\u1ee3ng c\u1ee7a d\u1eef li\u1ec7u \u0111\u1ea7u v\u00e0o v\u00e0 c\u00e1ch th\u1ee9c tri\u1ec3n khai m\u00f4 h\u00ecnh.",
+  "analysis_notes": "## T\u00f3m t\u1eaft BERT\n\n### Gi\u1edbi thi\u1ec7u v\u1ec1 BERT\nBERT (Bidirectional Encoder Representations from Transformers) l\u00e0 m\u1ed9t m\u00f4 h\u00ecnh h\u1ecdc s\u00e2u do Google ph\u00e1t tri\u1ec3n, nh\u1eb1m n\u00e2ng cao kh\u1ea3 n\u0103ng hi\u1ec3u ng\u1eef ngh\u0129a c\u1ee7a ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. M\u00f4 h\u00ecnh n\u00e0y s\u1eed d\u1ee5ng ki\u1ebfn tr\u00fac Transformer \u0111\u1ec3 x\u1eed l\u00fd v\u0103n b\u1ea3n theo c\u00e1ch hai chi\u1ec1u, cho ph\u00e9p n\u1eafm b\u1eaft ng\u1eef c\u1ea3nh c\u1ee7a t\u1eeb trong c\u00e2u m\u1ed9t c\u00e1ch hi\u1ec7u qu\u1ea3 h\u01a1n so v\u1edbi c\u00e1c m\u00f4 h\u00ecnh tr\u01b0\u1edbc. BERT \u0111\u00e3 \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng r\u1ed9ng r\u00e3i trong nhi\u1ec1u t\u00e1c v\u1ee5 x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean, bao g\u1ed3m ph\u00e2n lo\u1ea1i v\u0103n b\u1ea3n, nh\u1eadn di\u1ec7n th\u1ef1c th\u1ec3 v\u00e0 t\u00f3m t\u1eaft v\u0103n b\u1ea3n [1].\n\n### \u1ee8ng d\u1ee5ng BERT trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n\nBERT c\u00f3 th\u1ec3 \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng \u0111\u1ec3 t\u00f3m t\u1eaft v\u0103n b\u1ea3n b\u1eb1ng c\u00e1ch x\u00e1c \u0111\u1ecbnh c\u00e1c c\u00e2u quan tr\u1ecdng nh\u1ea5t trong t\u00e0i li\u1ec7u. Ph\u01b0\u01a1ng ph\u00e1p n\u00e0y th\u01b0\u1eddng bao g\u1ed3m vi\u1ec7c bi\u1ec3u di\u1ec5n v\u0103n b\u1ea3n d\u01b0\u1edbi d\u1ea1ng vector v\u00e0 s\u1eed d\u1ee5ng c\u00e1c k\u1ef9 thu\u1eadt nh\u01b0 attention \u0111\u1ec3 x\u00e1c \u0111\u1ecbnh m\u1ee9c \u0111\u1ed9 quan tr\u1ecdng c\u1ee7a t\u1eebng c\u00e2u. B\u00e0i b\u00e1o t\u1eeb Scholar DLU \u0111\u00e3 tr\u00ecnh b\u00e0y m\u1ed9t ph\u01b0\u01a1ng ph\u00e1p c\u1ee5 th\u1ec3 cho vi\u1ec7c n\u00e0y, cho th\u1ea5y r\u1eb1ng vi\u1ec7c \u00e1p d\u1ee5ng BERT c\u00f3 th\u1ec3 c\u1ea3i thi\u1ec7n \u0111\u00e1ng k\u1ec3 ch\u1ea5t l\u01b0\u1ee3ng t\u00f3m t\u1eaft so v\u1edbi c\u00e1c ph\u01b0\u01a1ng ph\u00e1p truy\u1ec1n th\u1ed1ng [1].\n\n### T\u00e0i li\u1ec7u tham kh\u1ea3o\n[1] Scholar DLU.",
+  "critique_notes": "## \u0110\u00e1nh gi\u00e1 Factual Accuracy\n- **Gi\u1edbi thi\u1ec7u v\u1ec1 BERT**: C\u00e1c th\u00f4ng tin v\u1ec1 BERT nh\u01b0 \"m\u00f4 h\u00ecnh h\u1ecdc s\u00e2u do Google ph\u00e1t tri\u1ec3n\", \"ki\u1ebfn tr\u00fac Transformer\", v\u00e0 \"n\u00e2ng cao kh\u1ea3 n\u0103ng hi\u1ec3u ng\u1eef ngh\u0129a\" \u0111\u1ec1u c\u00f3 th\u1ec3 t\u00ecm th\u1ea5y trong t\u00e0i li\u1ec7u ngu\u1ed3n. Tuy nhi\u00ean, c\u1ea7n l\u00e0m r\u00f5 h\u01a1n v\u1ec1 \"c\u00e1ch hai chi\u1ec1u\" v\u00e0 \"n\u1eafm b\u1eaft ng\u1eef c\u1ea3nh\" \u0111\u1ec3 tr\u00e1nh hi\u1ec3u nh\u1ea7m.\n- **\u1ee8ng d\u1ee5ng BERT trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n**: C\u00e1c th\u00f4ng tin v\u1ec1 vi\u1ec7c BERT c\u00f3 th\u1ec3 \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng \u0111\u1ec3 t\u00f3m t\u1eaft v\u0103n b\u1ea3n v\u00e0 c\u1ea3i thi\u1ec7n ch\u1ea5t l\u01b0\u1ee3ng t\u00f3m t\u1eaft so v\u1edbi c\u00e1c ph\u01b0\u01a1ng ph\u00e1p truy\u1ec1n th\u1ed1ng l\u00e0 ch\u00ednh x\u00e1c v\u00e0 c\u00f3 th\u1ec3 t\u00ecm th\u1ea5y trong t\u00e0i li\u1ec7u ngu\u1ed3n.\n\n## \u0110\u00e1nh gi\u00e1 Citation Coverage\n- **T\u1ea5t c\u1ea3 c\u00e1c tuy\u00ean b\u1ed1 ch\u00ednh \u0111\u1ec1u \u0111\u01b0\u1ee3c h\u1ed7 tr\u1ee3 b\u1edfi \u00edt nh\u1ea5t m\u1ed9t tr\u00edch d\u1eabn**. Tuy nhi\u00ean, c\u1ea7n l\u00e0m r\u00f5 h\u01a1n v\u1ec1 ph\u01b0\u01a1ng ph\u00e1p c\u1ee5 th\u1ec3 m\u00e0 b\u00e0i b\u00e1o t\u1eeb Scholar DLU \u0111\u00e3 tr\u00ecnh b\u00e0y.\n\n## \u0110\u00e1nh gi\u00e1 Clarity and Structure\n- **C\u1ea5u tr\u00fac**: C\u00e2u tr\u1ea3 l\u1eddi \u0111\u01b0\u1ee3c t\u1ed5 ch\u1ee9c r\u00f5 r\u00e0ng v\u1edbi hai \u0111o\u1ea1n ri\u00eang bi\u1ec7t cho gi\u1edbi thi\u1ec7u v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a BERT.\n- **R\u00f5 r\u00e0ng**: M\u1ed9t s\u1ed1 thu\u1eadt ng\u1eef nh\u01b0 \"attention\" c\u00f3 th\u1ec3 c\u1ea7n gi\u1ea3i th\u00edch th\u00eam cho \u0111\u1ed9c gi\u1ea3 kh\u00f4ng quen thu\u1ed9c v\u1edbi l\u0129nh v\u1ef1c n\u00e0y.\n\n## Overall Quality Score\n**Score: 8**  \nB\u00e0i vi\u1ebft c\u00f3 n\u1ed9i dung t\u1ed1t v\u00e0 th\u00f4ng tin ch\u00ednh x\u00e1c, nh\u01b0ng c\u1ea7n m\u1ed9t s\u1ed1 c\u1ea3i ti\u1ebfn nh\u1ecf \u0111\u1ec3 l\u00e0m r\u00f5 h\u01a1n v\u00e0 gi\u1ea3i th\u00edch c\u00e1c thu\u1eadt ng\u1eef chuy\u00ean ng\u00e0nh.\n\n## Recommended Revisions\n1. **Gi\u1ea3i th\u00edch th\u00eam v\u1ec1 \"attention\"**: Cung c\u1ea5p m\u1ed9t \u0111\u1ecbnh ngh\u0129a ng\u1eafn g\u1ecdn v\u1ec1 k\u1ef9 thu\u1eadt attention \u0111\u1ec3 \u0111\u1ed9c gi\u1ea3 d\u1ec5 hi\u1ec3u h\u01a1n.\n2. **L\u00e0m r\u00f5 v\u1ec1 \"c\u00e1ch hai chi\u1ec1u\"**: Gi\u1ea3i th\u00edch r\u00f5 h\u01a1n v\u1ec1 c\u00e1ch m\u00e0 BERT x\u1eed l\u00fd th\u00f4ng tin theo hai chi\u1ec1u v\u00e0 l\u1ee3i \u00edch c\u1ee7a n\u00f3.\n3. **Cung c\u1ea5p th\u00eam th\u00f4ng tin v\u1ec1 ph\u01b0\u01a1ng ph\u00e1p c\u1ee5 th\u1ec3**: N\u00eau r\u00f5 h\u01a1n v\u1ec1 ph\u01b0\u01a1ng ph\u00e1p m\u00e0 b\u00e0i b\u00e1o t\u1eeb Scholar DLU \u0111\u00e3 tr\u00ecnh b\u00e0y \u0111\u1ec3 t\u0103ng t\u00ednh thuy\u1ebft ph\u1ee5c.",
+  "quality_score": 8.0,
+  "summary": {
+    "iterations": 5,
+    "sources": 1,
+    "input_tokens": 2972,
+    "output_tokens": 1786,
+    "citation_coverage": 1.0,
+    "errors": []
+  },
+  "sources": [
+    {
+      "title": "[PDF] s\u1eed d\u1ee5ng bert cho t\u00f3m t\u1eaft tr\u00edch r\u00fat v\u0103n b\u1ea3n - Scholar DLU",
+      "url": "https://scholar.dlu.edu.vn/thuvienso/bitstream/DLU123456789/133141/1/CVv380S262020074.pdf",
+      "snippet": "T\u00f3m t\u1eaft: B\u00e0i b\u00e1o n\u00e0y gi\u1edbi thi\u1ec7u m\u1ed9t ph\u01b0\u01a1ng ph\u00e1p t\u00f3m t\u1eaft tr\u00edch r\u00fat c\u00e1c v\u0103n b\u1ea3n s\u1eed d\u1ee5ng BERT. \u0110\u1ec3 l\u00e0m \u0111i\u1ec1u n\u00e0y, c\u00e1c t\u00e1c gi\u1ea3 bi\u1ec3u di\u1ec5n b\u00e0i to\u00e1n t\u00f3m t\u1eaft tr\u00edch ...",
+      "metadata": {
+        "provider": "searxng",
+        "engine": "google",
+        "engines": [
+          "google",
+          "startpage"
+        ],
+        "score": 4.0,
+        "category": "general"
+      }
+    }
+  ],
+  "agent_results": [
+    {
+      "agent": "supervisor",
+      "content": "researcher",
+      "metadata": {
+        "iteration": 1,
+        "reason": "missing_research",
+        "errors": 0
+      }
+    },
+    {
+      "agent": "researcher",
+      "content": "# T\u00f3m t\u1eaft BERT\n\n## Gi\u1edbi thi\u1ec7u v\u1ec1 BERT\nBERT (Bidirectional Encoder Representations from Transformers) l\u00e0 m\u1ed9t m\u00f4 h\u00ecnh h\u1ecdc s\u00e2u \u0111\u01b0\u1ee3c ph\u00e1t tri\u1ec3n b\u1edfi Google, nh\u1eb1m c\u1ea3i thi\u1ec7n kh\u1ea3 n\u0103ng hi\u1ec3u ng\u1eef ngh\u0129a c\u1ee7a ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. M\u00f4 h\u00ecnh n\u00e0y s\u1eed d\u1ee5ng ki\u1ebfn tr\u00fac Transformer \u0111\u1ec3 x\u1eed l\u00fd v\u0103n b\u1ea3n theo c\u00e1ch hai chi\u1ec1u, cho ph\u00e9p n\u00f3 n\u1eafm b\u1eaft \u0111\u01b0\u1ee3c ng\u1eef c\u1ea3nh c\u1ee7a t\u1eeb trong c\u00e2u m\u1ed9t c\u00e1ch hi\u1ec7u qu\u1ea3 h\u01a1n so v\u1edbi c\u00e1c m\u00f4 h\u00ecnh tr\u01b0\u1edbc \u0111\u00e2y. BERT \u0111\u00e3 \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng r\u1ed9ng r\u00e3i trong nhi\u1ec1u t\u00e1c v\u1ee5 x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean, bao g\u1ed3m ph\u00e2n lo\u1ea1i v\u0103n b\u1ea3n, nh\u1eadn di\u1ec7n th\u1ef1c th\u1ec3 v\u00e0 t\u00f3m t\u1eaft v\u0103n b\u1ea3n [1].\n\n## \u1ee8ng d\u1ee5ng BERT trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n\nBERT c\u00f3 th\u1ec3 \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng \u0111\u1ec3 t\u00f3m t\u1eaft tr\u00edch r\u00fat v\u0103n b\u1ea3n b\u1eb1ng c\u00e1ch x\u00e1c \u0111\u1ecbnh c\u00e1c c\u00e2u quan tr\u1ecdng nh\u1ea5t trong m\u1ed9t t\u00e0i li\u1ec7u. Ph\u01b0\u01a1ng ph\u00e1p n\u00e0y th\u01b0\u1eddng bao g\u1ed3m vi\u1ec7c bi\u1ec3u di\u1ec5n v\u0103n b\u1ea3n d\u01b0\u1edbi d\u1ea1ng vector v\u00e0 s\u1eed d\u1ee5ng c\u00e1c k\u1ef9 thu\u1eadt nh\u01b0 attention \u0111\u1ec3 x\u00e1c \u0111\u1ecbnh m\u1ee9c \u0111\u1ed9 quan tr\u1ecdng c\u1ee7a t\u1eebng c\u00e2u. B\u00e0i b\u00e1o t\u1eeb Scholar DLU \u0111\u00e3 tr\u00ecnh b\u00e0y m\u1ed9t ph\u01b0\u01a1ng ph\u00e1p c\u1ee5 th\u1ec3 cho vi\u1ec7c n\u00e0y, cho th\u1ea5y r\u1eb1ng vi\u1ec7c \u00e1p d\u1ee5ng BERT c\u00f3 th\u1ec3 c\u1ea3i thi\u1ec7n \u0111\u00e1ng k\u1ec3 ch\u1ea5t l\u01b0\u1ee3ng t\u00f3m t\u1eaft so v\u1edbi c\u00e1c ph\u01b0\u01a1ng ph\u00e1p truy\u1ec1n th\u1ed1ng [1].\n\n## C\u00e1c ch\u1ee7 \u0111\u1ec1 ch\u00ednh\n1. **Ki\u1ebfn tr\u00fac BERT**: M\u00f4 h\u00ecnh hai chi\u1ec1u v\u00e0 c\u00e1ch th\u1ee9c ho\u1ea1t \u0111\u1ed9ng c\u1ee7a n\u00f3.\n2. **T\u00f3m t\u1eaft v\u0103n b\u1ea3n**: C\u00e1ch BERT \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng \u0111\u1ec3 t\u00f3m t\u1eaft v\u0103n b\u1ea3n v\u00e0 c\u00e1c k\u1ef9 thu\u1eadt li\u00ean quan.\n3. **So s\u00e1nh v\u1edbi c\u00e1c m\u00f4 h\u00ecnh kh\u00e1c**: L\u1ee3i \u00edch c\u1ee7a BERT so v\u1edbi c\u00e1c ph\u01b0\u01a1ng ph\u00e1p t\u00f3m t\u1eaft truy\u1ec1n th\u1ed1ng.\n4. **\u1ee8ng d\u1ee5ng th\u1ef1c ti\u1ec5n**: C\u00e1c l\u0129nh v\u1ef1c m\u00e0 BERT c\u00f3 th\u1ec3 \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n.\n\n## Th\u00f4ng tin m\u00e2u thu\u1eabn ho\u1eb7c kh\u00f4ng ch\u1eafc ch\u1eafn\nHi\u1ec7n t\u1ea1i, kh\u00f4ng c\u00f3 th\u00f4ng tin m\u00e2u thu\u1eabn r\u00f5 r\u00e0ng trong t\u00e0i li\u1ec7u tham kh\u1ea3o. Tuy nhi\u00ean, c\u1ea7n l\u01b0u \u00fd r\u1eb1ng hi\u1ec7u qu\u1ea3 c\u1ee7a BERT trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n c\u00f3 th\u1ec3 ph\u1ee5 thu\u1ed9c v\u00e0o ch\u1ea5t l\u01b0\u1ee3ng c\u1ee7a d\u1eef li\u1ec7u \u0111\u1ea7u v\u00e0o v\u00e0 c\u00e1ch th\u1ee9c tri\u1ec3n khai m\u00f4 h\u00ecnh.",
+      "metadata": {
+        "sources_found": 1,
+        "tokens_in": 297,
+        "tokens_out": 473,
+        "cost_usd": 0.00032835000000000004,
+        "parallel_research": true
+      }
+    },
+    {
+      "agent": "supervisor",
+      "content": "analyst",
+      "metadata": {
+        "iteration": 2,
+        "reason": "missing_analysis",
+        "errors": 0
+      }
+    },
+    {
+      "agent": "analyst",
+      "content": "## T\u00f3m t\u1eaft BERT\n\n### Gi\u1edbi thi\u1ec7u v\u1ec1 BERT\nBERT (Bidirectional Encoder Representations from Transformers) l\u00e0 m\u1ed9t m\u00f4 h\u00ecnh h\u1ecdc s\u00e2u do Google ph\u00e1t tri\u1ec3n, nh\u1eb1m n\u00e2ng cao kh\u1ea3 n\u0103ng hi\u1ec3u ng\u1eef ngh\u0129a c\u1ee7a ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. M\u00f4 h\u00ecnh n\u00e0y s\u1eed d\u1ee5ng ki\u1ebfn tr\u00fac Transformer \u0111\u1ec3 x\u1eed l\u00fd v\u0103n b\u1ea3n theo c\u00e1ch hai chi\u1ec1u, cho ph\u00e9p n\u1eafm b\u1eaft ng\u1eef c\u1ea3nh c\u1ee7a t\u1eeb trong c\u00e2u m\u1ed9t c\u00e1ch hi\u1ec7u qu\u1ea3 h\u01a1n so v\u1edbi c\u00e1c m\u00f4 h\u00ecnh tr\u01b0\u1edbc. BERT \u0111\u00e3 \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng r\u1ed9ng r\u00e3i trong nhi\u1ec1u t\u00e1c v\u1ee5 x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean, bao g\u1ed3m ph\u00e2n lo\u1ea1i v\u0103n b\u1ea3n, nh\u1eadn di\u1ec7n th\u1ef1c th\u1ec3 v\u00e0 t\u00f3m t\u1eaft v\u0103n b\u1ea3n [1].\n\n### \u1ee8ng d\u1ee5ng BERT trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n\nBERT c\u00f3 th\u1ec3 \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng \u0111\u1ec3 t\u00f3m t\u1eaft v\u0103n b\u1ea3n b\u1eb1ng c\u00e1ch x\u00e1c \u0111\u1ecbnh c\u00e1c c\u00e2u quan tr\u1ecdng nh\u1ea5t trong t\u00e0i li\u1ec7u. Ph\u01b0\u01a1ng ph\u00e1p n\u00e0y th\u01b0\u1eddng bao g\u1ed3m vi\u1ec7c bi\u1ec3u di\u1ec5n v\u0103n b\u1ea3n d\u01b0\u1edbi d\u1ea1ng vector v\u00e0 s\u1eed d\u1ee5ng c\u00e1c k\u1ef9 thu\u1eadt nh\u01b0 attention \u0111\u1ec3 x\u00e1c \u0111\u1ecbnh m\u1ee9c \u0111\u1ed9 quan tr\u1ecdng c\u1ee7a t\u1eebng c\u00e2u. B\u00e0i b\u00e1o t\u1eeb Scholar DLU \u0111\u00e3 tr\u00ecnh b\u00e0y m\u1ed9t ph\u01b0\u01a1ng ph\u00e1p c\u1ee5 th\u1ec3 cho vi\u1ec7c n\u00e0y, cho th\u1ea5y r\u1eb1ng vi\u1ec7c \u00e1p d\u1ee5ng BERT c\u00f3 th\u1ec3 c\u1ea3i thi\u1ec7n \u0111\u00e1ng k\u1ec3 ch\u1ea5t l\u01b0\u1ee3ng t\u00f3m t\u1eaft so v\u1edbi c\u00e1c ph\u01b0\u01a1ng ph\u00e1p truy\u1ec1n th\u1ed1ng [1].\n\n### T\u00e0i li\u1ec7u tham kh\u1ea3o\n[1] Scholar DLU.",
+      "metadata": {
+        "tokens_in": 680,
+        "tokens_out": 282,
+        "cost_usd": 0.0002712
+      }
+    },
+    {
+      "agent": "supervisor",
+      "content": "writer",
+      "metadata": {
+        "iteration": 3,
+        "reason": "missing_final_answer",
+        "errors": 0
+      }
+    },
+    {
+      "agent": "writer",
+      "content": "## T\u00f3m t\u1eaft BERT\n\n### Gi\u1edbi thi\u1ec7u v\u1ec1 BERT\nBERT (Bidirectional Encoder Representations from Transformers) l\u00e0 m\u1ed9t m\u00f4 h\u00ecnh h\u1ecdc s\u00e2u do Google ph\u00e1t tri\u1ec3n, nh\u1eb1m n\u00e2ng cao kh\u1ea3 n\u0103ng hi\u1ec3u ng\u1eef ngh\u0129a c\u1ee7a ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. M\u00f4 h\u00ecnh n\u00e0y s\u1eed d\u1ee5ng ki\u1ebfn tr\u00fac Transformer \u0111\u1ec3 x\u1eed l\u00fd v\u0103n b\u1ea3n theo c\u00e1ch hai chi\u1ec1u, cho ph\u00e9p n\u1eafm b\u1eaft ng\u1eef c\u1ea3nh c\u1ee7a t\u1eeb trong c\u00e2u m\u1ed9t c\u00e1ch hi\u1ec7u qu\u1ea3 h\u01a1n so v\u1edbi c\u00e1c m\u00f4 h\u00ecnh tr\u01b0\u1edbc. BERT \u0111\u00e3 \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng r\u1ed9ng r\u00e3i trong nhi\u1ec1u t\u00e1c v\u1ee5 x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean, bao g\u1ed3m ph\u00e2n lo\u1ea1i v\u0103n b\u1ea3n, nh\u1eadn di\u1ec7n th\u1ef1c th\u1ec3 v\u00e0 t\u00f3m t\u1eaft v\u0103n b\u1ea3n [1].\n\n### \u1ee8ng d\u1ee5ng BERT trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n\nBERT c\u00f3 th\u1ec3 \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng \u0111\u1ec3 t\u00f3m t\u1eaft v\u0103n b\u1ea3n b\u1eb1ng c\u00e1ch x\u00e1c \u0111\u1ecbnh c\u00e1c c\u00e2u quan tr\u1ecdng nh\u1ea5t trong t\u00e0i li\u1ec7u. Ph\u01b0\u01a1ng ph\u00e1p n\u00e0y th\u01b0\u1eddng bao g\u1ed3m vi\u1ec7c bi\u1ec3u di\u1ec5n v\u0103n b\u1ea3n d\u01b0\u1edbi d\u1ea1ng vector v\u00e0 s\u1eed d\u1ee5ng c\u00e1c k\u1ef9 thu\u1eadt nh\u01b0 attention \u0111\u1ec3 x\u00e1c \u0111\u1ecbnh m\u1ee9c \u0111\u1ed9 quan tr\u1ecdng c\u1ee7a t\u1eebng c\u00e2u. B\u00e0i b\u00e1o t\u1eeb Scholar DLU \u0111\u00e3 tr\u00ecnh b\u00e0y m\u1ed9t ph\u01b0\u01a1ng ph\u00e1p c\u1ee5 th\u1ec3 cho vi\u1ec7c n\u00e0y, cho th\u1ea5y r\u1eb1ng vi\u1ec7c \u00e1p d\u1ee5ng BERT c\u00f3 th\u1ec3 c\u1ea3i thi\u1ec7n \u0111\u00e1ng k\u1ec3 ch\u1ea5t l\u01b0\u1ee3ng t\u00f3m t\u1eaft so v\u1edbi c\u00e1c ph\u01b0\u01a1ng ph\u00e1p truy\u1ec1n th\u1ed1ng [1].\n\n## T\u00e0i li\u1ec7u tham kh\u1ea3o\n[1] [PDF] s\u1eed d\u1ee5ng bert cho t\u00f3m t\u1eaft tr\u00edch r\u00fat v\u0103n b\u1ea3n - Scholar DLU \u2014 https://scholar.dlu.edu.vn/thuvienso/bitstream/DLU123456789/133141/1/CVv380S262020074.pdf",
+      "metadata": {
+        "tokens_in": 1029,
+        "tokens_out": 334,
+        "cost_usd": 0.00035475,
+        "word_count": 236
+      }
+    },
+    {
+      "agent": "supervisor",
+      "content": "critic",
+      "metadata": {
+        "iteration": 4,
+        "reason": "needs_quality_gate",
+        "errors": 0
+      }
+    },
+    {
+      "agent": "critic",
+      "content": "## \u0110\u00e1nh gi\u00e1 Factual Accuracy\n- **Gi\u1edbi thi\u1ec7u v\u1ec1 BERT**: C\u00e1c th\u00f4ng tin v\u1ec1 BERT nh\u01b0 \"m\u00f4 h\u00ecnh h\u1ecdc s\u00e2u do Google ph\u00e1t tri\u1ec3n\", \"ki\u1ebfn tr\u00fac Transformer\", v\u00e0 \"n\u00e2ng cao kh\u1ea3 n\u0103ng hi\u1ec3u ng\u1eef ngh\u0129a\" \u0111\u1ec1u c\u00f3 th\u1ec3 t\u00ecm th\u1ea5y trong t\u00e0i li\u1ec7u ngu\u1ed3n. Tuy nhi\u00ean, c\u1ea7n l\u00e0m r\u00f5 h\u01a1n v\u1ec1 \"c\u00e1ch hai chi\u1ec1u\" v\u00e0 \"n\u1eafm b\u1eaft ng\u1eef c\u1ea3nh\" \u0111\u1ec3 tr\u00e1nh hi\u1ec3u nh\u1ea7m.\n- **\u1ee8ng d\u1ee5ng BERT trong t\u00f3m t\u1eaft v\u0103n b\u1ea3n**: C\u00e1c th\u00f4ng tin v\u1ec1 vi\u1ec7c BERT c\u00f3 th\u1ec3 \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng \u0111\u1ec3 t\u00f3m t\u1eaft v\u0103n b\u1ea3n v\u00e0 c\u1ea3i thi\u1ec7n ch\u1ea5t l\u01b0\u1ee3ng t\u00f3m t\u1eaft so v\u1edbi c\u00e1c ph\u01b0\u01a1ng ph\u00e1p truy\u1ec1n th\u1ed1ng l\u00e0 ch\u00ednh x\u00e1c v\u00e0 c\u00f3 th\u1ec3 t\u00ecm th\u1ea5y trong t\u00e0i li\u1ec7u ngu\u1ed3n.\n\n## \u0110\u00e1nh gi\u00e1 Citation Coverage\n- **T\u1ea5t c\u1ea3 c\u00e1c tuy\u00ean b\u1ed1 ch\u00ednh \u0111\u1ec1u \u0111\u01b0\u1ee3c h\u1ed7 tr\u1ee3 b\u1edfi \u00edt nh\u1ea5t m\u1ed9t tr\u00edch d\u1eabn**. Tuy nhi\u00ean, c\u1ea7n l\u00e0m r\u00f5 h\u01a1n v\u1ec1 ph\u01b0\u01a1ng ph\u00e1p c\u1ee5 th\u1ec3 m\u00e0 b\u00e0i b\u00e1o t\u1eeb Scholar DLU \u0111\u00e3 tr\u00ecnh b\u00e0y.\n\n## \u0110\u00e1nh gi\u00e1 Clarity and Structure\n- **C\u1ea5u tr\u00fac**: C\u00e2u tr\u1ea3 l\u1eddi \u0111\u01b0\u1ee3c t\u1ed5 ch\u1ee9c r\u00f5 r\u00e0ng v\u1edbi hai \u0111o\u1ea1n ri\u00eang bi\u1ec7t cho gi\u1edbi thi\u1ec7u v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a BERT.\n- **R\u00f5 r\u00e0ng**: M\u1ed9t s\u1ed1 thu\u1eadt ng\u1eef nh\u01b0 \"attention\" c\u00f3 th\u1ec3 c\u1ea7n gi\u1ea3i th\u00edch th\u00eam cho \u0111\u1ed9c gi\u1ea3 kh\u00f4ng quen thu\u1ed9c v\u1edbi l\u0129nh v\u1ef1c n\u00e0y.\n\n## Overall Quality Score\n**Score: 8**  \nB\u00e0i vi\u1ebft c\u00f3 n\u1ed9i dung t\u1ed1t v\u00e0 th\u00f4ng tin ch\u00ednh x\u00e1c, nh\u01b0ng c\u1ea7n m\u1ed9t s\u1ed1 c\u1ea3i ti\u1ebfn nh\u1ecf \u0111\u1ec3 l\u00e0m r\u00f5 h\u01a1n v\u00e0 gi\u1ea3i th\u00edch c\u00e1c thu\u1eadt ng\u1eef chuy\u00ean ng\u00e0nh.\n\n## Recommended Revisions\n1. **Gi\u1ea3i th\u00edch th\u00eam v\u1ec1 \"attention\"**: Cung c\u1ea5p m\u1ed9t \u0111\u1ecbnh ngh\u0129a ng\u1eafn g\u1ecdn v\u1ec1 k\u1ef9 thu\u1eadt attention \u0111\u1ec3 \u0111\u1ed9c gi\u1ea3 d\u1ec5 hi\u1ec3u h\u01a1n.\n2. **L\u00e0m r\u00f5 v\u1ec1 \"c\u00e1ch hai chi\u1ec1u\"**: Gi\u1ea3i th\u00edch r\u00f5 h\u01a1n v\u1ec1 c\u00e1ch m\u00e0 BERT x\u1eed l\u00fd th\u00f4ng tin theo hai chi\u1ec1u v\u00e0 l\u1ee3i \u00edch c\u1ee7a n\u00f3.\n3. **Cung c\u1ea5p th\u00eam th\u00f4ng tin v\u1ec1 ph\u01b0\u01a1ng ph\u00e1p c\u1ee5 th\u1ec3**: N\u00eau r\u00f5 h\u01a1n v\u1ec1 ph\u01b0\u01a1ng ph\u00e1p m\u00e0 b\u00e0i b\u00e1o t\u1eeb Scholar DLU \u0111\u00e3 tr\u00ecnh b\u00e0y \u0111\u1ec3 t\u0103ng t\u00ednh thuy\u1ebft ph\u1ee5c.",
+      "metadata": {
+        "quality_score": 8.0,
+        "tokens_in": 687,
+        "tokens_out": 453,
+        "cost_usd": 0.00037485000000000003
+      }
+    },
+    {
+      "agent": "supervisor",
+      "content": "done",
+      "metadata": {
+        "iteration": 5,
+        "reason": "completed",
+        "errors": 0
+      }
+    }
+  ],
+  "trace": [
+    {
+      "name": "agent:planner",
+      "payload": {
+        "name": "agent:planner",
+        "started_at": "2026-05-06T04:32:28.295102",
+        "attributes": {
+          "iteration": 0,
+          "agent": "planner",
+          "status": "ok"
+        },
+        "duration_seconds": 6.0626,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:supervisor",
+      "payload": {
+        "name": "agent:supervisor",
+        "started_at": "2026-05-06T04:32:34.358758",
+        "attributes": {
+          "iteration": 0,
+          "agent": "supervisor",
+          "status": "ok"
+        },
+        "duration_seconds": 0.0004,
+        "error": null
+      }
+    },
+    {
+      "name": "supervisor:decide",
+      "payload": {
+        "name": "supervisor:decide",
+        "started_at": "2026-05-06T04:32:34.357280",
+        "attributes": {},
+        "duration_seconds": 0.0012,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:researcher",
+      "payload": {
+        "name": "agent:researcher",
+        "started_at": "2026-05-06T04:32:34.360764",
+        "attributes": {
+          "iteration": 1,
+          "agent": "researcher",
+          "status": "ok"
+        },
+        "duration_seconds": 9.7117,
+        "error": null
+      }
+    },
+    {
+      "name": "worker:researcher",
+      "payload": {
+        "name": "worker:researcher",
+        "started_at": "2026-05-06T04:32:34.359765",
+        "attributes": {
+          "attempt": 1,
+          "agent_tool": "Collect read-only sources and produce research notes."
+        },
+        "duration_seconds": 9.7126,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:supervisor",
+      "payload": {
+        "name": "agent:supervisor",
+        "started_at": "2026-05-06T04:32:44.072842",
+        "attributes": {
+          "iteration": 1,
+          "agent": "supervisor",
+          "status": "ok"
+        },
+        "duration_seconds": 0.0003,
+        "error": null
+      }
+    },
+    {
+      "name": "supervisor:decide",
+      "payload": {
+        "name": "supervisor:decide",
+        "started_at": "2026-05-06T04:32:44.072842",
+        "attributes": {},
+        "duration_seconds": 0.0018,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:analyst",
+      "payload": {
+        "name": "agent:analyst",
+        "started_at": "2026-05-06T04:32:44.076668",
+        "attributes": {
+          "iteration": 2,
+          "agent": "analyst",
+          "status": "ok"
+        },
+        "duration_seconds": 4.4484,
+        "error": null
+      }
+    },
+    {
+      "name": "worker:analyst",
+      "payload": {
+        "name": "worker:analyst",
+        "started_at": "2026-05-06T04:32:44.076668",
+        "attributes": {
+          "attempt": 1,
+          "agent_tool": "Analyse evidence and produce structured insights."
+        },
+        "duration_seconds": 4.4493,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:supervisor",
+      "payload": {
+        "name": "agent:supervisor",
+        "started_at": "2026-05-06T04:32:48.526040",
+        "attributes": {
+          "iteration": 2,
+          "agent": "supervisor",
+          "status": "ok"
+        },
+        "duration_seconds": 0.0004,
+        "error": null
+      }
+    },
+    {
+      "name": "supervisor:decide",
+      "payload": {
+        "name": "supervisor:decide",
+        "started_at": "2026-05-06T04:32:48.526040",
+        "attributes": {},
+        "duration_seconds": 0.0012,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:writer",
+      "payload": {
+        "name": "agent:writer",
+        "started_at": "2026-05-06T04:32:48.528029",
+        "attributes": {
+          "iteration": 3,
+          "agent": "writer",
+          "status": "ok"
+        },
+        "duration_seconds": 7.1762,
+        "error": null
+      }
+    },
+    {
+      "name": "worker:writer",
+      "payload": {
+        "name": "worker:writer",
+        "started_at": "2026-05-06T04:32:48.527026",
+        "attributes": {
+          "attempt": 1,
+          "agent_tool": "Write or revise the final answer."
+        },
+        "duration_seconds": 7.177,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:supervisor",
+      "payload": {
+        "name": "agent:supervisor",
+        "started_at": "2026-05-06T04:32:55.709170",
+        "attributes": {
+          "iteration": 3,
+          "agent": "supervisor",
+          "status": "ok"
+        },
+        "duration_seconds": 0.0003,
+        "error": null
+      }
+    },
+    {
+      "name": "supervisor:decide",
+      "payload": {
+        "name": "supervisor:decide",
+        "started_at": "2026-05-06T04:32:55.704617",
+        "attributes": {},
+        "duration_seconds": 0.0047,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:critic",
+      "payload": {
+        "name": "agent:critic",
+        "started_at": "2026-05-06T04:32:55.710160",
+        "attributes": {
+          "iteration": 4,
+          "agent": "critic",
+          "status": "ok"
+        },
+        "duration_seconds": 6.1713,
+        "error": null
+      }
+    },
+    {
+      "name": "worker:critic",
+      "payload": {
+        "name": "worker:critic",
+        "started_at": "2026-05-06T04:32:55.710160",
+        "attributes": {
+          "attempt": 1,
+          "agent_tool": "Quality gate and fact-check final answer."
+        },
+        "duration_seconds": 6.172,
+        "error": null
+      }
+    },
+    {
+      "name": "agent:supervisor",
+      "payload": {
+        "name": "agent:supervisor",
+        "started_at": "2026-05-06T04:33:01.882839",
+        "attributes": {
+          "iteration": 4,
+          "agent": "supervisor",
+          "status": "ok"
+        },
+        "duration_seconds": 0.0002,
+        "error": null
+      }
+    },
+    {
+      "name": "supervisor:decide",
+      "payload": {
+        "name": "supervisor:decide",
+        "started_at": "2026-05-06T04:33:01.881846",
+        "attributes": {},
+        "duration_seconds": 0.0008,
+        "error": null
+      }
+    }
+  ],
+  "visual_nodes": [
+    {
+      "id": "user-prompt",
+      "label": "User Prompt\nT\u00f3m t\u1eaft BERT b\u1eb1ng ti\u1ebfng Vi\u1ec7t trong 2 \u0111o\u1ea1n ng\u1eafn, c\u00f3 ngu\u1ed3n tham kh\u1ea3o.",
+      "kind": "input",
+      "iteration": 0,
+      "sequence": 0,
+      "status": "completed",
+      "metadata": {
+        "audience": "technical learners"
+      }
+    },
+    {
+      "id": "agent-1",
+      "label": "Planner Agent\nExpand query",
+      "kind": "agent",
+      "iteration": 0,
+      "sequence": 1,
+      "status": "completed",
+      "metadata": {
+        "agent": "planner",
+        "description": "Decompose and broaden the user query."
+      }
+    },
+    {
+      "id": "tool-3",
+      "label": "LLMClient.complete\nPlan research",
+      "kind": "tool",
+      "iteration": 0,
+      "sequence": 3,
+      "status": "completed",
+      "metadata": {
+        "agent": "planner",
+        "model_task": "query_planning"
+      }
+    },
+    {
+      "id": "artifact-5",
+      "label": "Expanded Queries\n5 queries",
+      "kind": "artifact",
+      "iteration": 0,
+      "sequence": 5,
+      "status": "completed",
+      "metadata": {
+        "queries": [
+          "t\u00f3m t\u1eaft BERT trong x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean",
+          "BERT l\u00e0 g\u00ec v\u00e0 c\u00e1ch ho\u1ea1t \u0111\u1ed9ng",
+          "\u1ee9ng d\u1ee5ng c\u1ee7a BERT trong NLP",
+          "l\u1ee3i \u00edch v\u00e0 h\u1ea1n ch\u1ebf c\u1ee7a BERT",
+          "BERT model summary ti\u1ebfng Vi\u1ec7t"
+        ],
+        "planning_notes": "Intent: T\u00f3m t\u1eaft m\u00f4 h\u00ecnh BERT v\u00e0 c\u00e1ch ho\u1ea1t \u0111\u1ed9ng c\u1ee7a n\u00f3\nScope: Trong ph\u1ea1m vi t\u00f3m t\u1eaft BERT v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a n\u00f3 trong x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. Ngo\u00e0i ph\u1ea1m vi l\u00e0 c\u00e1c m\u00f4 h\u00ecnh kh\u00e1c kh\u00f4ng li\u00ean quan \u0111\u1ebfn BERT.\nKey aspects:\n- \u0110\u1ecbnh ngh\u0129a BERT\n- C\u00e1ch BERT ho\u1ea1t \u0111\u1ed9ng\n- \u1ee8ng d\u1ee5ng c\u1ee7a BERT trong NLP\n- L\u1ee3i \u00edch c\u1ee7a BERT\n- H\u1ea1n ch\u1ebf c\u1ee7a BERT\nT\u00f3m t\u1eaft BERT trong hai \u0111o\u1ea1n ng\u1eafn, t\u1eadp trung v\u00e0o \u0111\u1ecbnh ngh\u0129a, c\u00e1ch ho\u1ea1t \u0111\u1ed9ng v\u00e0 \u1ee9ng d\u1ee5ng c\u1ee7a n\u00f3 trong x\u1eed l\u00fd ng\u00f4n ng\u1eef t\u1ef1 nhi\u00ean. C\u1ea7n t\u00ecm m\u1ed9t ngu\u1ed3n tham kh\u1ea3o \u0111\u00e1ng tin c\u1eady."
+      }
+    },
+    {
+      "id": "supervisor-7",
+      "label": "Supervisor\nIteration 1",
+      "kind": "supervisor",
+      "iteration": 1,
+      "sequence": 7,
+      "status": "completed",
+      "metadata": {
+        "route": "researcher",
+        "reason": "missing_research",
+        "history": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "id": "agent-9",
+      "label": "Researcher Agent",
+      "kind": "agent",
+      "iteration": 1,
+      "sequence": 9,
+      "status": "completed",
+      "metadata": {
+        "description": "Collect read-only sources and produce research notes.",
+        "agent": "researcher"
+      }
+    },
+    {
+      "id": "tool-11",
+      "label": "SearchClient.search\nT\u00f3m t\u1eaft BERT b\u1eb1ng ti\u1ebfng Vi\u1ec7t trong 2 \u0111o\u1ea1n ng\u1eafn, c\u00f3 ngu\u1ed3n tha",
+      "kind": "tool",
+      "iteration": 1,
+      "sequence": 11,
+      "status": "completed",
+      "metadata": {
+        "agent": "researcher",
+        "query": "T\u00f3m t\u1eaft BERT b\u1eb1ng ti\u1ebfng Vi\u1ec7t trong 2 \u0111o\u1ea1n ng\u1eafn, c\u00f3 ngu\u1ed3n tham kh\u1ea3o.",
+        "max_results": 1,
+        "mode": "serial"
+      }
+    },
+    {
+      "id": "artifact-13",
+      "label": "Search Results\n1 sources",
+      "kind": "artifact",
+      "iteration": 1,
+      "sequence": 13,
+      "status": "completed",
+      "metadata": {
+        "query": "T\u00f3m t\u1eaft BERT b\u1eb1ng ti\u1ebfng Vi\u1ec7t trong 2 \u0111o\u1ea1n ng\u1eafn, c\u00f3 ngu\u1ed3n tham kh\u1ea3o.",
+        "count": 1
+      }
+    },
+    {
+      "id": "tool-15",
+      "label": "LLMClient.complete\nSynthesize research notes",
+      "kind": "tool",
+      "iteration": 1,
+      "sequence": 15,
+      "status": "completed",
+      "metadata": {
+        "agent": "researcher",
+        "model_task": "research_synthesis"
+      }
+    },
+    {
+      "id": "artifact-17",
+      "label": "Research Notes",
+      "kind": "artifact",
+      "iteration": 1,
+      "sequence": 17,
+      "status": "completed",
+      "metadata": {
+        "chars": 1685,
+        "sources_found": 1
+      }
+    },
+    {
+      "id": "supervisor-19",
+      "label": "Supervisor\nIteration 2",
+      "kind": "supervisor",
+      "iteration": 2,
+      "sequence": 19,
+      "status": "completed",
+      "metadata": {
+        "route": "analyst",
+        "reason": "missing_analysis",
+        "history": [
+          "researcher",
+          "analyst"
+        ]
+      }
+    },
+    {
+      "id": "agent-21",
+      "label": "Analyst Agent",
+      "kind": "agent",
+      "iteration": 2,
+      "sequence": 21,
+      "status": "completed",
+      "metadata": {
+        "description": "Analyse evidence and produce structured insights.",
+        "agent": "analyst"
+      }
+    },
+    {
+      "id": "tool-23",
+      "label": "LLMClient.complete\nAnalyse evidence",
+      "kind": "tool",
+      "iteration": 2,
+      "sequence": 23,
+      "status": "completed",
+      "metadata": {
+        "agent": "analyst",
+        "model_task": "analysis"
+      }
+    },
+    {
+      "id": "artifact-25",
+      "label": "Analysis Notes",
+      "kind": "artifact",
+      "iteration": 2,
+      "sequence": 25,
+      "status": "completed",
+      "metadata": {
+        "chars": 1051
+      }
+    },
+    {
+      "id": "supervisor-27",
+      "label": "Supervisor\nIteration 3",
+      "kind": "supervisor",
+      "iteration": 3,
+      "sequence": 27,
+      "status": "completed",
+      "metadata": {
+        "route": "writer",
+        "reason": "missing_final_answer",
+        "history": [
+          "researcher",
+          "analyst",
+          "writer"
+        ]
+      }
+    },
+    {
+      "id": "agent-29",
+      "label": "Writer Agent",
+      "kind": "agent",
+      "iteration": 3,
+      "sequence": 29,
+      "status": "completed",
+      "metadata": {
+        "description": "Write or revise the final answer.",
+        "agent": "writer"
+      }
+    },
+    {
+      "id": "tool-31",
+      "label": "LLMClient.complete\nWrite final answer",
+      "kind": "tool",
+      "iteration": 3,
+      "sequence": 31,
+      "status": "completed",
+      "metadata": {
+        "agent": "writer",
+        "model_task": "final_answer"
+      }
+    },
+    {
+      "id": "artifact-33",
+      "label": "Final Answer",
+      "kind": "artifact",
+      "iteration": 3,
+      "sequence": 33,
+      "status": "completed",
+      "metadata": {
+        "words": 236
+      }
+    },
+    {
+      "id": "supervisor-35",
+      "label": "Supervisor\nIteration 4",
+      "kind": "supervisor",
+      "iteration": 4,
+      "sequence": 35,
+      "status": "completed",
+      "metadata": {
+        "route": "critic",
+        "reason": "needs_quality_gate",
+        "history": [
+          "researcher",
+          "analyst",
+          "writer",
+          "critic"
+        ]
+      }
+    },
+    {
+      "id": "agent-37",
+      "label": "Critic Agent",
+      "kind": "agent",
+      "iteration": 4,
+      "sequence": 37,
+      "status": "completed",
+      "metadata": {
+        "description": "Quality gate and fact-check final answer.",
+        "agent": "critic"
+      }
+    },
+    {
+      "id": "tool-39",
+      "label": "LLMClient.complete\nCritique answer",
+      "kind": "tool",
+      "iteration": 4,
+      "sequence": 39,
+      "status": "completed",
+      "metadata": {
+        "agent": "critic",
+        "model_task": "quality_gate"
+      }
+    },
+    {
+      "id": "artifact-41",
+      "label": "Critique\nScore: 8.0/10",
+      "kind": "artifact",
+      "iteration": 4,
+      "sequence": 41,
+      "status": "completed",
+      "metadata": {
+        "quality_score": 8.0
+      }
+    },
+    {
+      "id": "supervisor-43",
+      "label": "Supervisor\nIteration 5",
+      "kind": "supervisor",
+      "iteration": 5,
+      "sequence": 43,
+      "status": "completed",
+      "metadata": {
+        "route": "done",
+        "reason": "completed",
+        "history": [
+          "researcher",
+          "analyst",
+          "writer",
+          "critic",
+          "done"
+        ]
+      }
+    },
+    {
+      "id": "workflow-terminal",
+      "label": "Workflow Done",
+      "kind": "terminal",
+      "iteration": 5,
+      "sequence": 44,
+      "status": "done",
+      "metadata": {
+        "errors": [],
+        "status": "done"
+      }
+    }
+  ],
+  "visual_edges": [
+    {
+      "id": "edge-2",
+      "source": "user-prompt",
+      "target": "agent-1",
+      "label": "plan",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-4",
+      "source": "agent-1",
+      "target": "tool-3",
+      "label": "tool:llm.complete",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-6",
+      "source": "tool-3",
+      "target": "artifact-5",
+      "label": "output",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-8",
+      "source": "agent-1",
+      "target": "supervisor-7",
+      "label": "decide",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-10",
+      "source": "supervisor-7",
+      "target": "agent-9",
+      "label": "researcher",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-12",
+      "source": "agent-9",
+      "target": "tool-11",
+      "label": "tool:search",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-14",
+      "source": "tool-11",
+      "target": "artifact-13",
+      "label": "returns",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-16",
+      "source": "agent-9",
+      "target": "tool-15",
+      "label": "tool:llm.complete",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-18",
+      "source": "tool-15",
+      "target": "artifact-17",
+      "label": "output",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-20",
+      "source": "agent-9",
+      "target": "supervisor-19",
+      "label": "decide",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-22",
+      "source": "supervisor-19",
+      "target": "agent-21",
+      "label": "analyst",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-24",
+      "source": "agent-21",
+      "target": "tool-23",
+      "label": "tool:llm.complete",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-26",
+      "source": "tool-23",
+      "target": "artifact-25",
+      "label": "output",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-28",
+      "source": "agent-21",
+      "target": "supervisor-27",
+      "label": "decide",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-30",
+      "source": "supervisor-27",
+      "target": "agent-29",
+      "label": "writer",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-32",
+      "source": "agent-29",
+      "target": "tool-31",
+      "label": "tool:llm.complete",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-34",
+      "source": "tool-31",
+      "target": "artifact-33",
+      "label": "output",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-36",
+      "source": "agent-29",
+      "target": "supervisor-35",
+      "label": "decide",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-38",
+      "source": "supervisor-35",
+      "target": "agent-37",
+      "label": "critic",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-40",
+      "source": "agent-37",
+      "target": "tool-39",
+      "label": "tool:llm.complete",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-42",
+      "source": "tool-39",
+      "target": "artifact-41",
+      "label": "output",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-44",
+      "source": "agent-37",
+      "target": "supervisor-43",
+      "label": "decide",
+      "kind": "flow",
+      "metadata": {}
+    },
+    {
+      "id": "edge-45",
+      "source": "supervisor-43",
+      "target": "workflow-terminal",
+      "label": "complete",
+      "kind": "flow",
+      "metadata": {}
+    }
+  ]
+}

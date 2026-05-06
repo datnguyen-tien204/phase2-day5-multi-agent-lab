@@ -5,3 +5,4 @@ def test_settings_defaults() -> None:
     settings = Settings()
     assert settings.openai_model
     assert settings.max_iterations >= 1
+    assert settings.searxng_base_url == "http://localhost:8088"
